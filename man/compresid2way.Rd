@@ -43,9 +43,9 @@ compresid2way(aov, data=NULL, fac=1:2, label = TRUE, numlabel = FALSE,
   \dQuote{component plus residual} plot for two factors in one display.
 }
 \value{Invisibly, a list with components
-  \item{compy }{data.frame containing the component effects of the two
+  \item{compy}{data.frame containing the component effects of the two
     factors, and combined effects plus residual}
-  \item{coef }{coefficients: Intercept and effects of the factors}
+  \item{coef}{coefficients: Intercept and effects of the factors}
 }
 \references{
   F. Mosteller and J. W. Tukey (1977)
@@ -67,12 +67,18 @@ compresid2way(aov, data=NULL, fac=1:2, label = TRUE, numlabel = FALSE,
             62.0,48.8,45.5,44.2,52.0,51.5,49.8,48.8,57.2,59.0,53.2,56.0)
  npk <- data.frame(block=gl(6,4), N=factor(N), P=factor(P),
                    K=factor(K), yield=yield)
- npk.cr <- compresid2way(yield~N+P+K, data=npk, fac=c("P","K"))
+ npk.cr <- compresid2way(yield ~ N+P+K, data=npk, fac=c("P","K"))
 
  ## Fisher's 1926 data on potatoe yield
  data(potatoes)
- pot.aov <- aov(yield~nitrogen+potash+pos, data=potatoes)
+ pot.aov <- aov(yield ~ nitrogen+potash+pos, data=potatoes)
  compresid2way(pot.aov, pch=as.character(potatoes$pos))
+
  compresid2way(yield~nitrogen+potash, data=subset(potatoes, pos == 2))
+
+ ## 2 x 3 design :
+ data(warpbreaks)
+ summary(fm1 <- aov(breaks ~ wool + tension, data = warpbreaks))
+ compresid2way(fm1)
 }
 \keyword{hplot}

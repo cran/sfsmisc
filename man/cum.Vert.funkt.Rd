@@ -7,7 +7,7 @@
   und Quartile.
 
   This is just an old German language version of
-  \code{\link[stepfun]{plot.ecdf}()} used for teaching at ETHZ.
+  \code{\link[stats]{plot.ecdf}()} used for teaching at ETHZ.
 }
 \usage{
 cum.Vert.funkt(x, Quartile = TRUE, titel = TRUE, Datum = TRUE,
@@ -24,17 +24,14 @@ cum.Vert.funkt(x, Quartile = TRUE, titel = TRUE, Datum = TRUE,
   \item{xlab, main}{x-axis label and main title; default to empty.}
   \item{\dots}{}
 }
-% \details{
-%   ~~ If necessary, more details than the __description__  above ~~
-% }
 \value{
   the return value of \code{\link{plotStep}()} which is called
   internally, \emph{invisibly}.
 }
 \author{Martin Maechler et al.}
 \seealso{\code{\link{plotStep}} on which it is based; but you should
-  really consider using \code{\link[stepfun]{plot.ecdf}()} from the
-  \code{stepfun} package instead of this.}used for teaching at ETHZ.
+  really consider using \code{\link[stats]{plot.ecdf}()} from the
+  \pkg{stats} package instead of this.}
 \examples{
 cum.Vert.funkt(runif(12))
 cum.Vert.funkt(runif(20))

@@ -15,7 +15,7 @@ p.ts <-
     ## ---> help page  ?p.ts
     ##
     ## -------------------------------------------------------------------------
-    ## Author: Martin Maechler, Date:  1 Jul 1994; 18.Dec,1998.
+    ## Author: Martin Maechler, Date: 1 Jul 1994; 18 Dec 1998.
 
     if(is.null(main.tit)) main.tit <- paste(deparse(substitute(x)))
     isMat <- is.matrix(x)

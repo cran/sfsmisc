@@ -33,8 +33,8 @@ p.ts(x, nrplots = max(1, min(8, n \%/\% 400)), overlap = nk \%/\% 16,
     of \code{x}.}
   \item{ylim}{numeric(2) or NULL; if the former, specifying the y-range
     for the plots. Defaults to a common pretty range.}
-  \item{ylab, xlab}{labels for y- and x-axis, see description in
-    \code{\link{plot.default}}.}
+  \item{ylab, xlab}{labels for y- and x-axis respectively, see
+    description in \code{\link{plot.default}}.}
   \item{quiet}{logical; if \code{TRUE}, there's no reporting on each subplot.}
   \item{mgp}{numeric(3) to be passed to \code{\link{mult.fig}()}, see
     \code{\link{par}(mgp = .)}.}
@@ -51,7 +51,7 @@ p.ts(x, nrplots = max(1, min(8, n \%/\% 400)), overlap = nk \%/\% 16,
   Further, \code{\link{plot.ts}} and \code{\link{plot}}.
 }
 \examples{
-require(stats) # package
+stopifnot(require(stats)) # package
 
 data(sunspots)
 p.ts(sunspots, nr=1) # == usual  plot.ts(..)

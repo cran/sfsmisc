@@ -25,7 +25,7 @@ last(x, length.out = 1, na.rm = FALSE)
         Frédéric Ibanez (\email{ibanez@obs-vlfr.fr}).}
 \note{
   This function may eventually be deprecated for the new (R 1.9.0)
-  function \code{tail()}.% << FIXME: add \link{}, when 1.9.0 is released!
+  function \code{\link{tail}()}.
 
   Useful for the \code{\link[pastecs]{turnogram}()} function in package
   \pkg{pastecs}.

@@ -78,7 +78,7 @@ for(i in 1:12) {
   x <- runif(500, 0,10); y <- sin(x) + rnorm(500)/4
   f1 <- D1ss(x=x,y=y, spar.off=0.0)
   plot(x,f1, ylim = range(c(-1,1,f1)))
-  curve(cos(x), col=3, add= TRUE)}
+  curve(cos(x), col=3, add= TRUE)
 }
 
  set.seed(8840)

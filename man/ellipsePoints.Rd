@@ -20,7 +20,8 @@ ellipsePoints(a, b, alpha = 0, loc = c(0, 0), n = 201)
   (x,y) coordinates of a point.
 }
 \author{Martin Maechler, March 2002.}
-\seealso{the \file{ellipse} package and \code{\link[cluster]{ellipsoid}}
+\seealso{the \file{ellipse} package and \code{\link[cluster]{ellipsoidhull}}
+ and \code{\link[cluster]{ellipsoidPoints}}
   in the \file{cluster} package.
 }
 \examples{

@@ -2,6 +2,11 @@
 \alias{plotCI}
 \title{Plot Confidence Intervals / Error Bars}
 \description{
+  THIS IS NOW (2004-08-12) DEPRECATED !!!
+
+  DO USE  \code{\link[gregmisc]{plotCI}} from package \pkg{gregmisc} INSTEAD!
+
+
   Given a set of x and y values and upper and lower bounds,
   this function plots the points with error bars.  Can be used for
   confidence interval visualization as well.

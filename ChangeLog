@@ -1,3 +1,54 @@
+2004-08-12  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+
+	* DESCRIPTION (Date): release 0.9-5 to CRAN
+
+	* R/mult.fig.R (mult.fig): no mentioning of global 'old.par'
+		which is now deprecated!
+
+	* man/mult.fig.Rd: make sure we work with the return value in the
+		example.
+
+	* man/D2ss.Rd: extraneous "}" in example - left off last 3/4
+
+	* man/cum.Vert.funkt.Rd: fix Rd "extraneous" text
+
+2004-08-09  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (sHalton): add 'leap = 1' argument.
+
+2004-08-02  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/compresid2way.Rd: add the 'warpbreaks' example which clearly
+	   exhibits the following (bug and) fix:
+
+	* R/twoway-r-plot.R (compresid2way): fix the level labeling
+	   in 'if(label)' where "A" and "B" where switched, thanks to
+	   Christoph Buser.
+
+	* DESCRIPTION (Version): 0.9-5 - not yet on CRAN
+
+	* R/plotCI.R (plotCI): deprecate plotCI() from "sfsmisc",
+		since it is in "gregmisc" which has been on CRAN (but not
+		in existence!) long before "sfsmisc".
+
+	* R/00a.R eliminated (renamed to R/00a.R.~2~) and created
+	* R/zzz.R instead which has a simple .First.lib().
+
+
+2004-07-29  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (QUnif): new function for Quasi-Random uniform
+		numbers built on Halton sequences: sHalton().
+	* man/QUnif.Rd: documentation with nice examples
+
+2004-07-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* inst/doc/CHANGES.txt: rather than inst/doc/ChangeLog
+
+	* R/pd-matrix.R (posdefify): new file and new function
+	* man/posdefify.Rd: dito
+
 2004-05-26  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.9-4	--> CRAN
@@ -10,7 +61,7 @@
 2004-05-23  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/misc-goodies.R (strcodes): fix, needing 0-origin;
-	  also fixes the "offset by 1" bug in AsciiToTint()
+	  also fixes the "offset by 1" bug in AsciiToInt()
 	* man/AsciiToInt.Rd:  (adapt example output)
 
 2004-04-05  Martin Maechler  <maechler@stat.math.ethz.ch>
@@ -25,17 +76,17 @@
 2004-02-25  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/p.res.2x.WSt.R (p.res.2x): new default  'scol = 2:3'
-	                    new arguments  xlim, ylim.
-	* man/p.res.2x.Rd: ditto
+			    new arguments  xlim, ylim.
+	* man/p.res.2x.Rd: dito
 
 2004-02-24  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Depends): 1.8.x
 		because of regexpr(*, fixed=TRUE) in ps.end()
 
-	* R/p.res.2x.WSt.R (p.res.2x): main argument with default 'z'
-	* man/p.res.2x.Rd: ditto
-	* man/p.res.2fact.Rd: ditto
+	* R/p.res.2x.WSt.R (p.res.2x): new 'main' argument with default 'z'
+	* man/p.res.2x.Rd: dito
+	* man/p.res.2fact.Rd: dito
 
 2004-02-23  Martin Maechler  <maechler@stat.math.ethz.ch>
 
@@ -48,7 +99,7 @@
 	* R/TA.plot.R (n.plot): fix non-default 'log = ".."'
 
 	* R/p.res.2x.WSt.R (p.res.2x): allow scol[1:2}
-	* man/p.res.2x.Rd:  ditto; + example
+	* man/p.res.2x.Rd:  dito; + example
 
 2004-02-07  Martin Maechler  <maechler@stat.math.ethz.ch>
 
@@ -58,7 +109,7 @@
 	* man/unix/ : put Sys.ps.Rd and Sys.cpuinfo.Rd there
 
 	* R/u.goodies.R (u.date): make OS-independent, using Sys.time()
-         	(u.Datumvonheute): ditto
+		(u.Datumvonheute): dito
 
 	* R/ps.goodies.R (ps.end): check for non-Unix and gracefully exit
 	in that case.
@@ -74,7 +125,7 @@
 2004-02-03  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/twoway-r-plot.R: new version of old p.two.forget(),
-	        from Werner Stahel, called .........
+		from Werner Stahel, called compresid2way().
 
 2004-01-12  Martin Maechler  <maechler@stat.math.ethz.ch>
 
@@ -106,7 +157,7 @@
 
 	* man/AsciiToInt.Rd: new
 	* man/Deprecated.Rd: new; with digits(), 'digits.v' and 'nna'
-	* R/Deprecated.R:    <ditto>
+	* R/Deprecated.R:    <dito>
 
 2003-12-15  Martin Maechler  <maechler@stat.math.ethz.ch>
 
@@ -186,7 +237,7 @@
 
 2002-10-01  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-        * Version 0.8-0 : ``released'' on ftp://stat.ethz.ch/U/maechler/R/
+	* Version 0.8-0 : ``released'' on ftp://stat.ethz.ch/U/maechler/R/
 
 	* several man fixes; dropped old "SfS" stuff, see ./SfS-changes
 
