@@ -1,0 +1,170 @@
+2004-02-05  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (ps.end): try better to find file name.
+
+2004-02-04  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.9-1 (for first CRAN release)
+
+2004-02-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/twoway-r-plot.R: new version of old p.two.forget(),
+	        from Werner Stahel, called .........
+
+2004-01-12  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/Ftest-rlm.R (f.robftest): now returns object of class "htest"
+
+	* DESCRIPTION (Version): 0.9-0
+
+	* R/ps.goodies.R (ps.end): command = getOption("eps_view")
+
+	* R/misc-goodies.R: renamed  tapply.num()  to tapplySimpl()
+		 and use same arguments as tapply().
+		 move p.panel[LS] to ./Deprecated.R
+	* man/tapplySimpl.Rd: new
+	* man/col01scale.Rd : new
+
+2004-01-11  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/p.goodies.R: removed p.tst.dev(); deprecated p.triangle()
+
+2004-01-05  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R: remove  test.par() -> ~/R/MM/GRAPHICS/par-misc.R
+
+	* R/D1D2.R (D1tr, D1ss): renamed d1() to D1tr(), D1() to D1ss();
+	  to get some consistency.
+	* man/D2ss.Rd (D2ss): newly these.
+
+2004-01-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/AsciiToInt.Rd: new
+	* man/Deprecated.Rd: new; with digits(), 'digits.v' and 'nna'
+	* R/Deprecated.R:    <ditto>
+
+2003-12-15  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (ps.do), ps.latex(), ps.end(): get rid of old
+	S-plus color and iso.latin1 stuff
+
+2003-12-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (table.mat): dropped this (undocumented) function
+
+2003-12-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (uniqueL):  new utility function
+
+2003-12-02  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/Sys.ps.R (Sys.ps): better test for "ALL" (warning);
+	(Sys.PID): deprecated {use  Sys.getpid() !}
+
+2003-11-21  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/diagDA.R (dDA): new function with returns fit of class `dDa';
+	  gets print() and predict() methods.
+	  Improve functionality such that it works for single point clusters.
+
+	* man/Sys.ps.Rd:   codoc( use.values = NULL)  inconsistency fixes
+	* man/ps.end.Rd:
+	* man/ecdf.ksCI.Rd:
+
+	* R/TA.plot.R (n.plot): naming ok with data.frames; `col=' argument
+
+2003-11-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/diagDA.R (diagDA): new: Diagonal Discriminant Analysis
+				= improvement of stat.diag.da() from 'sma'
+
+2003-08-13  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/u.boxplot.x.Rd: new
+
+	* R/misc-goodies.R: boxplot.matrix(): `use.cols' instead of `cols'
+	* man/boxplot.matrix.Rd:
+
+2003-07-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/plotCI.R (plotCI): new arguments `type' and `log'.
+
+	* R/tkdensity.R (tkdensity): new `do.rug' argument with sensible default
+
+2003-06-13  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/smad.R (huber): improved again: gives (NA,NA) when y has NAs only.
+
+2003-06-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/rrange.R (rrange): new argument `na.rm = TRUE'
+	* man/rrange.Rd:
+
+2002-12-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/TA.plot.R (TA.plot): now works with specified (or default!) `ylab'
+
+2002-11-30  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/TA.plot.R (n.plot): fix for omitted `ylab' => TA.plot() shows
+	residuals (again!).   Use xy.coords() instead of home-made
+
+	* R/p.goodies.R: drop p.hboxp:
+	  Rather use boxplot(*, horizontal=TRUE, add=TRUE)
+	  Also drop  p.clear()
+
+2002-11-11  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.8-5
+	* quite a few new man pages (+clean) since Oct; see also ./SfS-changes
+	  `only' CMD check warning of 39 undocu. functions
+
+2002-10-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+        * Version 0.8-0 : ``released'' on ftp://stat.ethz.ch/U/maechler/R/
+
+	* several man fixes; dropped old "SfS" stuff, see ./SfS-changes
+
+	* DESCRIPTION (Package): new "sfsmisc" (from internal "SfS")
+
+
+2002-06-19  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* TODO-MM: new
+
+	* R/ellipse.R (ellipsePoints): new (from Martin's ..)
+	* man/ellipsePoints.Rd:
+
+
+	* R/TA.plot.R (n.plot): add `cex' explicitly; finally :
+	* man/n.plot.Rd: new
+
+	* R/TA.plot.R (TA.plot): changed some col/lty/lwd defaults
+	  (Ruth Meili's hint) and made these arguments (`par0line',..)
+
+
+2002-05-17  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* INDEX: updated (via build) and manually edited
+
+	* R/hatMat.R (hatMat): allow matrix predictors `x'
+
+2002-04-30  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/tkdensity.R (tkdensity): finally made working again, using
+	 tclVar() and tclvalue(.).
+
+
+2002-04-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/mult.fig.R: add "line.main" argument, shifting down 1/2 by
+	default.
+
+2002-04-17  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/p.goodies.R (p.tst.dev): fix function, now works
+
+2001-05-21  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Title): a bit shorter
+	  (Version): upped to 1.0-2

@@ -1,0 +1,88 @@
+AsciiToInt              Character to and from Integer Codes Conversion
+bl.string               Blank String
+boxplot.matrix          Draw a Boxplot for each Column (Row) of a Matrix
+col01scale              Matrix Scaling Utilities
+compresid2way           Plot Components + Residuals for Two Factors
+cum.Vert.funkt          Kumulative Verteilung Aufzeichnen
+D1D2                    Numerical Derivatives of (x,y) Data via
+                        Smoothing Splines
+D2ss                    Numerical Derivatives of (x,y) Data (via
+                        Smoothing Splines)
+diagDA                  Diagonal Discriminant Analysis
+diagX                   The "Other" Diagonal Matrix
+digitsBase              Digit/Bit Representation of Integers in any Base
+ecdf.ksCI               Plot the Empirical Distribution Function
+                        Together With 95\% Confidence Curves.
+ellipsePoints           Compute Radially Equispaced Points on Ellipse
+empty.dimnames          Empty Dimnames of an Array.
+errbar                  Scatter Plot with Error Bars
+f.robftest              Robust F-Test: Wald test for multiple
+                        coefficients of rlm() Object.
+glob2rx                 Change Wildcard or Globbing Pattern into
+                        Regular Expression
+hatMat                  Hat Matrix of a Smoother
+hist.bxp                Plot a Histogram and a Boxplot
+huberM                  Safe (generalized) Huber M-Estimator of Location
+integrate.xy            Cheap Numerical Integration through Data points.
+inv.seq                 Inverse seq() -- Short Expression for Index Vector
+iterate.lin.recursion   Generate Sequence Iterating a Linear Recursion
+KSd                     Approximate Critical Values for
+                        Kolmogorov-Smirnov's D
+last                    Get Last Elements of a Vector
+linesHyperb.lm          Plot Confidence or Prediction Hyperbolas
+                        around a Regression Line
+mat2tex                 Produce LaTeX commands to print a matrix
+mpl                     Simple Matrix Plots
+mult.fig                Plot Setup for MULTiple FIGures, incl. Main Title
+n.code                  Convert "Round" Integers to Short Strings and Back
+n.plot                  Name Plot: Names or Numbers instead of Points
+                        in Plot
+nr.sign.chg             Number of Sign Changes in Sequence
+p.arrows                Prettified Arrows Plots
+paste.vec               Utility for 'Showing' S vectors
+p.datum                 Plot 'Datum' (deutsch!) unten rechts
+p.dnorm                 Plot Parametric Density Functions
+p.hboxp                 Add a Horizontal Boxplot to the Current Plot
+pl.ds                   Plot Data and Smoother / Fitted Values
+plotCI                  Plot Confidence Intervals / Error Bars
+plotStep                Plot a Step Function
+pmax.sa                 Parallel Maxima / Minima (Scalar, Array)
+polyn.eval              Evaluate Polynomials
+potatoes                Fisher's Potato Crop Data
+p.profileTraces         Plot a profile.nls Object With Profile Traces
+p.res.2fact             Plot Numeric (e.g. Residuals) vs 2 Factors
+                        Using Boxplots
+p.res.2x                Stahel's Residual Plot against 2 X's
+printTable2             Berechne und Drucke Randtotale etc für 2-weg
+                        Kontingenz Tafeln
+prt.DEBUG               Utility Printing in DEBUG mode
+p.scales                Conversion between plotting scales: usr, cm,
+                        symbol
+ps.end                  Close PostScript device opened by 'ps.do'
+ps.latex                PostScript Preview Device with Optional
+                        'LaTeX' Touch
+p.tachoPlot             Draw Symbol on a Plot
+p.ts                    plot.ts with multi-plots and Auto-Title -- on 1 page
+quadrant                Give the Quadrant Number of Planar Points
+rot2                    Rotate Planar Points by Angle
+rrange                  Robust Range using Boxplot 'Quartiles'
+signi                   Rounding to Significant Digits
+Sys.cpuinfo             Provide Information about the CPU
+Sys.ps                  Return Process Status (unix ps) Information
+TA.plot                 Tukey-Anscombe Plot (residual vs. fitted) of a
+                        Linear Model.
+tapplySimpl             More simplification in tapply() result
+tkdensity               GUI Density Estimation using Tcl/Tk
+u.assign0               'Portable' assign / get functions (R / S-plus)
+                        for 'frame 0'
+u.boxplot.x             Utility Returning x-Coordinates of Boxplot
+u.date                  Return Date[-Time] String in 'European' Format
+u.datumdecode           Convert "Numeric" Dates
+u.Datumvonheute         Datum und Uhrzeit (auf deutsch)
+u.log                   (Anti)Symmetric Log High-Transform
+unif                    Nice Uniform Points in Interval
+uniqueL                 A Reversable Version of unique()
+u.sys                   'Portable' System function (R / S-plus)
+vcat                    Paste Utilities -- Concatenate Strings
+xy.grid                 Produce regular grid matrix.
+xy.unique.x             Uniqify (X,Y) Values using Weights
