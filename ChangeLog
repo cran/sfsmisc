@@ -1,3 +1,14 @@
+2004-09-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.9-6
+
+	* tests/p.R: new test file {for the fixed bug}
+
+	* R/p.ts.R: oops; need length-2 start(), end() !
+	            (fix bug introduced for 0.9-5)
+
+	* man/p.ts.Rd: add SMI
+
 2004-08-12  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 
