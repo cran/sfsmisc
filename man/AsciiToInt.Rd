@@ -43,22 +43,22 @@ strcodes(x, table = chars8bit(0:255))
   components of integer vectors with codes in \code{0:255}.
 }
 \author{Martin Maechler, partly in 1991 for S-plus}
-%\seealso{ ~~objects to See Also as \code{\link{~~fun~~}}, ~~~ }
 \examples{
 chars8bit(65:70)#-> "A" "B" .. "F"
-stopifnot(identical(LETTERS, chars8bit(65:90)))
+stopifnot(identical(LETTERS,   chars8bit(65:90)),
+          identical(AsciiToInt(LETTERS), 65:90))
 
 strcodes(c(a= "ABC", ch="1234", place = "Zürich"))
 ## gives
 \dontrun{% Rout
 $a
-[1] 66 67 68
+[1] 65 66 67
 
 $ch
-[1] 50 51 52 53
+[1] 49 50 51 52
 
 $place
-[1]  91 253 115 106 100 105
+[1]  90 252 114 105  99 104
 }
 }
 \keyword{manip}

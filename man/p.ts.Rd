@@ -10,9 +10,10 @@
   (with different defaults).
 }
 \usage{
-p.ts(x, nrplots = max(1, min(8, n \%/\% 400)), overlap = nk \%/\% 16, 
-     main.tit = NULL, ylim = NULL, ylab = "", quiet = FALSE,
-     mgp = c(1.25, .5, 0),\dots)
+p.ts(x, nrplots = max(1, min(8, n \%/\% 400)), overlap = nk \%/\% 16,
+     date.x = NULL, do.x.axis = !is.null(date.x), do.x.rug = FALSE,
+     ax.format, main.tit = NULL, ylim = NULL, ylab = "", xlab = "Time",
+     quiet = FALSE, mgp = c(1.25, .5, 0), \dots)
 }
 \arguments{
   \item{x}{timeseries (possibly multivariate) or numeric vector.}
@@ -20,11 +21,20 @@ p.ts(x, nrplots = max(1, min(8, n \%/\% 400)), overlap = nk \%/\% 16,
     approximately \code{n/400} if possible.}
   \item{overlap}{by how much should subsequent plots overlap. Defaults
     to about 1/16 of sub-length on each side.}
+  \item{date.x}{a time \dQuote{vector} of the same length as \code{x}
+    and coercable to class \code{"POSIXct"} (see \link{DateTimeClasses}).}
+  \item{do.x.axis}{logical specifying if an x axis should be drawn
+    (i.e., tick marks and labels).}
+  \item{do.x.rug}{logical specifying if \code{\link{rug}} of
+    \code{date.x} values should drawn along the x axis.}
+  \item{ax.format}{when \code{do.x.axis} is true, specify the
+    \code{format} to be used in the call to \code{\link{axis.POSIXct}}.}
   \item{main.tit}{\bold{Main} title (over all plots).  Defaults to name
     of \code{x}.}
   \item{ylim}{numeric(2) or NULL; if the former, specifying the y-range
     for the plots. Defaults to a common pretty range.}
-  \item{ylab}{label for y-axis, see description in \code{\link{plot.default}}.}
+  \item{ylab, xlab}{labels for y- and x-axis, see description in
+    \code{\link{plot.default}}.}
   \item{quiet}{logical; if \code{TRUE}, there's no reporting on each subplot.}
   \item{mgp}{numeric(3) to be passed to \code{\link{mult.fig}()}, see
     \code{\link{par}(mgp = .)}.}
@@ -37,20 +47,27 @@ p.ts(x, nrplots = max(1, min(8, n \%/\% 400)), overlap = nk \%/\% 16,
 \author{Martin Maechler, \email{maechler@stat.math.ethz.ch}; July 1994
   (for S).}
 }
-\seealso{\code{\link{plot.ts}}, \code{\link{plot}}.
+\seealso{\code{p.ts()} calls \code{\link{mult.fig}()} for setup.
+  Further, \code{\link{plot.ts}} and \code{\link{plot}}.
 }
 \examples{
-require(ts) # package
+require(stats) # package
 
 data(sunspots)
 p.ts(sunspots, nr=1) # == usual  plot.ts(..)
-p.ts(sunspots)	
-p.ts(sunspots, nr=3, col=2)	
+p.ts(sunspots)
+p.ts(sunspots, nr=3, col=2)
 
 ## multivariate :
 data(EuStockMarkets)
 p.ts(log10(EuStockMarkets), col = 2:5)
+
+## with Date - x-axis (dense random dates):
+set.seed(12)
+x <- as.Date("2000-02-29") + cumsum(1+ rpois(1000, lambda= 2.5))
+z <- cumsum(.1 + 2*rt(1000, df=3))
+p.ts(z, 4, date.x = x)
+p.ts(z, 6, date.x = x, ax.format = "\%b \%Y", do.x.rug = TRUE)
 }
 \keyword{hplot}
 \keyword{ts}
-

@@ -13,3 +13,19 @@ if(!exists("is.unsorted", mode = "function"))
 
         (length(x) > 1) && any(diff(x) < 0)
     }
+
+
+## for R versions < 1.7:
+if(paste(R.version$major, R.version$minor, sep=".") < 1.7) {
+
+        force <- function(x) x
+
+        postscriptO <- postscript
+        postscript <-
+        function (file = ifelse(onefile, "Rplots.ps", "Rplot%03d.ps"),
+                  onefile = TRUE, family, title = "R Graphics Output", ...)
+        {
+            ## drop 'title =' argument which only exists from versions >= 1.7.0:
+            postscriptO(file = file, onefile = onefile, family = family, ...)
+        }
+}

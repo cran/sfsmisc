@@ -12,14 +12,16 @@
 ## }
 
 p.res.2x <-
-  function(x, y, z, restricted = NULL, size = 1, slwd = 1, scol = 2,
-           xlab = NULL, ylab = NULL, ...)
+  function(x, y, z, restricted = NULL, size = 1, slwd = 1, scol = 2:3,
+           xlab = NULL, ylab = NULL, main = NULL,
+           xlim = range(x), ylim = range(y), ...)
 {
   ## Purpose:  Stahels Residuen-Plot
   ## Author:   ARu , Date:  11/Jun/91
   ## Aenderungen: MMae, 30/Jan/92, Dez.94 --> help(p.res.2x)
   if(is.null(xlab)) xlab <- deparse(substitute(x))
   if(is.null(ylab)) ylab <- deparse(substitute(y))
+  if(is.null(main)) main <- deparse(substitute(z))
 
   ok <- !(is.na(x) | is.na(y) | is.na(z))
   x <- x[ok]; y <- y[ok]; z <- z[ok]
@@ -32,23 +34,23 @@ p.res.2x <-
     z[z >   restricted] <- restricted
     z[z < - restricted] <- - restricted
   }
-  rx <- range(x)
-  ry <- range(y)
+
   ##--- fix plot region: ---
   pcm <- par("pin") * 2.54              #damit in cm
   ##--- damit im Plot das Symbol wirklich die Groesse size hat:
   size <- size/(2 * sqrt(2))
-  fx <- (size * diff(rx))/(pcm[1] - 2 * size)/2
-  fy <- (size * diff(ry))/(pcm[2] - 2 * size)/2
+  fx <- (size * diff(xlim))/(pcm[1] - 2 * size)/2
+  fy <- (size * diff(ylim))/(pcm[2] - 2 * size)/2
   ##--
-  plot(x, y, xlim = rx + c(-1,1)* fx, ylim = ry + c(-1,1)* fy, pch = ".",
-       xlab = xlab, ylab = ylab, ...)
+  plot(x, y, xlim = xlim + c(-1,1)* fx, ylim = ylim + c(-1,1)* fy, pch = ".",
+       xlab = xlab, ylab = ylab, main = main, ...)
 
   ##--- draw symbols: ---
   z <- z/max(az, na.rm = TRUE)
   usr <- par("usr")
   sxz <-     diff(usr[1:2])/pcm[1] * size * z
   syz <- abs(diff(usr[3:4])/pcm[2] * size * z)
+  if(length(scol) == 2) scol <- scol[1 + as.integer(z < 0)]
   segments(x - sxz, y - syz,  x + sxz, y + syz, lwd = slwd, col = scol)
 
   ##--- mark restricted observations: ---
@@ -66,6 +68,7 @@ p.res.2fact <-
 {
     if(is.null(xlab)) xlab <- deparse (substitute (x))
     if(is.null(ylab)) ylab <- deparse (substitute (y))
+    if(is.null(main)) main <- deparse(substitute(z))
 
     ok <- !(is.na(x) | is.na(y) | is.na(z))
     x <- x[ok]; y <- y[ok]; z <- z[ok]
@@ -100,8 +103,7 @@ p.res.2fact <-
     }
     mtext (xlab, side = 1, line = 1, outer = TRUE, cex = 1.3)
     mtext (ylab, side = 2, line = 3, outer = TRUE, cex = 1.3)
-    if(!is.null(main))
-        mtext(main, side = 3, line = 2, cex = 1.5, outer = TRUE)
+    mtext (main, side = 3, line = 2, cex = 1.5, outer = TRUE)
     if(any(restr)) cat(sum(restr), "restricted observation(s)\n")
     invisible()
 }
