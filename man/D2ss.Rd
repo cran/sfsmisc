@@ -66,8 +66,7 @@ D2ss(x, y, xout = x, spar.offset = 0.1384, spl.spar=NULL)
 }
 \author{Martin Maechler, in 1992 (for S).}
 \seealso{\code{\link{D1D2}} which directly uses the 2nd derivative of
-  the smoothing spline;
-  \code{\link[modreg]{smooth.spline}}.
+  the smoothing spline;  \code{\link{smooth.spline}}.
 }
 \examples{
 

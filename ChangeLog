@@ -1,3 +1,20 @@
+
+2004-11-05
+2004-11-04  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.9-7
+
+	* INDEX: updated (and saved to ./INDEX-manual)
+
+	* R/plot.ts.R (plot.ts): remove! (was for R < 1.2.0 !)
+	* R/lag.plot.R (lag.plot): dito
+	* R/misc-goodies.R: remove "stepun" package in comments;
+		drop more old comments
+
+	* man/*.Rd: in many man pages, remove \link[<..>]s to old package names.
+	* R/D1D2.R: remove "stepfun" package links
+	* R/KS-confint.R:
+
 2004-09-27  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.9-6
@@ -5,7 +22,7 @@
 	* tests/p.R: new test file {for the fixed bug}
 
 	* R/p.ts.R: oops; need length-2 start(), end() !
-	            (fix bug introduced for 0.9-5)
+		    (fix bug introduced for 0.9-5)
 
 	* man/p.ts.Rd: add SMI
 

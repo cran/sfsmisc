@@ -23,7 +23,7 @@ xy.unique.x(x, y, w, fun.mean = mean)
   corresponding \code{y} and weights \code{w}.
 }
 \author{Martin Maechler, 8 Mar 1993.}
-\seealso{e.g., \code{\link[modreg]{smooth.spline}} uses something like
+\seealso{e.g., \code{\link{smooth.spline}} uses something like
   this internally.}
 \examples{
 ## simple example:

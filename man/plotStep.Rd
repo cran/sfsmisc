@@ -51,10 +51,9 @@ plotStep(ti, y,
   \email{maechler@stat.math.ethz.ch}, 1991 ff.
 }
 \seealso{
-  \code{\link[stepfun]{plot.ecdf}} and
-  \code{\link[stepfun]{plotStepfun}} in \R which are conceptually nicer.
+  The \code{\link{plot}} methods \code{\link{plot.ecdf}} and
+  \code{\link{plot.stepfun}} in \R which are conceptually nicer.
 
-  \code{\link{plot}},
   \code{\link{segments}(\dots, method = "constant")}.
 }
 \examples{

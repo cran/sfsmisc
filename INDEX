@@ -33,8 +33,11 @@ linesHyperb.lm          Plot Confidence or Prediction Hyperbolas
                         around a Regression Line
 mat2tex                 Produce LaTeX commands to print a matrix
 mpl                     Simple Matrix Plots
-mult.fig                Plot Setup for MULTiple FIGures, incl. Main Title
-n.code                  Convert "Round" Integers to Short Strings and Back
+mult.fig                Plot Setup for MULTiple FIGures, incl. Main
+                        Title
+n.code                  Convert "Round" Integers to Short Strings and
+                        Back
+nna                     Deprecated 'sfsmisc' Functions
 n.plot                  Name Plot: Names or Numbers instead of Points
                         in Plot
 nr.sign.chg             Number of Sign Changes in Sequence
@@ -48,6 +51,7 @@ plotCI                  Plot Confidence Intervals / Error Bars
 plotStep                Plot a Step Function
 pmax.sa                 Parallel Maxima / Minima (Scalar, Array)
 polyn.eval              Evaluate Polynomials
+posdefify               Find a Close Positive Definite Matrix
 potatoes                Fisher's Potato Crop Data
 p.profileTraces         Plot a profile.nls Object With Profile Traces
 p.res.2fact             Plot Numeric (e.g. Residuals) vs 2 Factors
@@ -64,6 +68,7 @@ ps.latex                PostScript Preview Device with Optional
 p.tachoPlot             Draw Symbol on a Plot
 p.ts                    plot.ts with multi-plots and Auto-Title -- on 1 page
 quadrant                Give the Quadrant Number of Planar Points
+QUnif                   Quasi Randum Numbers via Halton Sequences
 rot2                    Rotate Planar Points by Angle
 rrange                  Robust Range using Boxplot 'Quartiles'
 signi                   Rounding to Significant Digits

@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.29 2004/03/09 10:40:56 maechler Exp $
+#### $Id: misc-goodies.R,v 1.30 2004/11/05 07:48:19 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -100,7 +100,7 @@ cum.Vert.funkt <- function(x, Quartile = TRUE, titel = TRUE, Datum = TRUE,
   op <- par(xaxs = "r", yaxs = "r", las = 1)# the default anyway
   on.exit(par(op))
   r <- plotStep(x, xlab = xlab, main = main, ...)
-  #### FIXME : Use  package "stepfun" instead
+  #### FIXME : stepfun() / ecdf() instead
   n <- length(x)
   if(rang.axis)
       axis(4, at = (0:n)/n, labels = 0:n, pos = par("usr")[1])#, las = 1)
@@ -127,7 +127,7 @@ plotStep <- function(ti, y,
 		      main = NULL,
 		      ...)
 
-#####- FIXME ----------- use library(stepfun), etc !!! ----------------
+#####- FIXME ----------- use stepfun(), plot.stepfun() etc !!! ----------------
 
 {
   ## Purpose: plot step-function  f(x)= sum{ y[i] * 1_[ t[i-1], t[i] ] (x) }
@@ -137,7 +137,7 @@ plotStep <- function(ti, y,
   ## Author: Martin Maechler, 1990, U.Washington, Seattle; improved -- Dec.1993
   ##
   ## EXAMPLE: ##-- Plot empirical cdf  Fn(x)  for a small n:
-  ## 	      xx_ runif(20); plot.step(xx); plot.step( xx, cad.lag = F )
+  ## 	      xx <- runif(20); plot.step(xx); plot.step( xx, cad.lag = F )
   ##	      plot.step( runif(20), add=T, cad.lag=F)
   xlab
   ylab
@@ -428,16 +428,6 @@ hist.bxp <- function(x, nclass, breaks, probability = FALSE, include.lowest = TR
 
 ##-#### Plot / Devices  related stuff ########
 ##-### ----------------------------- ########
-
-
-### The following 2 functions should be one !! -- OKAY, eliminated  'pl' !
-## NO MORE: pl <- function(...) plot(..., type = "b", xlab="", ylab="")
-
-### Put   p.xy(.)  and  p.t(.)  into  SFS - Goodies  "/u/sfs/S/p.goodies.S"
-
-
-##m.pl <- function(mat, ...)   matplot(mat[, 1], as.matrix(mat[, -1]), ...)
-##m.pl_ function(mat, ...) cat("\n>>> USE FUNCTION p.m  instead of m.pl !!\n\n")
 
 mpl <- function(mat, ...) {
   matplot(1:nrow(mat), mat, xaxt = 'n',...)
