@@ -28,7 +28,7 @@ n.plot <-
 
 TA.plot <-
   function(lm.res, fit = fitted(lm.res),
-           res = residuals(lm.res, "pearson"),
+           res = residuals(lm.res, type = "pearson"),
            labels = NULL, main = mk.main(), xlab = "Fitted values",
            draw.smooth = n >= 10, show.call = TRUE, show.2sigma = TRUE,
            lo.iter = NULL, lo.cex = NULL,
@@ -51,7 +51,7 @@ TA.plot <-
   ## -------------------------------------------------------------------------
   ## Author: Martin Maechler, Date: Dec 92 / Nov.93;  for R: 1999/2000
   if(missing(main)) {
-    call0 <- call <- lm.res $ call
+    call <- lm.res $ call
     if(is.call(call[["formula"]]) && any(c("lm", "aov") == call[[1]]))
       call <- call[["formula"]]
     else {  #-- only formula part; no extra  'ARG ='

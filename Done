@@ -1,0 +1,31 @@
+	-- this file should contain things that were in ./TODO-MM
+
+1) [Juni 2002]:
+  getint() Dinge sind eigentlich überflüssig, seit ich's ins R getan habe:
+  in R haben wir jetzt findInterval()  {*mit* C API!}
+
+  ==> In src/getint.c entfernen;
+       R code durch "findInterval()" (oder  approx() !) ersetzen
+
+  Frage: Kann auch "lin_interpol" etc ersetzt werden durch findInterval()??
+  --------> R/interpolation.R ./interpol-ex.R
+	    ~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~
+	    /u/maechler/R/MM/MISC/findInt-performance.R
+	    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  ==>  Haben ``R only'' Package, welches auch unter Windows leicht
+       installierbar wäre ---> CRAN package ?
+
+
+2) [Juni 2002]:
+
+  Etliche der "R CMD check"  Warnungen ( --> /u/sfs/R/SfS.Rcheck/00check.log )
+  wären zu beheben durch Umnennen von Funktionen
+
+  boxplot.matrix()  {oder ?}
+  plot.step()
+  print.tbl()
+  ...
+
+     ==> Rausfinden, wo jemand  hier am SfS solches benutzt ..
+

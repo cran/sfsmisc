@@ -1,4 +1,9 @@
 
+		CHANGES in sfsmisc VERSION 0.9-8  [200......]
+
+   o	TA.plot() now also works for lme() results.
+
+
 		CHANGES in sfsmisc VERSION 0.9-7  [2004-11-04]
 
    o	Depends on R 1.9.0 (was effectively the case earlier):

@@ -289,7 +289,7 @@ QUnif <- function(n, min = 0, max = 1, n.min = 1, p, leap = 1)
              367,373,379,383,389,397,401,409,419,421,431,433,439,443,449,457)
     if(length(pr.) < p) stop("primes not yet available for p=",p)
     pr <- pr.[1:p]
-    if(leap > 1 && any(leap == pr) && length(.pr) >= p+1)
+    if(leap > 1 && any(leap == pr) && length(pr.) >= p+1)
         pr <- c(pr[leap != pr], pr.[p+1])
     stopifnot(length(max) == p || length(max) == 1,
               length(min) == p || length(min) == 1)

@@ -1,6 +1,6 @@
 
-R : Copyright 2003, The R Foundation for Statistical Computing
-Version 1.9.0 Under development (unstable) (2003-12-03), ISBN 3-900051-00-3
+R : Copyright 2004, The R Foundation for Statistical Computing
+Version 2.1.0 Under development (unstable) (2004-12-09), ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -8,7 +8,7 @@ Type 'license()' or 'licence()' for distribution details.
 
 R is a collaborative project with many contributors.
 Type 'contributors()' for more information and
-'citation()' on how to cite R in publications.
+'citation()' on how to cite R or R packages in publications.
 
 Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for a HTML browser interface to help.
@@ -28,13 +28,13 @@ Type 'q()' to quit R.
 > ## Self Prediction:  Not too good (2+4 and 3+3 misclass.)
 > table(diagDA(m.iris, cl.true, m.iris),             cl.true)
    cl.true
-    1  2  3 
+     1  2  3
   1 50  0  0
   2  0 48  4
   3  0  2 46
 > table(diagDA(m.iris, cl.true, m.iris, pool=FALSE), cl.true)
    cl.true
-    1  2  3 
+     1  2  3
   1 50  0  0
   2  0 47  3
   3  0  3 47
@@ -48,7 +48,7 @@ Type 'q()' to quit R.
 > pcl <- diagDA(train, cl, test)
 > table(pcl, cl)## 0 + 1 + 2 misclassified
    cl
-pcl 1  2  3 
+pcl  1  2  3
   1 25  0  0
   2  0 24  2
   3  0  1 23
@@ -57,6 +57,24 @@ pcl 1  2  3
 > 
 > stopifnot(pcl == diagDA(train,cl, test, pool = FALSE))
 >                                         # i.e. quadratic identical here
+> 
+> ### Test 'NA' in predict dat.fr
+> set.seed(753)
+> itr <- sample(n, 0.9 * n)
+> lrn <- m.iris[ itr,]
+> tst <- m.iris[-itr,]
+> dd <- dDA(lrn, cl.true[itr])
+> pd0 <- predict(dd, tst)
+> 
+> i.NA <- c(3:5,7,11)
+> j.NA <- sample(1:ncol(tst), size=length(i.NA), replace=TRUE)
+> tst[cbind(i.NA, j.NA)] <- NA
+> pdd <- predict(dd, tst)
+> pcl <- diagDA(lrn, cl.true[itr],  tst)
+> stopifnot(length(pdd) == nrow(tst),
++           identical(pdd, pcl),
++           pdd[-i.NA] == pd0[-i.NA],
++           which(is.na(pdd)) == i.NA)
 > 
 > ## Now do some (randomized) CV :
 > ## for each observation, count how often it's misclassified
@@ -80,6 +98,7 @@ pcl 1  2  3
 [126]  3  7 15 12 13  5 16 18 14  5  0  0  2  1  2  3  7 15 12 13  5 16 18 14  5
 [1] 0.03766667
 > 
+> ## The "same" with  'pool=FALSE' :
 > missCl <- integer(n)
 > for(m in 1:M) {
 +     itr <- sample(n, 0.9 * n)
@@ -99,6 +118,6 @@ pcl 1  2  3
 [1] 0.04433333
 > 
 > cat('Time elapsed: ', proc.time() - .proctime00,'\n')
-Time elapsed:  6.12 0.09 8.53 0 0 
+Time elapsed:  2.32 0.01 2.91 0 0 
 > 
 > 

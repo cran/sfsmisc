@@ -23,12 +23,14 @@ posdefify <- function(m, method = c("someEVadd", "allEVadd"),
     if(lam[n] < Eps) { # fix up small or negative values
         switch(method,
                "someEVadd" = lam[lam < Eps] <- Eps,
-               "allEVadd" =  lam <- lam + Eps
+               "allEVadd" =  lam <- lam + Eps-lam[n]
                )
         Q <- ev.m $vectors
         o.diag <- diag(m)# original one - for rescaling
         m <- Q %*% (lam * t(Q)) ## == Q %*% diag(lam) %*% t(Q)
-        ## rescale to the original diagonal values {where they are >= Eps}:
+        ## rescale to the original diagonal values
+        ## D <- sqrt(o.diag/diag(m))
+        ## where they are >= Eps :
         D <- sqrt(pmax(Eps,o.diag)/diag(m))
         m[] <- D * m * rep(D, each = n) ## == diag(D) %*% m %*% diag(D)
     }

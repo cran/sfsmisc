@@ -1,0 +1,43 @@
+
+R : Copyright 2004, The R Foundation for Statistical Computing
+Version 2.1.0 Under development (unstable) (2004-12-13), ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for a HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(sfsmisc)
+> 
+> options(digits=9)
+> 
+> set.seed(12)
+> m <- matrix(round(rnorm(25),2), 5, 5); m <- 1+ m + t(m); diag(m) <- diag(m) + 4
+> (mp  <- posdefify(m))
+             [,1]         [,2]         [,3]         [,4]         [,5]
+[1,]  2.040000000  1.559508625 -0.887340889 -0.408171836 -0.245682172
+[2,]  1.559508625  4.360000000 -0.533157355  1.705637933  2.344838314
+[3,] -0.887340889 -0.533157355  3.440000000  1.195027865  1.353283301
+[4,] -0.408171836  1.705637933  1.195027865  6.020000000  0.577514304
+[5,] -0.245682172  2.344838314  1.353283301  0.577514304  2.940000000
+> (mp. <- posdefify(m, method = "allEV"))
+             [,1]         [,2]         [,3]         [,4]         [,5]
+[1,]  2.040000000  1.378740895 -0.424598775 -0.386773282 -0.434470464
+[2,]  1.378740895  4.360000000 -0.613091776  1.507019105  2.225434128
+[3,] -0.424598775 -0.613091776  3.440000000  0.940298040  1.156766185
+[4,] -0.386773282  1.507019105  0.940298040  6.020000000  0.277226191
+[5,] -0.434470464  2.225434128  1.156766185  0.277226191  2.940000000
+> 
+> stopifnot(eigen(mp,  only.val=TRUE)$values > 0,
++           eigen(mp., only.val=TRUE)$values > 0,
++           all.equal(diag(m), diag(mp), tol= 1e-15),
++           all.equal(diag(m), diag(mp.),tol= 1e-15),
++           T)
+> 

@@ -1,3 +1,25 @@
+2004-12-13  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.9-8  --> CRAN
+
+	* R/pd-matrix.R (posdefify): fix bug in non-default method
+	"allEVadd"!
+
+	* tests/posdef.R: new file: test the bug I just fixed (and more).
+
+
+2004-12-09  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/diagDA.R (predict.dDA) (diagDA): fix NA prediction
+
+	* tests/dDA.R: add check for NA prediction
+
+	* R/misc-goodies.R (QUnif): typo fixed (checkUsagePackage() !)
+
+	* R/integratexy.R (integrate.xy): dito
+
+	* R/TA.plot.R (TA.plot): add `type=' in call to residuals;
+		consequently now also works for some  lme() results.
 
 2004-11-05
 2004-11-04  Martin Maechler  <maechler@stat.math.ethz.ch>
