@@ -1,3 +1,14 @@
+2004-02-07  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/unix/Sys.ps.R: put my Sys.* to unix-only directory - no way for Windows
+	* man/unix/ : put Sys.ps.Rd and Sys.cpuinfo.Rd there
+
+	* R/u.goodies.R (u.date): make OS-independent, using Sys.time()
+         	(u.Datumvonheute): ditto
+
+	* R/ps.goodies.R (ps.end): check for non-Unix and gracefully exit
+	in that case.
+
 2004-02-05  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/ps.goodies.R (ps.end): try better to find file name.
