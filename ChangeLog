@@ -1,3 +1,36 @@
+2005-04-25  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-1
+
+	* man/*.Rd: added \encoding{latin1} to quite a few
+
+	* man/AsciiToInt.Rd: example with Umlaut fails to parse(!)
+	in utf-8 locale -> \dontrun{} it.
+
+	* R/misc-goodies.R (hist.bxp): new defaulg 'medcol = 2':
+	   "medcol = 0" is not sensible for '0 = "transparent"'.
+
+	* R/mat2tex.R (mat2tex): new arg.s 'nam.center', 'col.center'
+
+2005-04-19  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/hatMat.Rd: slight improvement in example
+
+2005-02-17  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-0
+
+	* NAMESPACE: added a namespace (finally).
+
+2005-02-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (lseq): new function
+
+2005-01-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/rnls.R (rnls): new function (from A.Ruckstuhl, Ch.Sangiorgio)
+		still quite a few FIXMEs
+
 2004-12-13  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.9-8  --> CRAN

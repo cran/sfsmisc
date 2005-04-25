@@ -1,4 +1,5 @@
 \name{p.profileTraces}
+\encoding{latin1}
 \alias{p.profileTraces}
 \title{Plot a profile.nls Object With Profile Traces}
 \description{

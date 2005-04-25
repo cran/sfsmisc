@@ -1,4 +1,5 @@
 \name{rot2}
+\encoding{latin1}% ° (degree) below
 \alias{rot2}
 \title{Rotate Planar Points by Angle}
 \description{

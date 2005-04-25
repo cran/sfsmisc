@@ -1,0 +1,6 @@
+## export almost all
+exportPattern("^[^\\.]")
+
+##no longer: importFrom("MASS", psi.bisquare, psi.hampel, psi.huber)
+
+## MASS has many rlm S3 methods; should we use some of them - for rnls() ?!

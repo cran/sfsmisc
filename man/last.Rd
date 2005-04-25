@@ -1,4 +1,5 @@
 \name{last}
+\encoding{latin1}
 \alias{last}
 \title{Get Last Elements of a Vector}
 \description{

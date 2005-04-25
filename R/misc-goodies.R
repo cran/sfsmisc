@@ -365,7 +365,7 @@ uniqueL <- function(x, isuniq = !duplicated(x)) {
 
 hist.bxp <- function(x, nclass, breaks, probability = FALSE, include.lowest = TRUE,
 		     xlab = deparse(substitute(x)), ..., width = 0.2,
-		     boxcol = 3, medcol = 0, medlwd = 5, whisklty = 2, staplelty = 1)
+		     boxcol = 3, medcol = 2, medlwd = 5, whisklty = 2, staplelty = 1)
 {
   ## Purpose:   Plot a histogram and a boxplot
   ## -------------------------------------------------------------------------
@@ -614,6 +614,14 @@ xy.unique.x <- function(x,y, w, fun.mean = mean)
 
 ##-#### Non-calculus ("Discrete") Mathematical stuff ########
 ##-### -------------------------------------------- ########
+
+lseq <- function(from, to, length)
+{
+    ## Purpose: seq(.) : equidistant on log scale
+    ## ----------------------------------------------------------------------
+    ## Author: Martin Maechler, Date:  3 Feb 2005, 08:34
+    2^seq(log2(from), log2(to), length.out = length)
+}
 
 inv.seq <- function(i) {
   ## Purpose: 'Inverse seq': Return a short expression for the 'index'  `i'

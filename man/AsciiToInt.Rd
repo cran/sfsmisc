@@ -1,4 +1,5 @@
 \name{AsciiToInt}
+\encoding{latin1}
 \alias{AsciiToInt}
 \alias{ichar}
 \alias{chars8bit}
@@ -47,10 +48,10 @@ strcodes(x, table = chars8bit(0:255))
 chars8bit(65:70)#-> "A" "B" .. "F"
 stopifnot(identical(LETTERS,   chars8bit(65:90)),
           identical(AsciiToInt(LETTERS), 65:90))
-
+\dontrun{% The "ü" cannot even be parsed when in UTF-8 locale (R 2.1.0)
+## may only work in ISO-latin1 locale (not in UTF-8):
 strcodes(c(a= "ABC", ch="1234", place = "Zürich"))
 ## gives
-\dontrun{% Rout
 $a
 [1] 65 66 67
 
