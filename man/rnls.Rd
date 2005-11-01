@@ -1,5 +1,10 @@
 \name{rnls}
 \alias{rnls}
+\alias{print.rnls}
+\alias{fitted.rnls}
+\alias{predict.rnls}
+\alias{residuals.rnls}
+\alias{summary.rnls}
 \title{Robust Nonlinear Regression}
 \description{
   Compute robustified nonlinear regressions, i.e.,
@@ -14,14 +19,20 @@ rnls(formula, data, start, weights = NULL,
      test.vec = c("resid", "coef", "w"),
      maxit = 20, acc = 1e-06, algorithm = "default",
      control, trace = FALSE, \dots)
+
+\method{fitted}{rnls}(object, \dots)
+\method{predict}{rnls}(object, newdata, \dots)
+\method{residuals}{rnls}(object, \dots)
+\method{summary}{rnls}(object, \dots)
+\method{print}{rnls}(x, \dots)
 }
 %% FIXME: use
 %% ----- ../R/rnls.R  and ~/R/D/r-devel/R/src/library/stats/man/nls.Rd
 \arguments{
   \item{formula}{a nonlinear formula including variables and parameters and
-    which results in the residuals of the model, e.g. \code{~ y - f(x,
+    which results in the residuals of the model, such as \code{y ~ f(x,
       alpha)}. (For some checks: if \eqn{f(.)} is linear, then we need
-    parentheses, e.g., \code{ ~ y - (a + b * x)}.)
+    parentheses, e.g., \code{y ~ (a + b * x)}.)
 %% FIXME in code:
     Do not use as \code{w} as variable or parameter name!
   }
@@ -74,11 +85,16 @@ rnls(formula, data, start, weights = NULL,
     parameters.}
   \item{\dots}{potentially arguments to be passed to the \code{psi}
     function (see above).}
+  \item{object, x}{an \R object of class \code{"rnls"}, as returned from
+    \code{rnls}.}
+  \item{newdata}{a data frame or list containing variables identically
+    named as in \code{data}, with (new) values at which to
+    evaluate (\dQuote{predict}) the fitted model.}
 }
 % \details{
 % }
 \value{
-  An object of S3 class \code{"nls.robust"}, inheriting from class
+  An object of S3 class \code{"rnls"}, inheriting from class
   \code{"nls"}, (see \code{\link{nls}}).
   It is a list with components
 %% FIXME
@@ -91,7 +107,8 @@ rnls(formula, data, start, weights = NULL,
   Andreas Ruckstuhl (inspired by \code{\link[MASS]{rlm}}() and
   \code{\link{nls}}()), in July 1994 for S-plus.\cr
   Christian Sangiorgio did the update to \R and corrected some errors,
-  from June 2002 to January 2005.\cr
+  from June 2002 to January 2005, and Andreas contributed slight changes
+  the first methods in August 2005.\cr
   Help page, testing, more cleanup, methods: Martin Maechler.
 }
 %%\note{ ~~further notes~~ }
@@ -113,7 +130,7 @@ fm3DNase1 <- nls( density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
 summary( fm3DNase1 )
 
 ## robust
-frm3DNase1 <- rnls( ~ density - Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+frm3DNase1 <- rnls(density ~ Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
                   data = DNase1, trace = TRUE,
                   start = list( Asym = 3, xmid = 0, scal = 1 ))
 ## FAILS (summary.nls): summary( frm3DNase1 )%% <<< FIXME
@@ -129,12 +146,39 @@ summary( fm2DNase1 )
 
 ## robust
 if(FALSE) { # currently fails %% FIXME error in nls's nlsModel.plinear()
-frm2DNase1 <- rnls( ~ density - 1/(1 + exp(( xmid - log(conc) )/scal ) ),
+frm2DNase1 <- rnls(density ~ 1/(1 + exp(( xmid - log(conc) )/scal ) ),
                   data = DNase1, start = c( xmid = 0, scal = 1 ),
                   alg = "plinear", trace = TRUE )
 summary( frm2DNase1 )
 } # not yet
 
+### -- new examples
+DNase1[10,"density"] <- 2*DNase1[10,"density"]
+
+fm3DNase1 <- nls(density ~  Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                       data = DNase1, trace = TRUE,
+                       start = list( Asym = 3, xmid = 0, scal = 1 ))
+
+## robust
+frm3DNase1 <- rnls(density ~  Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                   data = DNase1, trace = TRUE,
+                   start = list( Asym = 3, xmid = 0, scal = 1 ))
+frm3DNase1%% NOT YET: FIXME  summary(frm3DNase1)
+coef(frm3DNase1)
+
+## predict() {and plot}:
+h.x <- lseq(min(DNase1$conc), max(DNase1$conc), length = 100)
+nDat <- data.frame(conc = h.x)
+
+h.p  <- predict(fm3DNase1, newdata = nDat)# classical
+h.rp <- predict(frm3DNase1, newdata= nDat)# robust
+
+plot(density ~ conc, data=DNase1, log="x",
+     main = deparse(frm3DNase1$call$formula))
+lines(h.x, h.p,  col="blue")
+lines(h.x, h.rp, col="magenta")
+legend("topleft", c("classical nls()", "robust    rnls()"),
+       lwd = 1, col= c("blue", "magenta"))
 }
 \keyword{robust}
 \keyword{regression}

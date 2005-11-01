@@ -1,0 +1,235 @@
+From: "Ruckstuhl Andreas \(rks\)" <rks@zhwin.ch>
+To: "Martin Maechler" <maechler@stat.math.ethz.ch>
+Subject: AW: Sfsmisc: rnls(), nonlinear formula and terms()
+Date: Tue, 9 Aug 2005 09:53:55 +0200
+
+
+Lieber Martin
+
+Anbei ein File mit einer neuen Version von rnls und diversen "Methoden-Funktionen".
+Jetzt sollte es funktionieren.
+
+Achtung: Neu Formalangabe 'y ~ f(x, alpha)'
+
+Beisiel für das Help (Ergänzungen)
+DNase1 <- DNase[ DNase$Run == 1, ]
+DNase1[10,"density"] <- 2*DNase1[10,"density"]
+
+fm3DNase1 <- nls(density ~  Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                       data = DNase1, trace = TRUE,
+                       start = list( Asym = 3, xmid = 0, scal = 1 ))
+
+## robust
+frm3DNase1 <- rf.nls(density ~  Asym/(1 + exp(( xmid - log(conc) )/scal ) ),
+                       data = DNase1, trace = TRUE,
+                       start = list( Asym = 3, xmid = 0, scal = 1 ))
+summary(frm3DNase1)
+coef(frm3DNase1)
+
+plot(density ~ conc, data=DNase1, log="x")
+h.x <- exp(seq(min(log(DNase1$conc)), max(log(DNase1$conc)), length=50))
+h.p <- predict(fm3DNase1, newdata=data.frame(conc=h.x))
+lines(h.x, h.p, col="blue")
+h.rp <- predict(frm3DNase1, newdata=data.frame(conc=h.x))
+lines(h.x, h.rp, col="magenta")
+
+
+Vielen Dank für Deine Hilfe.
+
+Gruss,
+Andreas
+
+
+>> -----Ursprüngliche Nachricht-----
+>> Von: Martin Maechler [mailto:maechler@stat.math.ethz.ch]
+>> Gesendet: Montag, 8. August 2005 17:28
+>> An: Ruckstuhl Andreas (rks)
+>> Cc: maechler@stat.math.ethz.ch; Christian Sangiorgio
+>> Betreff: Re: Sfsmisc: rnls(), nonlinear formula and terms()
+>>
+>>
+>> >>>>> "MM" == Martin Maechler <maechler@stat.math.ethz.ch>
+>> >>>>>     on Mon, 8 Aug 2005 16:19:19 +0200 writes:
+>>
+>>     MM> Hoi Andreas, ich bin leider etwas im Stress
+>>
+>>     MM> Ich denke ist eine Art bug in terms.formula() ---> gehe
+>>     MM> dem nach
+>>
+>> Falsch gedacht;  Brian weiss es natürlich besser:
+>>
+>>  >> Since x^10 gets interpreted, why do you expect 10^x to
+>> be treated
+>>  >> literally?
+>>  >>
+>>  >> It does not work in S either.  You do need to protect
+>> operators in formula
+>>  >> if you want their arithmetic meaning: if you want
+>> something analogous to
+>>  >> exp(x-a) then I(10^(x-a)) is needed.
+>>
+>> Ich denke, dass  --- da nls() dieses Problem so nicht hat
+>> --- somit eigentlich  rnls() umgeschrieben werden sollte, indem es
+>> terms() nicht so benützt.
+>> Im Moment habe ich aber gar keine Zeit in diese Richtung.
+>>
+>> Die richtige Lösung fürs momentane rnls() ist also wohl
+>>
+>>    I(10^(...............))
+>>
+>> zu verwenden,  ausser das folgende gefällt besser:
+>>
+>>     MM> Als Workaround für Dein Problem kannst Du natürlich
+>>
+>>     MM>     p10 <- function(x) 10^x
+>>
+>>     MM> und dann "p10(.)" statt "10^(.)" verwenden.
+>>
+>>     MM> Mit liebem Gruss: Martin
+>>
+>> >>>>> "ARu" == Ruckstuhl Andreas \(rks\) <Ruckstuhl>
+>> >>>>>     on Mon, 8 Aug 2005 15:26:04 +0200 writes:
+>>
+>>     ARu> Lieber Martin Ich bin wieder mal an einer robusten
+>>     ARu> Anpassung eines nichtlinearen Regressionsmodell. Dazu
+>>     ARu> verwende ich Christian's R-Version von rnls (in Eurem
+>>     ARu> neusten sfsmisc-package). Darin ergibt sich folgendes
+>>     ARu> Problem mit "10^" in der Formel (Das Bsp im Help ist
+>>     ARu> mit exp!):
+>>
+>>     >>> version
+>>     ARu> platform i386-pc-mingw32 arch i386 os mingw32
+>>     ARu> system i386, mingw32 status major 2 minor 1.1
+>>     ARu> year 2005 month 06 day 20 language R
+>>
+>>     >> The formula, I want to use, is
+>>     >> x1 <- ~ y - ((th2*10^(th3+th4*x))/(1+10^(th3+th4*x)))
+>>     >> terms(x1)
+>>     ARu> Error in terms.formula(x1) : invalid power in formula
+>>
+>>     ARu> However, when I replace "10^" by exp it works correcly:
+>>     >> x2 <- ~ y - ((th2*exp(th3+th4*x))/(1+exp(th3+th4*x)))
+>>     >> terms(x2)
+>>     ARu> ~y - ((th2 * exp(th3 + th4 * x))/(1 + exp(th3 + th4 * x)))
+>>     ARu> attr(,"variables")
+>>     ARu> list(y, exp(th3 + th4 * x), th2)
+>>     ARu> attr(,"factors")
+>>     ARu> y
+>>     ARu> y                  1
+>>     ARu> exp(th3 + th4 * x) 0
+>>     ARu> th2                0
+>>     ARu> attr(,"term.labels")
+>>     ARu> [1] "y"
+>>     ARu> attr(,"order")
+>>     ARu> [1] 1
+>>     ARu> attr(,"intercept")
+>>     ARu> [1] 0
+>>     ARu> attr(,"response")
+>>     ARu> [1] 0
+>>     ARu> attr(,".Environment")
+>>     ARu> <environment: R_GlobalEnv>
+>>
+>>     ARu> Wo ist das Problem? In terms? Oder muss der Code in
+>>     ARu> rnls abgeändert werden, weil das so nicht geht?
+>>
+>>     ARu> Jetzt schon herzlichen Dank für Deine Hilfe
+>>
+>>     ARu> Gruss Andreas
+>>
+
+------- Attachment:
+
+	---> "/u/maechler/R/Pkgs/sfsmisc/R/rfnls.R"
+
+
+From: "Ruckstuhl Andreas \(rks\)" <rks@zhwin.ch>
+To: "Martin Maechler" <maechler@stat.math.ethz.ch>
+Subject: AW: AW: Sfsmisc: rnls(), nonlinear formula and terms()
+Date: Tue, 9 Aug 2005 11:38:14 +0200
+
+Lieber Martin
+
+>> - Du hast alle Kommentare die wir drin hatten verloren.
+Habe leider nicht die richtige Source (aus dem sfsmisc_*. tar file) editiert. Blöd!
+
+
+Das mit der Abhängigkeit zu Christian's Diss habe ich nicht gesehen. Methods(class="nls.robust") hat nichts geliefert. Und "rnls" ist die übliche Bezeichnung in R /S-Plus für die class bei einer Funktion rnls.
+
+Falls es ein Problem wird, könnte man auch die Funktion und die class umtaufen zu z.B. rfnrm (robust fitting of nonlinear regression models). - Namensvorschlag ist schrecklich. Und rfnls, rfnreg, rfnlm, ...?
+
+
+lseq() : Super, habe ich übersehen.
+
+
+Guten Flug sowie viel Erfolg und Spass an der Konverenz
+
+Andreas
+
+
+>> -----Ursprüngliche Nachricht-----
+>> Von: Martin Maechler [mailto:maechler@stat.math.ethz.ch]
+>> Gesendet: Dienstag, 9. August 2005 10:50
+>> An: Ruckstuhl Andreas (rks)
+>> Cc: Martin Maechler
+>> Betreff: Re: AW: Sfsmisc: rnls(), nonlinear formula and terms()
+>>
+>>
+>> >>>>> "ARu" == Ruckstuhl Andreas \(rks\) <Ruckstuhl>
+>> >>>>>     on Tue, 9 Aug 2005 09:53:55 +0200 writes:
+>>
+>>     ARu> Lieber Martin Anbei ein File mit einer neuen Version
+>>     ARu> von rnls und diversen "Methoden-Funktionen". Jetzt
+>>     ARu> sollte es funktionieren.
+>>
+>> Super!  Wie gesagt habe ich keine Zeit im Moment; bin immer
+>> noch an meinem Vortrag für Seattle (DSC 2005) wohin ich
+>> übermorgen los fliege.  Ich nehme mal alles mit und habe
+>> viellleicht Zeit (in schlaflosen Nächten  ; langen Flügen
+>> ..) und sonst dann später.
+>>
+>> Aargh, muss doch noch schnell feedback geben:
+>>
+>> - Bist Du sicher, dass class = "rnls" besser ist als "nls.robust"
+>> - Du hast alle Kommentare die wir drin hatten verloren.
+>>   Hast Du nicht die richtige Source (aus dem sfsmisc_*. tar
+>> file) editiert?
+>>
+>> - Ich bin etwas zurückhaltend, solche massive Aenderung einfach
+>>   einzuführen.
+>>   Es ist auch so, dass Christian Sangiorgio selber ein Package
+>>   zum Thema seiner Diss geschriebn hat, welches in einem kleinen
+>>   Teil auf  rnls() beruht.
+>>
+>>   Dann ist das folgende natürlich nicht so gut, ein
+>> "Kompatibilitätsbruch",
+>>   obwohl es logisch gesehen eine Verbesserung ist, und er wohl
+>>   seinen Code schon noch anpassen kann.
+>>
+>>     ARu> Achtung: Neu Formalangabe 'y ~ f(x, alpha)'
+>>
+>>
+>>     ARu> Beisiel für das Help (Ergänzungen)
+>>
+>>      ........
+>>
+>>     ARu> plot(density ~ conc, data=DNase1, log="x")
+>>
+>>     ARu> h.x <- exp(seq(min(log(DNase1$conc)),
+>> max(log(DNase1$conc)), length=50)) Nur eine kurze Bemerkung:
+>> Genau für solche Beispiele  gibt's im  'sfsmisc' die Funktion
+>> lseq()  {"logarithmisches seq()"}:
+>>
+>>     h.x <- lseq(min(DNase1$conc), max(lDNase1$conc), length=50)
+>>
+>>
+>>     ARu> h.p <- predict(fm3DNase1, newdata=data.frame(conc=h.x))
+>>     ARu> lines(h.x, h.p, col="blue")
+>>     ARu> h.rp <- predict(frm3DNase1, newdata=data.frame(conc=h.x))
+>>     ARu> lines(h.x, h.rp, col="magenta")
+>>
+>>     ARu> Vielen Dank für Deine Hilfe.
+>>
+>> Du übertreibst!  Du hast's ja massiv verbessert!
+>> Martin
+>>
+>> Gruss: Martin

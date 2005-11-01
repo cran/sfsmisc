@@ -12,8 +12,9 @@
 p.profileTraces(x, cex = 1, subtitle = "t-Profil-Plot und Profilspuren")
 }
 \arguments{
-  \item{x}{an object of class \code{nls}, typically resulting from
-    \code{\link{nls}(.)}.}
+  \item{x}{an object of class \code{"profile.nls"}, typically resulting from
+    \code{profile(\link[stats]{nls}(.))}, see
+    \code{\link[stats]{profile.nls}}.}
   \item{cex}{character expansion, see \code{\link{par}(cex =)}.}
   \item{subtitle}{a subtitle to set for the plot.}
 }

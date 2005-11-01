@@ -15,15 +15,14 @@
 ## -- to DO: summary, print method for this class (and fitted, residuals, ...)
 ##                          ~~~~~~
 ## "rlm" has quite sophisticated ones, see
-##	/usr/local/app/R/R_local/src/VR/MASS/R/rlm.R
+ ##	/usr/local/app/R/R_local/src/VR/MASS/R/rlm.R
 ## but the "nls" ones that are currently used, have too, see
 ##	/u/maechler/R/D/r-devel/R/src/library/stats/R/nls.R
 
 rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
                  psi = MASS::psi.huber, test.vec = c("resid", "coef", "w"),
-                 maxit = 20, acc = 1e-06,
-                 algorithm = "default", control = nls.control(),
-                 trace = FALSE, ...)
+                 maxit = 20, acc = 1e-06, algorithm = "default",
+                 control = nls.control(), trace = FALSE, ...)
 {
     ## Purpose:
     ##  Robust parameters estimation in the nonlinear model. The fitting is
@@ -36,12 +35,11 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
     ##- some checks
     mf <- match.call() # << and more as in nls()  [FIXME or drop]
     formula <- as.formula(formula)
-    if (length(formula) != 2)
-        stop("'formula' should be a formula of the type ~ y - f(x, alpha)")
-
+    if (length(formula) != 3)
+	stop("'formula' should be a formula of the type 'y  ~ f(x, alpha)'")
     varNames <- all.vars(formula)
     test.vec <- match.arg(test.vec)
-
+    dataName <- substitute(data)
     data <- as.data.frame(data)
 
     ## FIXME:  nls() allows  a missing 'start';  we don't :
@@ -55,7 +53,7 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
     if ("w" %in% varNames || "w" %in% pnames || "w" %in% names(data))
         stop("Do not use 'w' as a variable name or as a parameter name")
 
-    if (!is.null(weights)){
+    if (!is.null(weights)) {
         if (length(weights) != nrow(data))
             stop("'length(weights)' must equal the number of observations")
         if (any(weights < 0) || any(is.na(weights)))
@@ -66,21 +64,22 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
     ##   stop("if NAs are present, use 'na.exclude' to preserve the residuals length")
 
     irls.delta <- function(old, new)
-        sqrt(sum((old - new)^2, na.rm = TRUE) / max(1e-20, sum(old^2,na.rm=TRUE)))
+        sqrt(sum((old - new)^2, na.rm = TRUE) / max(1e-20, sum(old^2,na.rm = TRUE)))
 
     ##- initialize testvec  and update formula with robust weights
     coef <- start
-    resid <- eval(formula[[2]], c(as.list(data), start)) ##- residual: y - f()
+    fit <- eval(formula[[3]], c(as.list(data), start))
+    y <- eval(formula[[2]], as.list(data))
+    resid <- y - fit
     w <- rep(1, nrow(data))
     if (!is.null(weights))
         w <- w * weights
 
     oform <- formula
-    formula  <- as.formula(substitute(~ (RHS) * w, list(RHS = formula[[2]])))
-    ##- formula <- update.formula(formula, ~ I((.) * w))  ##- old
+    formula <- as.formula(substitute(~(LHS-RHS) * w, list(LHS = formula[[2]],
+							  RHS = formula[[3]])))
 
-
-    ##- robust loop
+    ##- robust loop:
     converged <- FALSE
     status <- "converged"
     method.exit <- FALSE
@@ -88,7 +87,7 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
     for(iiter in 1:maxit) {
         if(trace) cat("robust iteration", iiter, "\n")
         previous <- get(test.vec)
-        Scale <- median(abs(resid), na.rm=TRUE)/0.6745
+        Scale <- median(abs(resid), na.rm = TRUE)/0.6745
 
         if(Scale == 0) {
             convi <- 0
@@ -103,16 +102,16 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
                 w <- w * weights
 
             data$w <- sqrt(w)
-            res <- nls(formula, data = data, start= start, algorithm= algorithm,
-                       trace = trace, na.action = na.action, control= control)
+            out <- nls(formula, data = data, start = start, algorithm = algorithm,
+                       trace = trace, na.action = na.action, control = control)
 
             ## same sequence as in start! Ok for test.vec:
-            coef <- coefficients(res)
-            ## above coef <- coefficients(res) needed since coef could be
+            coef <- coefficients(out)
+            ## above coef <- coefficients(out) needed since coef could be
             ## test.vec
 
             start <- coef
-            resid <- - residuals(res)/sqrt(w)## == - (y - f(x)) sqrt(w)
+            resid <- - residuals(out)/sqrt(w)## == - (y - f(x)) sqrt(w)
             convi <- irls.delta(previous, get(test.vec))
         }
         converged <- convi <= acc
@@ -120,7 +119,7 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
             break
     }
 
-    if(!converged & !method.exit)
+    if(!converged && !method.exit)
         warning(status <- paste("failed to converge in", maxit, "steps"))
 
     if(!is.null(weights)) {
@@ -128,30 +127,81 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
         w[tmp] <- w[tmp]/weights[tmp]
     }
 
-    ##- return the fit (delete some res$.. to avoid misunderstanding for ex. for
-    ##- the residuals)
-    res$call         <- match.call()
-    res$formula      <- oform
-    res$new.formula  <- formula
-    res$coefficients <- coef ## == coefficients(res)
-    res$residuals    <- resid ## == - residuals(res)/sqrt(w) # minus !
-    ##-   names(res$residuals) <- rownames(data)
+    ##- return the fit
+    out <- list(m = out$m, call = match.call(), formula = oform,
+                new.formula = formula,
+		coefficients = coef, ## == coefficients(out)
+                residuals = resid) ## == - residuals(out)/sqrt(w) # minus !
+    ##ARu: dropped this: 'y <- eval(...)':
+    ## y <- eval(as.expression(attr(terms(oform), "variables")[[2]]), data)
+    out$fitted.values <- y - out$residuals
+    attr(out$fitted.values, "label") <- "Fitted values"
+    ##-   names(out$residuals) <- rownames(data)
+    ##-   names(out$fitted.values) <- rownames(data)
+    out$Scale <- Scale
+    out$w <- w
+    out$status <- status
+    out$psi <- psi
+    out$data <- dataName
+    out$dataClasses <- attr(attr(mf, "terms"), "dataClasses")
 
-    ##- fitted values
-    y <- eval(as.expression(attr(terms(oform), "variables")[[2]]), data)
-    res$fitted.values <- y - res$residuals ## == y - fitted(res)/sqrt(w)
-    attr(res$fitted.values,"label") <- "Fitted values"
-    ##-   names(res$fitted.values) <- rownames(data)
+    class(out) <- c("rnls", "nls")
 
-    res$Scale  <- Scale
-    res$w      <- w
-    res$status <- status
-    res$psi    <- psi
-    res$m      <- NULL ## would be needed in nls' summary - why drop here?
-    res$dataClasses <- NULL ## why?
+    out
+}
 
-    class(res) <- c("nls.robust", "nls")
+### These are from  Andreas Ruckstuhl, August 2005 :
 
-    res
+fitted.rnls <- function(object, ...)
+{
+    val <- as.vector(object$fitted.values)
+    if (!is.null(object$na.action))
+	val <- napredict(object$na.action, val)
+    attr(val, "label") <- "Fitted values"
+    val
+}
+residuals.rnls <- function (object, ...)
+{
+   val <- as.vector(object$residuals)
+   if (!is.null(object$na.action))
+     val <- naresid(object$na.action, val)
+   attr(val, "label") <- "Residuals"
+   val
+}
+
+predict.rnls <- function (object, newdata, ...)
+{
+    if (missing(newdata))
+	return(as.vector(fitted(object)))
+    if (!is.null(cl <- object$dataClasses))
+	.checkMFClasses(cl, newdata)
+    eval(object$formula[[3]], c(as.list(newdata), coef(object)))
+}
+
+print.rnls <- function (x, ...)
+{
+    cat("Robustly fitted nonlinear regression model\n")
+    cat("  model: ", deparse(formula(x)), "\n")
+    cat("   data: ", deparse(x$data), "\n")
+    print(coef(x), ...)
+    cat(" status: ", x$status, "\n")
+    invisible(x)
+}
+
+## NOTE:  coef(<rnls>)  works via  coef.nls() !
+
+## MM: don't know if this is a good idea;  formula.default() would work too
+## formula.rnls <- function (x, ...)
+##   x$formula
+
+summary.rnls <- function (object, ...)
+{
+    .NotYetImplemented()
+    ## that may be a good start:
+    nlsSum <- stats:::summary.nls(object, ...)
+    ## but we need to change the call;
+    ## additionally show robustness weights, and --- most importantly ---
+    ## "Fix the inference" (z-values / sandwich-STD.ERR. ?)
+    object
 }
 

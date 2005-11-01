@@ -9,7 +9,7 @@
 }
 \usage{
 p.hboxp(x, y.lo, y.hi, boxcol = 3,
-        medcol = 0, medlwd = 5, whisklty = 2, staplelty = 1)
+        medcol = 2, medlwd = 5, whisklty = 2, staplelty = 1)
 }
 \arguments{
   \item{x}{univariate data set.}
@@ -27,7 +27,7 @@ p.hboxp(x, y.lo, y.hi, boxcol = 3,
 \seealso{\code{\link{boxplot}(**, horizontal = TRUE, add= TRUE)}.}
 \examples{
 %% FIXME: add!
-  ## ==>  See code in 'hist.bxp' (.)
+  ## ==>  See code in 'hist.bxp' (.)  and  example(hist.bxp) !
   ##
 }
 \keyword{aplot}

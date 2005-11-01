@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.30 2004/11/05 07:48:19 maechler Exp $
+#### $Id: misc-goodies.R,v 1.31 2005/04/25 10:06:57 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -700,7 +700,7 @@ nr.sign.chg <- function(y)
   ## Be careful with y[i] that were 0 !!
   y <- sign(c(y))
   y <- y[y != 0]
-  sum(as.integer(y[-1] != y[-length(y)]))
+  sum(y[-1] != y[-length(y)])
 }
 
 unif <- function(n, round.dig = 1 + trunc(log10(n)))

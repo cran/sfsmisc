@@ -1,13 +1,63 @@
+2005-11-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/rnls.R (rnls): incorporate changes by Andreas Ruckstuhl
+	(fitted.rnls): new basic methods for S3 class "rnls"
+
+2005-10-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Date): update
+
+	* R/p.goodies.R (p.arrows): use atan2() instead of 2-arg. atan()
+
+2005-07-11  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/p.profileTraces.Rd: 'x' must be 'profile' not 'nls' result
+
+2005-07-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/glob2rx.R (glob2rx): copied glob2rx() to "R-devel"
+	  ==> should be part of R-2.2.x
+
+2005-05-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/diagDA.Rd: fixed typo: s/i.e./e.g./
+
+2005-05-12  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Depends): R (>= 2.0.0) is needed for datasets
+
+	* R/glob2rx.R (glob2rx): add 'trim.*' arguments, with defaults to
+	be exactly back compatible.
+
+2005-05-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Depends): also on 'methods' and 'utils'
+
+	* R/tkdensity.R (tkdensity): careful to get stats::density.default
+	  for R versions >= 2.2.0;  new argument 'kernels'
+
+2005-05-09  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (ps.end): use 'ps wx' (no "-")
+
 2005-04-25  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 0.95-1
+	* DESCRIPTION (Version): 0.95-2
+
+	* INDEX: updated
+
+	* man/p.hboxp.Rd: also change default to 'medcol= 2'
+
+2005-04-25  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-1	 --> CRAN
 
 	* man/*.Rd: added \encoding{latin1} to quite a few
 
 	* man/AsciiToInt.Rd: example with Umlaut fails to parse(!)
 	in utf-8 locale -> \dontrun{} it.
 
-	* R/misc-goodies.R (hist.bxp): new defaulg 'medcol = 2':
+	* R/misc-goodies.R (hist.bxp): new default 'medcol = 2':
 	   "medcol = 0" is not sensible for '0 = "transparent"'.
 
 	* R/mat2tex.R (mat2tex): new arg.s 'nam.center', 'col.center'
@@ -33,7 +83,7 @@
 
 2004-12-13  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 0.9-8  --> CRAN
+	* DESCRIPTION (Version): 0.9-8	--> CRAN
 
 	* R/pd-matrix.R (posdefify): fix bug in non-default method
 	"allEVadd"!

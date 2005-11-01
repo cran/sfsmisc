@@ -153,7 +153,7 @@ p.profileTraces <-
 ## --> /u/sfs/ueb/fortgeschrittene/loesungen/loes-rg.truthennen.R
 
 ## mainly auxiliary of  hist.bxp() :
-p.hboxp <- function(x, y.lo, y.hi, boxcol = 3, medcol = 0,
+p.hboxp <- function(x, y.lo, y.hi, boxcol = 3, medcol = 2,
                     medlwd = 5, whisklty = 2, staplelty = 1)
 {
   if(missing(y.hi) && length(y.lo) == 2) { y.hi <- y.lo[2]; y.lo <- y.lo[1] }
@@ -218,11 +218,11 @@ p.arrows <- function(x1, y1, x2, y2,
   wx2 <- width* x^2
   y.arr <- c(- wx2 - delta, rev(wx2) + delta)
   ## Polar(x.., y..):
-  deg.arr <- c(atan(y.arr, x.arr), NA)# - NA to 'break' long polygon
+  deg.arr <- c(atan2(y.arr, x.arr), NA)# - NA to 'break' long polygon
   r.arr <- c(sqrt(x.arr^2 + y.arr^2), NA)
 
   ## Draw Arrow Head at (x2,y2)
-  theta <- atan((y2-y1)*uin[2], (x2-x1)*uin[1])
+  theta <- atan2((y2-y1)*uin[2], (x2-x1)*uin[1])
   lx <- length(x1)
   Rep <- rep(length(deg.arr), lx)
   x2 <- rep(x2, Rep)

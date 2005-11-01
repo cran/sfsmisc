@@ -1,6 +1,6 @@
 #### PostScript Goodies für R --- `a la /u/sfs/S/ps.goodies.S
 ####
-#### $Id: ps.goodies.R,v 1.13 2004/02/07 16:41:48 maechler Exp $
+#### $Id: ps.goodies.R,v 1.14 2005/05/09 08:45:02 maechler Exp $
 ####
 
 ps.latex <- function(file, height= 5+ main.space*1.25, width= 9.5,
@@ -105,7 +105,7 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
     if (is.null(call.gv)) {
 	ps.cmd <- if(u.sys("uname") == "Linux" ||
 		     substring(u.sys("uname -r"),1,1) == "4") #-- SunOS4
-	    "ps -wx" else "/usr/bin/ps -u $USER -o args"
+	    "ps wx" else "/usr/bin/ps -u $USER -o args"
 	f <- u.sys(ps.cmd, " | grep '", command, "' | grep -v grep")
 	if(debug) { cat("ps.end(): f:\n");print(f) }
 	call.gv <- length(f) == 0

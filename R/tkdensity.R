@@ -4,7 +4,7 @@
 ### /u/maechler/R/D/r-devel/Linux-inst/library/tcltk/demo/tkdensity.R
 
 tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
-                      xlim = NULL, do.rug = size < 1000,
+                      xlim = NULL, do.rug = size < 1000, kernels = NULL,
                       from.f = if(log.bw) -2   else 1/1000,
                       to.f   = if(log.bw) +2.2 else 2, col = 2)
 {
@@ -14,6 +14,16 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
 
     require(tcltk) || stop("tcltk support is absent")
 
+    ## get R's density[.default] depending on R version
+    dFun <-
+        if(methods::existsFunction("density.default",
+                                   where = asNamespace("stats")))
+            stats::density.default
+        else stats::density
+    all.kerns <- eval(formals(dFun)$kernel)
+    kernels <-
+        if(is.null(kernels)) all.kerns
+        else match.arg(kernels, all.kerns)
     ynam <- deparse(substitute(y))
     size <- length(y)
     sd.y <- sqrt(var(y))
@@ -108,7 +118,7 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
 
     ## Kernel Frame :
     tkpack(tklabel(kern.frame, text = "Kernel"))
-    for (k.name in eval(formals(density)$kernel))
+    for (k.name in kernels)
         tkpack(tkradiobutton(kern.frame, command = replot,
                              text = k.name, value = k.name, variable=kernel),
                anchor = "w")

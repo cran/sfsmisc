@@ -1,6 +1,7 @@
 \name{huberM}
 \alias{huberM}
 \title{Safe (generalized) Huber M-Estimator of Location}
+\concept{robust location}
 \description{
   (Generalized) Huber M-estimator of location with MAD scale, being
   sensible also when the scale is zero where \code{\link[MASS]{huber}()}
@@ -23,7 +24,7 @@ huberM(x, k = 1.5, tol = 1e-06, mu = median(x), s = mad(x, center=mu),
 \value{
   list of location and scale parameters, and number of iterations used.
   \item{mu}{location estimate}
-  \item{s}{the \code{s} argument,MAD scale estimate -- unless \code{s} is}
+  \item{s}{the \code{s} argument, typically the \code{\link{mad}}.}
   \item{it}{the number of \dQuote{Huber iterations} used.}
 }
 \author{Martin Maechler building on the MASS code mentioned.}

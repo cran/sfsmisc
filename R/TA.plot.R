@@ -55,9 +55,10 @@ TA.plot <-
     if(is.call(call[["formula"]]) && any(c("lm", "aov") == call[[1]]))
       call <- call[["formula"]]
     else {  #-- only formula part; no extra  'ARG ='
-      if (length(call) >= 3)
-	call <- call[c(1, match("formula", names(call)))]
-      names(call)[2] <- ""
+        if (length(call) >= 3 && !is.na(m.f <- match("formula", names(call)))) {
+            call <- call[c(1, m.f)]
+            names(call)[2] <- ""
+        }
     }
     mk.main <- function() {
       cal <- if(is.R()) call else get("call", frame = sys.parent())
