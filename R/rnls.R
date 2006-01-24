@@ -76,6 +76,8 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
         w <- w * weights
 
     oform <- formula
+### FIXME:  nls() in R 2.3.0. *does* now work with weights !
+
     formula <- as.formula(substitute(~(LHS-RHS) * w, list(LHS = formula[[2]],
 							  RHS = formula[[3]])))
 

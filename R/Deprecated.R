@@ -19,14 +19,14 @@ nna <- function(data)
 
 digits.v <- function(nvec, base = 2, num.bits = 1 + floor(log(max(nvec),base)))
 {
-    warning("'digits.v'() is deprecated -- please use  baseDigits() instead!")
-    baseDigits(nvec, base = base, ndigits = num.bits)
+    warning("'digits.v'() is deprecated -- please use  digitsBase() instead!")
+    digitsBase(nvec, base = base, ndigits = num.bits)
 }
 
 digits <- function(n, base = 10)
 {
-    warning("'digits'() is deprecated -- please use  baseDigits() instead!")
-    drop(baseDigits(n, base=base))
+    warning("'digits'() is deprecated -- please use  digitsBase() instead!")
+    drop(digitsBase(n, base=base))
 }
 
 tapply.num <- function(y, indices, Func) {

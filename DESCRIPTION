@@ -1,6 +1,6 @@
 Package: sfsmisc
-Version: 0.95-2
-Date: 2005-11-01
+Version: 0.95-3
+Date: 2006-01-24
 Author: Martin Maechler and many others.
 Maintainer: Martin Maechler <maechler@stat.math.ethz.ch>
 Title: Utilities from Seminar fuer Statistik ETH Zurich
@@ -9,4 +9,4 @@ Description: Useful utilities [`goodies'] from Seminar fuer Statistik ETH
 Depends: R (>= 2.0.0), stats, methods, utils
 Suggests: datasets
 License: GPL (GNU Public Licence), Version 2 or later
-Packaged: Tue Nov  1 21:25:30 2005; maechler
+Packaged: Tue Jan 24 18:36:17 2006; maechler

@@ -1,4 +1,20 @@
+2006-01-24  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+
+	* DESCRIPTION (Version, Date): 0.95-3
+
+	* R/prettylab.R (pretty10exp, axTexpr): new functions
+
+2005-11-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (digitsBase): return S3 class "basedInt"
+	* R/misc-goodies.R (as.intBase): new; inverse of digitsBase()
+
+	* R/Deprecated.R (digits): point to digitsBase() {not "baseDigits"}!
+
 2005-11-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-2 --- RELEASED to CRAN
 
 	* R/rnls.R (rnls): incorporate changes by Andreas Ruckstuhl
 	(fitted.rnls): new basic methods for S3 class "rnls"

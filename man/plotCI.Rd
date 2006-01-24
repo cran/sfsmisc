@@ -4,7 +4,7 @@
 \description{
   THIS IS NOW (2004-08-12) DEPRECATED !!!
 
-  DO USE  \code{\link[gregmisc]{plotCI}} from package \pkg{gregmisc} INSTEAD!
+  DO USE  \code{\link[gplots]{plotCI}} from package \pkg{gplots} INSTEAD!
 
 
   Given a set of x and y values and upper and lower bounds,

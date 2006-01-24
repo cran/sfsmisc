@@ -254,7 +254,29 @@ digitsBase <- function(x, base = 2, ndigits = 1 + floor(log(max(x),base)))
         r[i,] <- x %% base
         if (i > 1) x <- x %/% base
     }
+    class(r) <- "basedInt"
+    attr(r, "base") <- base
     r
+}
+
+as.intBase <- function(x, base = 2) {
+   xl <- if(is.character(x)) lapply(strsplit(x,""), as.integer)
+        else if(is.numeric(x) && is.matrix(x)) tapply(x, col(x), c)
+        else if(!is.list(x))
+            stop("'x' must be character, list or a digitsBase() like matrix")
+   sapply(xl, function(u) polyn.eval(rev(u), base), USE.NAMES = FALSE)
+}
+
+as.integer.basedInt <- function(x, ...)
+    as.intBase(x, base = attr(x, "base"))
+
+print.basedInt <- function (x, ...) {
+    cat(sprintf("Class 'basedInt'(base = %d) [1:%d]\n",
+                attr(x,"base"), ncol(x)))
+    cx <- x
+    attr(cx,"base") <- NULL
+    print(unclass(cx), ...)
+    invisible(x)
 }
 
 sHalton <- function(n.max, n.min = 1, base = 2, leap = 1)
