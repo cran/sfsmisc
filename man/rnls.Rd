@@ -47,7 +47,8 @@ rnls(formula, data, start, weights = NULL,
     contain \code{NA}s.  The default action is for the procedure to
     fail.  If NAs are present, use \code{na.exclude} to have residuals with
     \code{length == nrow(data) == length(w)}, where \code{w} are the
-    weights used in the iterative robust loop.  This is better if the vars in
+    weights used in the iterative robust loop.  This is better if the explanatory
+    variables in
     \code{formula} are time series (and so the NA location is important).
     For this reason, \code{na.omit}, which leads to omission of cases
     with missing values on any required variable, is not suitable

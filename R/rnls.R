@@ -32,6 +32,9 @@ rnls <- function(formula, data, start, weights = NULL, na.action = na.fail,
     ## --> see the help file,  ?rnls  (or ../man/rnls.Rd in the source)
     ## -------------------------------------------------------------------------
 
+    cat("rnls() in package 'sfsmisc' is deprecated (and will be removed)",
+	"\n do use nlrob() from the 'robustbase' package instead!\n")
+
     ##- some checks
     mf <- match.call() # << and more as in nls()  [FIXME or drop]
     formula <- as.formula(formula)

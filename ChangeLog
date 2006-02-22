@@ -1,3 +1,14 @@
+2006-02-22  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-4
+
+	* man/Deprecated.Rd: huberM() now in package "robustbase"
+	* R/Deprecated.R:    is deprecated here.
+	* R/huber.R:
+
+	* man/tkdensity.Rd: if(dev.interactive()) { ... } now suddenly
+		needed for CRAN
+
 2006-01-24  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 
