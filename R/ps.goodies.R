@@ -93,7 +93,7 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
     ##	  Default:	  Find out if ghostview already runs on this file,
     ##			  If yes, do not call it again.
     ## MUST be called after ps.do(..) or ps.latex() !
-    ## Example:	 ps.end(com = "ghostview -a4")
+    ## Example:	 ps.end(com = "ghostview --media a4")
     ## ----------------------------------------------------------------
     ## Only if	postscript is running !! --
     if( names(dev.cur()) == "postscript")
@@ -103,10 +103,7 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
 	return(FALSE)
     }
     if (is.null(call.gv)) {
-	ps.cmd <- if(u.sys("uname") == "Linux" ||
-		     substring(u.sys("uname -r"),1,1) == "4") #-- SunOS4
-	    "ps wx" else "/usr/bin/ps -u $USER -o args"
-	f <- u.sys(ps.cmd, " | grep '", command, "' | grep -v grep")
+	f <- u.sys(Sys.ps.cmd(), " | grep '", command, "' | grep -v grep")
 	if(debug) { cat("ps.end(): f:\n");print(f) }
 	call.gv <- length(f) == 0
 	if(!call.gv) {

@@ -32,8 +32,8 @@ TA.plot <-
            labels = NULL, main = mk.main(), xlab = "Fitted values",
            draw.smooth = n >= 10, show.call = TRUE, show.2sigma = TRUE,
            lo.iter = NULL, lo.cex = NULL,
-           par0line  = list(lty = 2, col = 2),
-           parSmooth = list(lwd = 1.5, lty = 4, col = 3),
+           par0line  = list(lty = 2, col = "gray"),
+           parSmooth = list(lwd = 1.5, lty = 4, col = 2),
            parSigma  = list(lwd = 1.2, lty = 3, col = 4),
            ...)
 {
@@ -54,7 +54,7 @@ TA.plot <-
     call <- lm.res $ call
     if(is.call(call[["formula"]]) && any(c("lm", "aov") == call[[1]]))
       call <- call[["formula"]]
-    else {  #-- only formula part; no extra  'ARG ='
+    else {  #-- only formula part; no extra  'data ='
         if (length(call) >= 3 && !is.na(m.f <- match("formula", names(call)))) {
             call <- call[c(1, m.f)]
             names(call)[2] <- ""
@@ -65,11 +65,12 @@ TA.plot <-
       if(is.null(cal))
         "Tukey-Anscombe plot of ???"
       else {
-	  nc <- nchar(ccal <- deparse(cal)[1])
+	  nc <- nchar(ccal <- deparse(cal, width.cutoff = 200)[1])
 	  prt.DEBUG("|cal|=", length(cal), "; nchar(ccal) =", nc,": '", ccal,
 		    "'\n", sep="")
 	  if(nc > 36)
-	    warning("TA.plot: 'main' title is long; consider using  cex= .9")
+	      warning("TA.plot: 'main' title is long; consider using cex.main = 0.8",
+		      call. = FALSE)
 	  ##-- now should even go further:
 	  ##--  E.g. if  nc > 50,  use  cex = .8 in the call to n.plot below
 	  paste(if(nc < 13) "Tukey-Anscombe plot of :  "

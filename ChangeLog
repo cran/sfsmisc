@@ -1,3 +1,19 @@
+2006-06-22  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version, Date): 0.95-5
+
+2006-05-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/TA.plot.R (TA.plot): slightly better warning in mk.main();
+		slightly improved defaults {line colors}
+
+2006-04-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/zzz.R (.onLoad): smarter 'gv' command
+	* R/ps.goodies.R (ps.end): use Sys.ps.cmd() -> work on non-antique
+	Linuxen !
+	* R/unix/Sys.ps.R (Sys.ps.cmd): newer Linux has 'ps w' too!
+
 2006-02-22  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.95-4

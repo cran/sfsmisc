@@ -29,7 +29,6 @@ glob2rx                 Change Wildcard or Globbing Pattern into
                         Regular Expression
 hatMat                  Hat Matrix of a Smoother
 hist.bxp                Plot a Histogram and a Boxplot
-huberM                  Safe (generalized) Huber M-Estimator of Location
 integrate.xy            Cheap Numerical Integration through Data points.
 inv.seq                 Inverse seq() -- Short Expression for Index Vector
 iterate.lin.recursion   Generate Sequence Iterating a Linear Recursion
