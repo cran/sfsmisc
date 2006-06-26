@@ -1,3 +1,7 @@
+2006-06-26  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/zzz.R (.onLoad): for "unix": more cautious when 'gv' is not there.
+
 2006-06-22  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version, Date): 0.95-5
