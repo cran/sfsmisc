@@ -3,9 +3,9 @@
 \alias{Sys.MIPS}
 \title{Provide Information about the CPU}
 \description{
-  Retun Information about the CPU, the central processor unit of the
+  Return information about the CPU, the central processor unit of the
   computer \R is running on.
-  This is currently only available for Linux.
+  This is currently \bold{only available for Linux}.
 }
 \usage{
 Sys.cpuinfo(procfile = "/proc/cpuinfo")
@@ -34,8 +34,10 @@ Sys.MIPS()
 \seealso{\code{\link{Sys.ps}}, etc.}
 
 \examples{
-cbind(Sys.cpuinfo())
-Sys.MIPS()
-Sys.MIPS() / as.numeric(Sys.cpuinfo()["cpu MHz"]) ## < often about 2
+if(substr(R.version[["os"]], 1,5) == "linux") { ##-- only on Linux
+  cbind(Sys.cpuinfo())
+  Sys.MIPS()
+  Sys.MIPS() / as.numeric(Sys.cpuinfo()["cpu MHz"]) ## < often about 2
+}
 }
 \keyword{utilities}%-- one or more ...

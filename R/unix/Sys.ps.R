@@ -20,23 +20,6 @@ Sys.ps.cmd <- function() {
   }
 }
 
-## Deprecated (2003-12-02):
-Sys.PID <- function(ps.cmd = Sys.ps.cmd()) {
-    ## Return the PID of the R process :
-    if(paste(R.version$major, R.version$minor, sep=".") >= 1.7)
-	warning("please use the base function Sys.getpid() instead!")
-
-    if(!is.null(tp <- attr(ps.cmd,"type")) && tp == "BSD")
-	as.integer(system(paste(ps.cmd,
-				"| fgrep R.bin| fgrep -v grep| sed 's/ .*//'"),
-			  intern = TRUE))
-    else
-	as.integer(system(paste(ps.cmd,"-o pid"), intern = TRUE)[2])
-}
-## For R versions < 1.7:
-if(!exists("Sys.getpid", mode="function"))
-    Sys.getpid <- function() Sys.PID()
-
 ## These only apply to "System V" compatible `ps', not to BSD ones
 .Sys.ps.fields <-
   list(POSIX = c("args", "comm", "time", "etime", "nice", "pcpu",
@@ -188,6 +171,8 @@ Sys.sizes <- function(process = Sys.getpid(),
 
 
 ###-------------- This is Linux - only :
+if(substr(R.version[["os"]], 1,5) == "linux") {
+
 Sys.cpuinfo <- function(procfile = "/proc/cpuinfo")
 {
   l2 <- strsplit(readLines(procfile),"[ \t]*:[ \t]*")
@@ -200,3 +185,4 @@ Sys.cpuinfo <- function(procfile = "/proc/cpuinfo")
 
 Sys.MIPS <- function() as.numeric(Sys.cpuinfo()["bogomips"])
 
+}## Linux - only

@@ -644,7 +644,7 @@ lseq <- function(from, to, length)
     ## Purpose: seq(.) : equidistant on log scale
     ## ----------------------------------------------------------------------
     ## Author: Martin Maechler, Date:  3 Feb 2005, 08:34
-    2^seq(log2(from), log2(to), length.out = length)
+    exp(seq(log(from), log(to), length.out = length))
 }
 
 inv.seq <- function(i) {

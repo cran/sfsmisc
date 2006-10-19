@@ -1,3 +1,39 @@
+2006-10-19  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-7 to be released
+
+	* R/rnls.R (rnls): becomes defunct -- leave stub in
+	* R/Deprecated.R:
+	* man/rnls.Rd.R: removed, too
+
+	* R/unix/Sys.ps.R (Sys.PID): removed: has been deprecated for long.
+	* man/unix/Sys.ps.Rd: ditto
+
+	* R/zzz.R (.onLoad): replace \s by \\s
+
+
+2006-09-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/Deprecated.R: remove nna(), digits.v(), digits(),
+	tapply.num(), subtit(),
+	p.triangle(), p.panelL() and p.panelS() ---
+	These have been deprecated since Jan. 2004 (!)
+	* man/Deprecated.Rd: ditto
+
+2006-09-21  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/unix/Sys.ps.R (Sys.MIPS): if(.Linux-only.)
+	* man/unix/Sys.cpuinfo.Rd: ditto ==> should "work" on MacOS X
+
+2006-08-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/mult.fig.R (mult.fig): no longer globally assign 'old.par'.
+	This has been deprecated since 2004-08-12, rel. 0.9-5.
+
+2006-08-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/rrange.R (rrange): no need for old workaround
+
 2006-06-26  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/zzz.R (.onLoad): for "unix": more cautious when 'gv' is not there.

@@ -1,5 +1,41 @@
 
-		CHANGES in sfsmisc VERSION 0.9-8  [200......]
+		CHANGES in sfsmisc VERSION 0.95-6  [2006-06-26]
+
+   o
+		CHANGES in sfsmisc VERSION 0.95-5  [2006-06-22]
+
+   o
+
+
+
+		CHANGES in sfsmisc VERSION 0.95-4  [2006-02-26]
+
+   o
+
+
+
+		CHANGES in sfsmisc VERSION 0.95-3  [2006-01-25]
+
+   o
+
+
+
+		CHANGES in sfsmisc VERSION 0.95-2  [2005-11-03]
+
+   o
+
+
+
+		CHANGES in sfsmisc VERSION 0.95-1  [2005-04-25]
+
+   o    New:  rnls() for robust nonlinear regression;
+	      lseq() {seq() on log scale} utility
+
+   o    sfsmisc now has a NAMESPACE
+
+
+
+		CHANGES in sfsmisc VERSION 0.9-8  [2004-12-14]
 
    o	TA.plot() now also works for lme() results.
 
