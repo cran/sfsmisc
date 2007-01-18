@@ -120,7 +120,8 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
 		    break #-- don't  call ghostview since it runs this file..
 	    }
 	}
-    }
+    } else if(identical(call.gv, FALSE))
+	fil <- "<unknown>"
     if (call.gv) {
 	fil <- ..ps.file
 	u.sys(command, " ", fil, "&", intern=FALSE)

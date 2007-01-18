@@ -38,7 +38,7 @@ empty.dimnames <- function(a)
     ## 'Remove' all dimension names from an array for compact printing.
     n <- length(da <- dim(a))
     if(n == 0) return(a)
-    dimnames(a) <- lapply(1:n, function(i) rep("", da[i]))
+    dimnames(a) <- lapply(1:n, function(i) rep.int("", da[i]))
     a
 }
 
@@ -260,7 +260,7 @@ paste.vec <- function(name, digits = options()$digits)
 }
 signi <- function(x, digits = 6) round(x, digits - trunc(log10(abs(x))))
 
-bl.string <- function(no) paste(rep(" ", no), collapse = "")
+bl.string <- function(no) paste(rep.int(" ", no), collapse = "")
 
 ### symnum :  standard R function !!
 
@@ -545,7 +545,7 @@ xy.grid <- function(x,y)
   ## Purpose: Produce the grid used by  persp, contour, .. as  N x 2 matrix
   nx <- length(x)
   ny <- length(y)
-  cbind(rep(x,rep.int(ny,nx)),	rep(y,nx))
+  cbind(rep.int(x,rep.int(ny,nx)),	rep.int(y,nx))
 }
 
 rot2 <- function(xy, phi)
@@ -625,7 +625,7 @@ xy.unique.x <- function(x,y, w, fun.mean = mean)
     }
     n <- length(x)
     if(n != length(y)) stop("lengths of x and y must match")
-    if(missing(w))  w <- rep(1,n)
+    if(missing(w))  w <- rep.int(1,n)
     else if(n != length(w)) stop("lengths of x and w must match")
     ##--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--*--
     gr <- match(x,unique(x))

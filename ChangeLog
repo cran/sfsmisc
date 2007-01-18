@@ -1,3 +1,18 @@
+2007-01-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-8 to be released
+
+	* R/ps.goodies.R (ps.end): make sure 'call.gv = FALSE' works
+
+2007-01-17  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/p.goodies.R: using rep.int() instead of rep() in a few places.
+	* R/misc-goodies.R: ditto
+
+2006-10-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/posdefify.Rd: note about litterature
+
 2006-10-19  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.95-7 to be released

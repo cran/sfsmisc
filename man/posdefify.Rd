@@ -36,8 +36,19 @@ posdefify(m, method = c("someEVadd", "allEVadd"), symmetric, eps.ev = 1e-07)
   (i.e. \code{\link{diag}}) as \code{m} but with the property to
   be positive definite.
 }
-%\references{ ~put references to the literature/web site here ~ }
-\author{Martin Maechler}
+\author{Martin Maechler, July 2004}
+\note{As we found out, there are more sophisticated algorithms to solve
+  this and related problems.  See the references.
+}
+\references{
+  Section 4.4.2 of
+  Gill, P.~E., Murray, W. and Wright, M.~H. (1981)
+  \emph{Practical Optimization}, Academic Press.
+
+  Cheng, Sheung Hun and Higham, Nick (1998)
+  A Modified Cholesky Algorithm Based on a Symmetric Indefinite Factorization;
+  \emph{SIAM J. Matrix Anal.\ Appl.}, \bold{19}, 1097--1110.
+}
 \seealso{\code{\link{eigen}} on which the current methods rely.}
 \examples{
  set.seed(12)
