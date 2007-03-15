@@ -1,3 +1,20 @@
+2007-03-15  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/tkdensity.R (tkdensity): fix to allow *several* 'kernels' to
+	be specified.
+	(tkdensity): temporarily reset par()s such as par("ask")
+		and only reset when quitting tk widget.
+
+	* man/tkdensity.Rd: complete unfinished 'nor1mix' example
+
+2007-01-24  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/str_data.R: new function; very useful to get overview
+	* man/str_data.Rd: over packages' datasets.
+
+	* R/Deprecated.R: HuberM() and plotCI() are now *Defunct*, i.e.,
+		no longer visible but in file Old_Defunct/ex-Deprecated.R
+
 2007-01-18  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.95-8 to be released

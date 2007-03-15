@@ -23,7 +23,7 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
     all.kerns <- eval(formals(dFun)$kernel)
     kernels <-
         if(is.null(kernels)) all.kerns
-        else match.arg(kernels, all.kerns)
+        else match.arg(kernels, all.kerns, several.ok = TRUE)
     ynam <- deparse(substitute(y))
     size <- length(y)
     sd.y <- sqrt(var(y))
@@ -97,8 +97,9 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
     xmid.frame <- tkframe(x.frame)
     tkpack(xr.frame, xmid.frame, side = "left", anchor = "s")
 
-    q.but <- tkbutton(base,text = "Quit", command = function()tkdestroy(base))
-
+    q.but <- tkbutton(base, text = "Quit", command =
+		      function() { par(op) ## see par() below !
+				   tkdestroy(base) })
     tkpack(base.frame,
            bw.frame, kern.frame,
            x.frame,
@@ -140,6 +141,10 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
                     resolution = xr0/2000,
                     length = 80, orient = "horiz"))
 
+
+    if((op <- par("ask")) || prod(par("mfrow")) > 1)
+        op <- par(ask = FALSE, mfrow = c(1,1))
+    ## on.exit(par(op)) is *NOT* sufficient; do it only when quitting tk !!
 
     ##Dbg cat("Before calling `replot()' : \n")
     replot()
