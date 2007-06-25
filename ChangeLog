@@ -1,4 +1,48 @@
+2007-06-25  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Suggests): add 'tcltk' {needed for tkdensity()}
+
+2007-05-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* NAMESPACE: Sys.cpuinfo etc: only  if(... == "unix")
+
+2007-05-22  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/wrapFormula.Rd: new function wrapFormula() mainly for gam() etc.
+
+2007-04-26  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* NAMESPACE: now explicitly export (instead of pattern), keeping
+		predict and print S3 methods hidden.
+
+	* R/ps.goodies.R (pdf.do, pdf.end, pdf.latex): analogues to
+	ps.do() etc.
+	(dev.latex): instead of ps.latex();
+	(pdf.latex, ps.latex): now wrappers to dev.latex
+
+2007-04-20  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/hatMat.Rd (Examples): add sm.regression();  fix '\'
+
+2007-04-19  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/hatMat.R (hatMat): add test for sensible 'trace';
+	give a warning for unsorted 'x', since that can too quickly give
+	wrong answers (not for the default smoothing spline though).
+
+2007-04-17  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/digitsBase.Rd: double the \\ so it appears correctly in
+	help() and example()
+
+2007-03-26  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/str_data.R (str_data): use indent.str for multi-data datasets;
+	add note about Gabor's wishlist.
+
 2007-03-15  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-9 released
 
 	* R/tkdensity.R (tkdensity): fix to allow *several* 'kernels' to
 	be specified.

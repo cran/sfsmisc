@@ -264,6 +264,27 @@ bl.string <- function(no) paste(rep.int(" ", no), collapse = "")
 
 ### symnum :  standard R function !!
 
+wrapFormula <- function(f, data, wrapString = "s(*)")
+{
+    ## Purpose: Mainly: Construct a useful gam() formula from  "Y ~ ."
+    ## ----------------------------------------------------------------------
+    ## Arguments: f   : the initial formula; typically something like "Y ~ ."
+    ##            data: data.frame to which the formula applies
+    ## ----------------------------------------------------------------------
+    ## Author: Martin Maechler, Date: 22 May 2007, 18:03
+
+    form <- formula(terms(f, data = data))
+    if(length(form) != 3)
+        stop("invalid formula; need something like  'Y ~ .'")
+    wrapS <- strsplit(wrapString, "\\*")[[1]]
+    stopifnot(length(wrapS) == 2)
+    cc <- gsub("([^+ ]+)", paste(wrapS[1], "\\1", wrapS[2], sep=''), format(form[[3]]))
+    form[[3]] <- parse(text = cc, srcfile = NULL)[[1]]
+    form
+}
+
+
+
 
 ##-#### "Calculus" Mathematical stuff ########
 ##-###  ----------------------------- ########
