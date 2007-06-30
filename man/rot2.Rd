@@ -1,5 +1,5 @@
 \name{rot2}
-\encoding{latin1}% ° (degree) below
+\encoding{latin1}% "^o" (degree) below
 \alias{rot2}
 \title{Rotate Planar Points by Angle}
 \description{
@@ -17,7 +17,6 @@ rot2(xy, phi)
   A two column matrix as \code{xy}, containing the rotated points.
 }
 \author{Martin Maechler, Oct.1994}
-%%\seealso{ ~~objects to See Also as \code{\link{~~fun~~}}, ~~~ }
 \examples{
 ## Rotate three points by 60 degrees :
 (xy0 <- rbind(c(1,0.5), c(1,1), c(0,1)))

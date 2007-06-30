@@ -1,3 +1,15 @@
+2007-06-30  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (pdf.end): fix
+
+2007-06-29  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-11
+
+	* R/unix/Sys.ps.R (Sys.meminfo): added via new Sys.procInfo()
+
+	* R/zzz.R (options("eps_view")): add 'evince'
+
 2007-06-25  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Suggests): add 'tcltk' {needed for tkdensity()}

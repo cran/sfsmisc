@@ -151,7 +151,8 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
 	fil <- ..ps.file
 	u.sys(command, " ", fil, "&", intern=FALSE)
     } else
-    cat("\n >> switch to   GV (Ghostview) window -- updated automagically!\n\n")
+    cat("\n >> switch to", sub(" .*", '', command),
+        "(postscript viewer) window -- updated automagically!\n\n")
     invisible(fil)
 }
 
@@ -205,7 +206,8 @@ pdf.end <- function(call.viewer = NULL, command = getOption("pdfviewer"),
 	return(FALSE)
     }
     if (is.null(call.viewer)) {
-	f <- u.sys(Sys.ps.cmd(), " | grep '", command, "' | grep -v grep")
+        cmd <- basename(command)
+	f <- u.sys(Sys.ps.cmd(), " | grep '", cmd, "' | grep -v grep")
 	if(debug) { cat("pdf.end(): f:\n");print(f) }
 	call.viewer <- length(f) == 0
 	if(!call.viewer) {
@@ -213,7 +215,7 @@ pdf.end <- function(call.viewer = NULL, command = getOption("pdfviewer"),
 	    ##--- if you work with two different pictures simultaneously
 	    for(i in 1:length(f)) { #-- only NOT call if THIS pdf.file .. --
 		## find command in 'ps' output line (sub/gsub have no 'fixed=TRUE')
-		ic <- regexpr(command, f[i], fixed=TRUE)
+		ic <- regexpr(cmd, f[i], fixed=TRUE)
 		## only keep the file name
 		fil <- substr(f[i], ic + attr(ic,"match.length") + 1, 1e4)
 		cat("pdf.end(): fil:",fil,"\n")
@@ -227,10 +229,11 @@ pdf.end <- function(call.viewer = NULL, command = getOption("pdfviewer"),
     if (call.viewer) {
 	fil <- ..pdf.file
 	u.sys(command, " ", fil, "&", intern=FALSE)
-    } else
-    msg <- if(grep("acroread", command))
+    } else {
+	msg <- if(length(grep("acroread", command)))
 	    " acroread -- and refresh via C-w M-f 1 !"
-	    else "  PDF viewer window and maybe refresh!"
-    cat("\n >> switch to", msg,"\n\n")
+	else "	PDF viewer window and maybe refresh!"
+	cat("\n >> switch to", msg,"\n\n")
+    }
     invisible(fil)
 }
