@@ -48,6 +48,20 @@ posdefify(m, method = c("someEVadd", "allEVadd"), symmetric, eps.ev = 1e-07)
   Cheng, Sheung Hun and Higham, Nick (1998)
   A Modified Cholesky Algorithm Based on a Symmetric Indefinite Factorization;
   \emph{SIAM J. Matrix Anal.\ Appl.}, \bold{19}, 1097--1110.
+
+  Knol DL, ten Berge JMF (1989)
+  Least-squares approximation of an improper correlation matrix by a
+  proper one.
+  \emph{Psychometrika} \bold{54}, 53--61.
+
+  Highham (2002)
+  Computing the nearest correlation matrix - a problem from finance;
+  \emph{IMA Journal of Numerical Analysis} \bold{22}, 329--343.
+
+  Lucas (2001)
+  Computing nearest covariance and correlation matrices.  A thesis
+  submitted to the University of Manchester for the degree of Master of
+  Science in the Faculty of Science and Engeneering.
 }
 \seealso{\code{\link{eigen}} on which the current methods rely.}
 \examples{

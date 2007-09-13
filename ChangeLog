@@ -1,5 +1,26 @@
+2007-09-13  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 0.95-13 tested with R-alpha; for release
+
+	* man/ps.latex.Rd: document change of pdf.do (on July 13).
+
+2007-09-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/p.ts.R (p.ts): is.unsorted(date.x, na.rm=TRUE)
+
+2007-07-17  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (pdf.do): Bug fix: cannot use 'width= -1, height= -1'
+	as for ps.do() !
+
+2007-07-13  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (ps.do, pdf.do): do *not* use ps.options(), since
+	you cannot pass all postscript() / pdf() options.
+
 2007-06-30  Martin Maechler  <maechler@stat.math.ethz.ch>
 
+	* DESCRIPTION (Version): 0.95-12 (released)
 	* R/ps.goodies.R (pdf.end): fix
 
 2007-06-29  Martin Maechler  <maechler@stat.math.ethz.ch>

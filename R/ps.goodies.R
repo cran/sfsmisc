@@ -94,12 +94,12 @@ ps.do <- function(file, width = -1, height = -1,
   ## --->>>>>> CONSIDER	  'ps.latex'   instead	for pictures !
 
   u.assign0("..ps.file", file)
-  if(length(l... <- list(...))) {
-    ## This does NOT work : pso are the *NEW*, not the *former* ones!
-    oldop <- ps.options()[names(l...)]
-    ps.options(...)
-    on.exit( do.call("ps.options", oldop) ) #- reset ps.options !
-  }
+##   if(length(l... <- list(...))) {
+##     ## This does NOT work : pso are the *NEW*, not the *former* ones!
+##     oldop <- ps.options()[names(l...)]
+##     ps.options(...)
+##     on.exit( do.call("ps.options", oldop) ) #- reset ps.options !
+##   }
 
   if(is.null(title))
       title <- paste("R", paste(R.version[c("major", "minor")], collapse = "."),
@@ -159,8 +159,8 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
 
 ###---  Using  pdf()  instead of postscript() --- otherwise "same" :
 
-pdf.do <- function(file, width = -1, height = -1,
-		  onefile = FALSE, title = NULL, ...)
+pdf.do <- function(file, paper = "default", onefile = FALSE,
+                   title = NULL, version = "1.4", ...)
 {
   ## Purpose: "PDF + view" device driver. --- to be "closed" by pdf.end(..) --
   ## -------------------------------------------------------------------------
@@ -172,17 +172,18 @@ pdf.do <- function(file, width = -1, height = -1,
   ## Author: Martin Maechler, April 26, 2007 {built on much older ps.do()}
 
   u.assign0("..pdf.file", file)
-  if(length(l... <- list(...))) {
-      ## ps.options also used for pdf -- in some way
-    oldop <- ps.options()[names(l...)]
-    ps.options(...)
-    on.exit( do.call("ps.options", oldop) ) #- reset ps.options !
-  }
+##   if(length(l... <- list(...))) {
+##       ## ps.options also used for pdf -- in some way
+##     oldop <- ps.options()[names(l...)]
+##     ps.options(...)
+##     on.exit( do.call("ps.options", oldop) ) #- reset ps.options !
+##   }
 
   if(is.null(title))
       title <- paste("R", paste(R.version[c("major", "minor")], collapse = "."),
 		     "plot:", file)
-  pdf(file = file, width = width, height = height,
+  pdf(file = file, version = version, paper = paper,
+      ## width = width, height = height,
       onefile = onefile, title = title, ...)
 }
 

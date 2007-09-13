@@ -42,6 +42,7 @@ export (
 	"mat2tex",
 	"mpl",
 	"mult.fig",
+        nearcor,
 	"n.code",
 	"n.plot",
 	"nr.sign.chg",
@@ -108,7 +109,7 @@ export (
 	"xy.grid", "xy.unique.x"
 	)
 
-if(tools:::.OStype() == "unix") {
+if(tools:::.OStype() == "unix") { ## those are inside R/unix/
     export("Sys.cpuinfo", "Sys.MIPS",
 	   "Sys.ps", "Sys.ps.cmd", "Sys.sizes")
 }
