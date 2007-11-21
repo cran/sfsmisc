@@ -22,6 +22,7 @@ export (
 	"diagDA",
 	"diagX",
 	"digitsBase",
+	"eaxis",
 	"ecdf.ksCI",
 	"ellipsePoints",
 	"empty.dimnames",
