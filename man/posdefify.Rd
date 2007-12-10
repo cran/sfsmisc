@@ -38,7 +38,8 @@ posdefify(m, method = c("someEVadd", "allEVadd"), symmetric, eps.ev = 1e-07)
 }
 \author{Martin Maechler, July 2004}
 \note{As we found out, there are more sophisticated algorithms to solve
-  this and related problems.  See the references.
+  this and related problems.  See the references and the
+  \code{\link[Matrix]{nearPD}()} function in the \pkg{Matrix} package.
 }
 \references{
   Section 4.4.2 of

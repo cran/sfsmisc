@@ -43,8 +43,10 @@ nearcor(R, eig.tol = 1e-06, conv.tol = 1e-07, posd.tol = 1e-08,
 \references{See those in \code{\link[sfsmisc]{posdefify}}.
 }
 \author{ Jens Oehlschlägel }
-\seealso{ \code{\link[polycor]{hetcor}}, \code{\link{eigen}},
-  \code{\link[sfsmisc]{posdefify}}
+\seealso{the slightly more flexible \code{\link[Matrix]{nearPD}} which also
+  returns a \emph{classed} matrix (class \code{dpoMatrix});
+  \code{\link[polycor]{hetcor}}, \code{\link{eigen}};
+  \code{\link[sfsmisc]{posdefify}} for a simpler algorithm.
 }
 \examples{
  cat("pr is the example matrix used in Knol DL, ten Berge (1989)\n")
@@ -58,7 +60,15 @@ nearcor(R, eig.tol = 1e-06, conv.tol = 1e-07, posd.tol = 1e-08,
 
  ncr <- nearcor(pr)
  nr <- ncr$cor
- plot(pr[lower.tri(pr)],nr[lower.tri(nr)])
+ \dontshow{
+  stopifnot(all.equal(nr[lower.tri(nr)],
+            c(0.487968018215891, 0.642651880010905, 0.490638670907082, 0.64409905308119,
+              0.808711184549399, 0.514114729435273, 0.250668810831206, 0.672351311297071,
+              0.725832055882792, 0.596827778712155, 0.582191779051908, 0.744963163381413,
+              0.729882058012398, 0.772150225146827, 0.813191720191943)))
+ }
+ plot(pr[lower.tri(pr)],
+      nr[lower.tri(nr)]); abline(0,1, lty=2)
  round(cbind(eigen(pr)$values, eigen(nr)$values), 8)
 
  cat("The following will fail:\n")

@@ -1,3 +1,22 @@
+2007-12-05  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version, Depends): 1.0-0 now depending on R >= 2.5.0
+
+2007-11-29  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (roundfixS): new utility used to
+	implement new  method = "interpolate"  in seqXtend().
+
+	* man/plotDS.Rd: rename pl.ds() to plotDS()
+
+2007-11-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (seqXtend): new function, e.g., for
+	  constructing extended x ranges for pl.ds()
+
+	* R/misc-goodies.R: allow an extend 'ys' argument to pl.ds()
+	  with smooth values on a finer grid.
+
 2007-11-21  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 0.96-01; (License): standardized
@@ -10,8 +29,8 @@
 
 	* man/eaxis.Rd: add example with "traditional" labels
 
-	* man/potatoes.Rd: add content to \description{.} to 'R CMD check' happy
-
+	* man/potatoes.Rd: add content to \description{.} to make 'R CMD
+	check' happy
 
 2007-10-13  Martin Maechler  <maechler@stat.math.ethz.ch>
 
@@ -32,6 +51,10 @@
 
 	* R/ps.goodies.R (pdf.do): Bug fix: cannot use 'width= -1, height= -1'
 	as for ps.do() !
+
+2007-08-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/nearcor.R (nearcor): new function from Jens Oehlschlaegel.
 
 2007-07-13  Martin Maechler  <maechler@stat.math.ethz.ch>
 

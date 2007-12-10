@@ -43,6 +43,7 @@ export (
 	"mat2tex",
 	"mpl",
 	"mult.fig",
+## FIXME: This is deprecated (but was never announced anyway...) :
         nearcor,
 	"n.code",
 	"n.plot",
@@ -55,7 +56,8 @@ export (
 	"p.dchisq", "p.dgamma", "p.dnorm",
 
 	"p.hboxp",
-	"pl.ds",
+	"plotDS",
+        "pl.ds", ## <- deprecated
 	"plotStep",
 	"p.m",
 
@@ -90,8 +92,10 @@ export (
 	"rnls",
 
 	"rot2",
+	"roundfixS",
 	"rrange",
 	"sHalton",
+	"seqXtend",
 	"signi",
 	"strcodes",
 	"str_data",

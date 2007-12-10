@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.32 2006/03/09 07:27:10 maechler Exp $
+#### $Id: misc-goodies.R,v 1.33 2007/11/28 09:28:41 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -481,7 +481,152 @@ mpl <- function(mat, ...) {
     axis(1, at = 1:nrow(mat), labels = dn)
 }
 
-pl.ds <-
+roundfixS <- function(x, method = c("offset-round", "round+fix", "1greedy"))
+{
+    ## Purpose: y := r2i(x) with integer y  *and* sum(y) == sum(x)
+    ## Author: Martin Maechler, 28 Nov 2007
+    n <- length(x)
+    x0 <- floor(x)
+    e <- x - x0 ## == (x %% 1) in [0, 1)
+    S. <- sum(e)
+    stopifnot(all.equal(S., (S <- round(S.))))
+    method <- match.arg(method)
+
+    ## The problem is equivalent to transforming
+    ##   e[] \in [0,1)  into  f[] \in {0,1},  with sum(e) == sum(f)
+    ## Goal: transform e[] into f[] gradually, by "shifting" mass
+    ##       such that the sum() remains constant
+
+    switch(method,
+           "offset-round" = {
+               ## This is going to be equivalent to
+               ##  r := round(x + f)  with the correct     f \in [-1/2, 1/2], or
+               ##  r == floor(x + f + 1/2) = floor(x + g), g \in    [0, 1]
+               ##
+               ## Need  sum(floor(e + g)) = S;
+               ## since sum(floor(e)) == 0, sum(floor(e+1)) == n,
+               ## we just need to floor(.) the S smallest, and ceiling(.) the others
+	       if(S > 0) {
+		   r <- numeric(n) # all 0; set to 1 those corresponding to large e:
+		   r[sort.list(e, decreasing=TRUE)[1:S]] <- 1
+		   x0 + r
+	       } else x
+           }, ## end{offset-round}
+
+           "round+fix" = {
+               r <- round(e)
+               if((del <- S - sum(r)) != 0) { # need to add +/- 1 to 'del' entries
+                   s <- sign(del) ## +1 or -1: add +1 only to r < x entries,
+                   aD <- abs(del) ##          and -1 only to r > x entries,
+                   ## those with the "worst" rounding are made a bit worse
+                   if(del > 0) {
+                       iCand <- e > r
+                       dx <- (e - r)[iCand] # > 0
+                   } else {                 ## del < 0
+                       iCand <- e < r
+                       dx <- (e - x)[iCand] # > 0
+                   }
+                   ii <- sort.list(dx, decreasing = TRUE)[1:aD]
+                   r[iCand][ii] <- r[iCand][ii] + sign(del)
+               }
+
+               return(x0 + r)
+
+           }, ## end{round+fix}
+
+           "1greedy" = {
+               ii <- e != 0
+               while(any(ii)) {
+                   ci <- cumsum(ii) # used to revert  u[ii] subsetting
+                   m <- length(e. <- e[ii])
+                   ie <- sort.list(e.)  # both ends are relevant
+                   left <- e.[ie[1]] < 1 - e.[ie[m]]
+                   iThis  <- if(left) 1 else m
+                   iother <- if(left) m else 1
+                   J <- which.max(ci == ie[iThis]) ## which(.)[1]  but faster
+                   I <- which.max(ci == ie[iother])
+                   r <- x[J]
+                   x[J] <- k <- if(left) floor(r) else ceiling(r)
+                   mass <- r - k        # if(left) > 0 else < 0
+                   if(m <= 2) {   # short cut and evade rounding error
+                       if(m == 1) {     # should happen **rarely**
+                           if(!(min(abs(mass), abs(1-mass)) < 1e-10))
+                               warning('m==1 in "1greedy" w/ mass not close to {0,1}')
+                       } else { ## m==2
+                           x[I] <- round(x[I] + mass)
+                       }
+                       break ## ii <- FALSE
+                   }
+                   else { ## m >= 3
+                       e[J] <- if(left) 0 else 1
+                       ii[J] <- FALSE
+                       ## and move it's mass to the other end:
+                       e.new <- e[I] + mass
+                       if(e.new > 1)
+                           stop("e[I] would be > 1 -- internal error")
+                       else if(e.new < 0)
+                           stop("e[I] would be < 0 -- internal error")
+                       x[I] <- x[I] + mass
+                       e[I] <- e.new
+                   } ## m >= 3
+               }     ## end{while}
+               x
+
+           }) # end{switch}
+}## roundfixS
+
+
+seqXtend <- function(x, length., method = c("simple","aim","interpolate"),
+                    from = NULL, to = NULL)
+{
+  ## Purpose: produce a seq(.) covering the range of 'x' and INCLUDING x
+  ## ----------------------------------------------------------------------
+  ## Arguments:
+  ## ----------------------------------------------------------------------
+  ## Author: Martin Maechler, Date: 28 Nov 2007, 11:09
+    x <- unique(sort(x))
+    n <- length(x)
+    method <- match.arg(method)
+    if(length. > n) {
+        if((from_is1 <- is.null(from))) from <- x[1]
+        if((from_isL <- is.null(to)))   to   <- x[n]
+        if(method == "interpolate") {
+            if(!from_is1) {
+                if(from > x[1])
+                    stop("'from' > min(x) not allowed for method ", method)
+                x <- c(from, x)
+            }
+            if(!from_isL) {
+                if(to < x[n])
+                    stop("'to' < max(x) not allowed for method ", method)
+                x <- c(x, to)
+            }
+            n <- length(x)
+            dx <- x[-1] - x[-n] ## == diff(x)
+            w  <- x[n]  - x[1]  ## == sum(dx)
+            nn <- length. - n ## need 'nn' new points in 'n - 1' intervals
+            ## how many in each?
+            ## Want them approximately equidistant, ie. of width ~=  w / (nn + 1)
+            ## but do this smartly such that  dx[i] / (k1[i] + 1) {= stepsize in interval i}
+            ## is approximately constant
+            k1 <- (nn + n-1) * dx / w  - 1 ## ==> sum(k1) == nn
+            ## now "round" the k1[] such that sum(.) remains == nn
+            k <- roundfixS(k1) ## keep the right border, drop the left
+            seqI <- function(i) seq(x[i], x[i+1], length.out=k[i]+2)[-1]
+            c(x[1], unlist(lapply(1:(n-1), seqI)))
+
+        } else {
+            nn <- switch(method, "simple" = length.,
+                         "aim" = length. - n + from_is1 + from_isL)
+            ## a more sophisticated 'method' would have to use iteration, *or*
+            ## interpolate between the 'x' values instead
+            ## which might be considered to be too far from seq()
+            unique(sort(c(x, seq(from, to, length.out = nn))))
+        }
+    } else x
+}## {seqXtnd}
+
+plotDS <-
 function(x, yd, ys, xlab = "", ylab = "", ylim = rrange(c(yd, ys)),
          xpd = TRUE, do.seg = TRUE, seg.p = .95,
          segP = list(lty = 2, lwd = 1,   col = 2),
@@ -492,17 +637,40 @@ function(x, yd, ys, xlab = "", ylab = "", ylim = rrange(c(yd, ys)),
     ## Arguments: do.seg: logical, plot "residual segments" iff T (= default).
     ## -------------------------------------------------------------------------
     ## Author: Martin Maechler, 1990-1994
+    ##  2007: allow  ys to be a  (xs,ys)-xycoords structure, where {x[] \in xs[]}
+    if((hasMoreSmooth <- !is.numeric(ys))) {
+        ysl <- xy.coords(ys)
+        ixs <- match(x, ysl$x)
+        if(any(is.na(ixs)))
+            stop("'x' inside the 'ys' structure must contain all the observational 'x'")
+        ys <- ysl$y[ixs]
+    }
     if(is.unsorted(x)) {
         i <- sort.list(x)
         x <- x[i]
         yd <- yd[i]
-        ys <- ys[i]
+        if(!hasMoreSmooth) ys <- ys[i]
     }
+    addDefaults <- function(listArg) {
+        ## trick such that user can call 'segP = list(col = "pink")' :
+        nam <- deparse(substitute(listArg))
+        P <- as.list(formals(sys.function(sys.parent()))[[nam]])[-1] # w/o "list"
+        for(n in names(listArg)) P[[n]] <- listArg[[n]]
+        P
+    }
+
     plot(x, yd, xlab = xlab, ylab = ylab, ylim = ylim, ...) #pch = pch,
-    lines(x, ys, xpd = xpd, lty = linP$lty, lwd = linP$lwd, col = linP$col)
-    if(do.seg)
+    if(!missing(linP))
+        linP <- addDefaults(linP)
+    if(hasMoreSmooth)
+        lines(ysl,    xpd = xpd, lty = linP$lty, lwd = linP$lwd, col = linP$col)
+    else lines(x, ys, xpd = xpd, lty = linP$lty, lwd = linP$lwd, col = linP$col)
+    if(do.seg) {
+        if(!missing(segP))
+            segP <- addDefaults(segP)
         segments(x, seg.p*ys + (1-seg.p)*yd, x, yd,
                  xpd = xpd, lty = segP$lty, lwd = segP$lwd, col = segP$col)
+    }
     invisible()
 }
 

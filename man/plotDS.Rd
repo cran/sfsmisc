@@ -1,5 +1,6 @@
-\name{pl.ds}
-\alias{pl.ds}
+\name{plotDS}
+\alias{plotDS}
+\alias{pl.ds}% <-- old name; now deprecated
 \title{Plot Data and Smoother / Fitted Values}
 \description{
   For one-dimensional nonparametric regression, plot the data and fitted
@@ -7,17 +8,25 @@
   visualize the residuals.
 }
 \usage{
-pl.ds(x, yd, ys, xlab = "", ylab = "", ylim = rrange(c(yd, ys)),
-      xpd = TRUE, do.seg = TRUE, seg.p = 0.95,
-      segP = list(lty = 2, lwd = 1,   col = 2),
-      linP = list(lty = 1, lwd = 2.5, col = 3),
-      \dots)
+plotDS(x, yd, ys, xlab = "", ylab = "", ylim = rrange(c(yd, ys)),
+       xpd = TRUE, do.seg = TRUE, seg.p = 0.95,
+       segP = list(lty = 2, lwd = 1,   col = 2),
+       linP = list(lty = 1, lwd = 2.5, col = 3),
+       \dots)
 }
 \arguments{
   \item{x, yd, ys}{numeric vectors all of the same length, representing
     \eqn{(x_i, y_i)} and fitted (smooth) values \eqn{\hat{y}_i}{y^_i}.
-    Note that \code{x} will be sort increasingly if necessary, and
-    \code{yd} and \code{ys} accordingly.}
+    \code{x} will be sorted increasingly if necessary, and \code{yd} and
+    \code{ys} accordingly.
+
+    Alternatively, \code{ys} can be an x-y list (as resulting from
+    \code{\link[grDevices]{xy.coords}}) containing fitted values on a
+    finer grid than the observations \code{x}.  In that case, the
+    observational values \code{x[]} \bold{must} be part of the larger
+    set; \code{\link{seqXtend}()} may be applied to construct such a set
+    of abscissa values.
+  }
   \item{xlab, ylab}{x- and y- axis labels, as in \code{\link{plot.default}}.}
   \item{ylim}{limits of y-axis to be used; defaults to a \emph{robust}
     range of the values.}
@@ -35,26 +44,37 @@ pl.ds(x, yd, ys, xlab = "", ylab = "", ylim = rrange(c(yd, ys)),
     line type, width and color for \dQuote{smooth curve lines}.}
   \item{\dots}{further arguments passed to \code{\link{plot}}.}
 }
-\author{Martin Maechler, 1990-1994}
+\author{Martin Maechler, since 1990}
 \note{Non-existing components in the lists \code{segP} or \code{linP}
   will result in the \code{\link{par}} defaults to be used.
+
+  \code{plotDS()} used to be called \code{pl.ds} up to November 2007.
 }
-%\seealso{ ~~objects to See Also as \code{\link{~~fun~~}}, ~~~ }
+\seealso{\code{\link{seqXtend}()} to construct more smooth \code{ys}
+  \dQuote{objects}.
+}
 \examples{
  data(cars)
  x <-  cars$speed
  yd <- cars$dist
- ys <- lowess(x, yd,f = .2)$y
- pl.ds(x, yd, ys)
+ ys <- lowess(x, yd, f = .3)$y
+ plotDS(x, yd, ys)
 
  ## More interesting : Version of example(Theoph)
  data(Theoph)
  Th4 <- subset(Theoph, Subject == 4)
  fm1 <- nls(conc ~ SSfol(Dose, Time, lKe, lKa, lCl), data = Th4)
- pl.ds(Th4$Time, Th4$conc, fitted(fm1),
-       sub  = "Theophylline data - Subject 4 only",
-       segP = list(lty=1,col=2), las = 1)
- xvals <- seq(0, par("usr")[2], len = 55)
- lines(xvals, predict(fm1, newdata = list(Time = xvals)), col = 4)
+
+ ## Simple
+ plotDS(Th4$Time, Th4$conc, fitted(fm1),
+        sub  = "Theophylline data - Subject 4 only",
+        segP = list(lty=1,col=2), las = 1)
+
+ ## Nicer: Draw the smoother not only at x = x[i] (observations):
+ xsm <- unique(sort(c(Th4$Time, seq(0, 25, length = 201))))
+ ysm <- c(predict(fm1, newdata = list(Time = xsm)))
+ plotDS(Th4$Time, Th4$conc, ys = list(x=xsm, y=ysm),
+        sub  = "Theophylline data - Subject 4 only",
+        segP = list(lwd=2), las = 1)
 }
 \keyword{hplot}
