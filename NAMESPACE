@@ -115,8 +115,12 @@ export (
 	)
 
 if(tools:::.OStype() == "unix") { ## those are inside R/unix/
-    export("Sys.cpuinfo", "Sys.MIPS",
-	   "Sys.ps", "Sys.ps.cmd", "Sys.sizes")
+
+    export("Sys.ps", "Sys.ps.cmd", "Sys.sizes")
+
+    if(identical(1L, grep("linux", R.version[["os"]]))) { ##----- Linux - only ----
+        export("Sys.cpuinfo", "Sys.MIPS")
+    }
 }
 
 S3method(predict, dDA)

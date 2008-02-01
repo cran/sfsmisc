@@ -1,3 +1,32 @@
+2008-02-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/unix/Sys.ps.R (Sys.procinfo): define, calling stop(".. not yet..."),
+		for non-Linux unix-alikes
+	* man/unix/Sys.cpuinfo.Rd: ditto
+
+2008-01-30  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-1
+
+	* NAMESPACE: export Sys.cpuinfo() and Sys.MIPS() only on Linux
+
+2008-01-29  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (inv.seq): use "non-integer integers" so result
+	has no "L" appended
+
+	* man/inv.seq.Rd: all.equal(), not identical anymore
+
+2008-01-11  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prettylab.R (eaxis): no wrong warning when labels are expression
+
+2007-12-21  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (inv.seq): slight improvement, using mapply(.)
+	instead of apply(.); notably now returning 'language' instead of
+	'expression'; the nice improvement (parse |-> call(.)) is by Tony Plate
+
 2007-12-05  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version, Depends): 1.0-0 now depending on R >= 2.5.0

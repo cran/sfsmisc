@@ -27,8 +27,8 @@ seqXtend(x, length., method = c("simple", "aim", "interpolate"),
 }
 \note{
   \code{method = "interpolate"} typically gives the best results. Calling
-  calls \code{\link{roundfixS}}, it also need more computational
-  resources than the others.
+  \code{\link{roundfixS}}, it also need more computational resources
+  than the other methods.
 }
 \value{
   numeric vector of increasing values, of approximate length

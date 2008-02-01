@@ -850,11 +850,11 @@ inv.seq <- function(i) {
   else if(li == 1) return(as.expression(i))
   ##-- now have: length(i) >= 2
   di1 <- abs(diff(i)) == 1	#-- those are just simple sequences  n1:n2 !
-  subseq <- cbind(i[!c(FALSE,di1)], i[!c(di1,FALSE)]) #-- beginnings and endings
-  mk.seq <- function(ij)
-    if(ij[1] == ij[2]) as.character(ij[1]) else paste(c(ij),collapse = ":")
-  parse(text =
-	paste("c(", paste(apply(subseq, 1, mk.seq), collapse = ","), ")", sep = ""))
+  i <- i + 0 # coercion to "double", so result has no 'L' appended integers.
+  s1 <- i[!c(FALSE,di1)] # beginnings
+  s2 <- i[!c(di1,FALSE)] # endings
+  mkseq <- function(i, j) if (i==j) i else call(':', i, j)
+  as.call(c(list(as.name('c')), mapply(s1, s2, FUN=mkseq)))
 }
 
 iterate.lin.recursion <- function(x, coeff, delta = 0, nr.it)

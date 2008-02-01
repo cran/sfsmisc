@@ -9,6 +9,9 @@
   the CPU (the central processor unit) and memory of the
   computer \R is running on.
   This is currently \bold{only available for Linux}.
+
+  These functions exist on other unix-alike platforms, but produce an
+  error when called.
 }
 \usage{
 Sys.procinfo(procfile)

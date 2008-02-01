@@ -52,7 +52,7 @@ eaxis <- function(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
     use.expr <- log || format.info(as.numeric(at), digits=7)[3] > 0
     if(is.null(labels))
 	labels <- if(use.expr) pretty10exp(at, drop.1=drop.1) else TRUE
-    else if(is.na(labels)) # no 'plotmath'
+    else if(length(labels) == 1 && is.na(labels)) # no 'plotmath'
 	labels <- TRUE
     axis(side, at = at, labels = labels)
     if(is.null(at.small)) { ## create smart default, using small.mult
