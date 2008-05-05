@@ -1,3 +1,7 @@
+2008-05-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-2; add 'Encoding: latin1'
+
 2008-02-01  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/unix/Sys.ps.R (Sys.procinfo): define, calling stop(".. not yet..."),
