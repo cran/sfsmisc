@@ -1,3 +1,10 @@
+2008-06-26  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (pdf.do): default for 'paper' is now missing;
+	which is much better than "default".
+	* man/ps.latex.Rd: add useful example for that.
+
+
 2008-05-03  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-2; add 'Encoding: latin1'

@@ -159,7 +159,7 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
 
 ###---  Using  pdf()  instead of postscript() --- otherwise "same" :
 
-pdf.do <- function(file, paper = "default", onefile = FALSE,
+pdf.do <- function(file, paper, onefile = FALSE,
                    title = NULL, version = "1.4", ...)
 {
   ## Purpose: "PDF + view" device driver. --- to be "closed" by pdf.end(..) --
@@ -182,6 +182,7 @@ pdf.do <- function(file, paper = "default", onefile = FALSE,
   if(is.null(title))
       title <- paste("R", paste(R.version[c("major", "minor")], collapse = "."),
 		     "plot:", file)
+  ## default for 'paper' is now 'missing'
   pdf(file = file, version = version, paper = paper,
       ## width = width, height = height,
       onefile = onefile, title = title, ...)
