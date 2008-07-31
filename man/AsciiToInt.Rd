@@ -19,21 +19,24 @@
 \usage{
 AsciiToInt(strings)
      ichar(strings)
-chars8bit(i = 0:255)
-strcodes(x, table = chars8bit(0:255))
+chars8bit(i = 1:255)
+strcodes(x, table = chars8bit(1:255))
 }
 \arguments{
   \item{strings, x}{\code{\link{character}} vector.}
-  \item{i}{numeric (integer) vector of values in \code{0:255}.}
+  \item{i}{numeric (integer) vector of values in \code{1:255}.}
   \item{table}{a vector of (unique) character strings, typically of one
   character each.}
 }
 \details{
-  Only codes in \code{0:127} make up the ASCII encoding which should be
+  Only codes in \code{1:127} make up the ASCII encoding which should be
   identical for all \R versions, whereas the \emph{\sQuote{upper}} half
   is often determined from the ISO-8859-1 (aka \dQuote{ISO-Latin 1)}
   encoding, but may well differ, depending on the locale setting, see
   also \code{\link{Sys.setlocale}}.
+
+  Note that \code{0} is no longer allowed since, \R does not allow
+  \code{\\0} aka \code{nul} characters in a string anymore.
 }
 \value{
   \code{AsciiToInt} (and hence \code{ichar}) and \code{chars8bit} return a
@@ -41,7 +44,7 @@ strcodes(x, table = chars8bit(0:255))
 
   \code{strcodes(x, tab)} returns a \code{\link{list}} of the same
   \code{\link{length}} and \code{\link{names}} as \code{x} with list
-  components of integer vectors with codes in \code{0:255}.
+  components of integer vectors with codes in \code{1:255}.
 }
 \author{Martin Maechler, partly in 1991 for S-plus}
 \examples{

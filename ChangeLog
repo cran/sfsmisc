@@ -1,9 +1,22 @@
+2008-07-31  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-4 released to CRAN
+
+	* R/zzz.R (.onLoad): set options(eps_view) only if unset
+
+2008-06-28  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (chars8bit,strcodes): do not use '0' anymore,
+	since \000 = nul is no longer allowed in R strings.
+
+	* tests/misc.R: new file, testing the above.
+
 2008-06-26  Martin Maechler  <maechler@stat.math.ethz.ch>
 
+	* DESCRIPTION (Version): 1.0-3, released to CRAN.
 	* R/ps.goodies.R (pdf.do): default for 'paper' is now missing;
 	which is much better than "default".
 	* man/ps.latex.Rd: add useful example for that.
-
 
 2008-05-03  Martin Maechler  <maechler@stat.math.ethz.ch>
 

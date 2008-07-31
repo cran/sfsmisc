@@ -407,7 +407,7 @@ QUnif <- function(n, min = 0, max = 1, n.min = 1, p, leap = 1)
 
 
 
-chars8bit <- function(i = 0:255)
+chars8bit <- function(i = 1:255)
 {
     ## Purpose: Compute a character vector from its "ASCII" codes.
     ## We seem to have to use this complicated way thru text and parse.
@@ -417,12 +417,14 @@ chars8bit <- function(i = 0:255)
     ## ----------------------------------------------------------------
     i <- as.integer(i)
     if(any(i < 0 | i > 255)) stop("`i' must be in 0:255")
+    if(any(i == 0))
+	warning("\\000 (= 'nul') is no longer allowed in R strings")
     i8 <- apply(digitsBase(i, base = 8), 2, paste, collapse="")
     c8 <- paste('"\\', i8, '"', sep="")
     eval(parse(text = paste("c(",paste(c8, collapse=","),")", sep="")))
 }
 
-strcodes <- function(x, table = chars8bit(0:255))
+strcodes <- function(x, table = chars8bit(1:255))
 {
     ## Purpose: R (code) implementation of old S's ichar()
     ## ----------------------------------------------------------------------
@@ -430,8 +432,7 @@ strcodes <- function(x, table = chars8bit(0:255))
     ## ----------------------------------------------------------------------
     ## Author: Martin Maechler, Date: 23 Oct 2003, 12:42
 
-    match0 <- function(x, table) match(x, table) - 1:1
-    lapply(strsplit(x, ""), match0, table = table)
+    lapply(strsplit(x, ""), match, table = table)
 }
 
 ## S-PLUS has  AsciiToInt() officially, and   ichar() in  library(examples):

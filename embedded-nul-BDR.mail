@@ -1,0 +1,80 @@
+From ripley@stats.ox.ac.uk  Wed Apr 23 08:53:23 2008
+X-VM-v5-Data: ([nil t nil nil nil nil nil nil nil]
+	["1049" "Wednesday" "23" "April" "2008" "07:53:20" "+0100" "Prof Brian Ripley" "ripley@stats.ox.ac.uk" "<alpine.LFD.1.10.0804230732080.10677@gannet.stats.ox.ac.uk>" "39" "embedded nul in sfsmisc" "^From:" nil nil "4" "2008042308:53:20" "embedded nul in sfsmisc" nil nil nil nil nil nil nil]
+	nil)
+Return-Path: <ripley@stats.ox.ac.uk>
+X-Spam-Checker-Version: SpamAssassin 3.2.4 (2008-01-01) on hypatia.math.ethz.ch
+X-Spam-Level: 
+X-Spam-Status: No, score=-2.9 required=5.0 tests=AWL,BAYES_00,RCVD_IN_DNSWL_LOW autolearn=no version=3.2.4
+Received: from phil1.ethz.ch (phil1.ethz.ch [129.132.202.242])
+	by hypatia.math.ethz.ch (8.14.1/8.14.1) with ESMTP id m3N6rNrn010524
+	for <maechler@stat.math.ethz.ch>; Wed, 23 Apr 2008 08:53:23 +0200
+Received: from markov.stats.ox.ac.uk ([163.1.210.1])
+	by phil1.ethz.ch with esmtp (Exim 4.66)
+	(envelope-from <ripley@stats.ox.ac.uk>)
+	id 1JoYr3-0004J4-5T
+	for maechler@stat.math.ethz.ch; Wed, 23 Apr 2008 08:53:23 +0200
+Received: from gannet.stats.ox.ac.uk (gannet.stats [163.1.211.17])
+	by markov.stats.ox.ac.uk (8.13.6/8.13.6) with ESMTP id m3N6rKv9027025
+	for <maechler@stat.math.ethz.ch>; Wed, 23 Apr 2008 07:53:20 +0100 (BST)
+Message-ID: <alpine.LFD.1.10.0804230732080.10677@gannet.stats.ox.ac.uk>
+User-Agent: Alpine 1.10 (LFD 962 2008-03-14)
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; format=flowed; charset=US-ASCII
+X-USF-Tag-Only: YES
+X-USF-Filter-Node: phil1.ethz.ch
+X-USF-Spam-Level: --
+X-USF-Spam-Status: hits=-2.5 tests=BAYES_00,FORGED_RCVD_HELO
+X-USF-Spam-Flag: NO
+X-USF: 
+X-Virus-Scanned: by amavisd-new at stat.math.ethz.ch
+X-DSPAM-Result: Whitelisted
+X-DSPAM-Processed: Wed Apr 23 08:53:29 2008
+X-DSPAM-Confidence: 0.9974
+X-DSPAM-Probability: 0.0000
+X-DSPAM-Signature: 480edce9105816564819294
+From: Prof Brian Ripley <ripley@stats.ox.ac.uk>
+To: maechler@stat.math.ethz.ch
+Subject: embedded nul in sfsmisc
+Date: Wed, 23 Apr 2008 07:53:20 +0100 (BST)
+
+Martin,
+
+Here is one of the issues I found (a minor one):
+
+> library(sfsmisc)
+> AsciiToInt(LETTERS)
+  [1] 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 
+88 89
+[26] 90
+Warning message:
+In parse(text = paste("c(", paste(c8, collapse = ","), ")", sep = "")) :
+   truncating string with embedded nul: '\0'
+
+The warning is at
+
+> strcodes
+function (x, table = chars8bit(0:255))
+{
+     match0 <- function(x, table) match(x, table) - 1:1
+     lapply(strsplit(x, ""), match0, table = table)
+}
+
+where chars8bit(0) gives "", with a warning.  strsplit(x, "") will never 
+give an empty string so
+
+strcodes <- function (x, table = chars8bit(1:255))
+     lapply(strsplit(x, ""), match, table = table)
+
+has the same effect.
+
+Brian
+
+
+-- 
+Brian D. Ripley,                  ripley@stats.ox.ac.uk
+Professor of Applied Statistics,  http://www.stats.ox.ac.uk/~ripley/
+University of Oxford,             Tel:  +44 1865 272861 (self)
+1 South Parks Road,                     +44 1865 272866 (PA)
+Oxford OX1 3TG, UK                Fax:  +44 1865 272595
+
