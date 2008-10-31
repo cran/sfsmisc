@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.33 2007/11/28 09:28:41 maechler Exp $
+#### $Id: misc-goodies.R,v 1.34 2008/10/23 09:41:30 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -68,6 +68,7 @@ errbar <- function(x, y, yplus, yminus, cap = 0.015,
 ## C.Monatsname , etc..  sind jetzt bei der zugehoerigen Funktion
 ##		u.Datumvonheute  in  /u/sfs/S/u.goodies.S
 
+if(getRversion() < "2.9") {
 boxplot.matrix <- function(x, use.cols = TRUE, ...)
 {
   ## Purpose: Boxplot for each column or row [use.cols= TRUE / FALSE] of a matrix
@@ -90,6 +91,11 @@ boxplot.matrix <- function(x, use.cols = TRUE, ...)
   ##if (!is.null(nam <- dimnames(x)[[1+use.cols]])) names(groups) <- nam
   if (0 < length(nam <- dimnames(x)[[1+use.cols]])) names(groups) <- nam
   invisible(boxplot(groups, ...))
+}
+} else { # R version >= 2.9.0
+  ## for now, since we also still have it in NAMESPACE and
+  ## ../man/boxplot.matrix.Rd
+  boxplot.matrix <- graphics::boxplot.matrix
 }
 
 cum.Vert.funkt <- function(x, Quartile = TRUE, titel = TRUE, Datum = TRUE,
@@ -278,7 +284,8 @@ wrapFormula <- function(f, data, wrapString = "s(*)")
         stop("invalid formula; need something like  'Y ~ .'")
     wrapS <- strsplit(wrapString, "\\*")[[1]]
     stopifnot(length(wrapS) == 2)
-    cc <- gsub("([^+ ]+)", paste(wrapS[1], "\\1", wrapS[2], sep=''), format(form[[3]]))
+    cc <- gsub("([^+ ]+)", paste(wrapS[1], "\\1", wrapS[2], sep=''),
+	       format(form[[3]]))
     form[[3]] <- parse(text = cc, srcfile = NULL)[[1]]
     form
 }
@@ -445,10 +452,10 @@ AsciiToInt <- ichar <- function(strings) unname(unlist(strcodes(strings)))
 ##-#### "Miscellaneous" (not any other category) ########
 ##-###   ============= ------------------------- ########
 
-uniqueL <- function(x, isuniq = !duplicated(x)) {
+uniqueL <- function(x, isuniq = !duplicated(x), need.sort = is.unsorted(x))
+{
     ## return list(ix, uniq)
     ## such that   all(x == uniq[ix])  and (of course)	uniq == x[isuniq]
-    need.sort <- is.unsorted(x)
     if(need.sort) {
 	xs <- sort(x, index.return = TRUE)
 	ixS <- xs $ ix

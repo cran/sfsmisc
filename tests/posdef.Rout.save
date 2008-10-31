@@ -1,6 +1,6 @@
 
-R version 2.6.1 Patched (2007-12-09 r43632)
-Copyright (C) 2007 The R Foundation for Statistical Computing
+R version 2.8.0 Patched (2008-10-30 r46799)
+Copyright (C) 2008 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -56,7 +56,7 @@ Type 'q()' to quit R.
 [1] 11
 > str(ncr <- nearcor(pr, conv.tol = 1e-15))# 27 iterations (because of conv.tol)!
 List of 4
- $ cor       : num [1:6, 1:6] 1.000 0.488 0.643 0.491 0.644 ...
+ $ cor       : num [1:6, 1:6] 1 0.488 0.643 0.491 0.644 ...
  $ fnorm     : num 0.0744
  $ iterations: num 27
  $ converged : logi TRUE

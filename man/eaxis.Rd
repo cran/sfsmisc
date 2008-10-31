@@ -13,7 +13,7 @@
 \usage{
 eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
       f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
-      outer.at = TRUE, drop.1 = TRUE)
+      outer.at = TRUE, drop.1 = TRUE, las = 2, \dots)
 }
 \arguments{
   \item{side}{integer in 1:4, specifying side of \code{\link{axis}}.}
@@ -38,6 +38,9 @@ eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
     corresponding \code{\link{par}("usr")}.}
   \item{drop.1}{logical specifying if \code{"1 *"} should be dropped
     from labels, passed to \code{\link{pretty10exp}()}.}
+  \item{las, \dots}{arguments passed to (the first) \code{\link{axis}}
+    call.  Note that the default \code{las = 2} differs from
+    \code{axis}'s default.}
 }
 \author{Martin Maechler}
 \seealso{\code{\link[graphics]{axis}},

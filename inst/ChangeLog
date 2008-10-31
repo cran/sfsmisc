@@ -1,3 +1,33 @@
+2008-10-31  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/Duplicated.R (Duplicated): new by Christoph Buser and MM
+	* NAMESPACE, man/Duplicated.Rd
+
+	* R/ellipse.R (ellipsePoints): add 'keep.ab.order' argument
+	* man/ellipsePoints.Rd: allowing differ (a,b) from (b,a);
+	thank to a suggestion from Duncan Elkins
+
+2008-10-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prettylab.R (eaxis): add 'las = 2' (new default!) and "..."
+
+2008-10-22  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (boxplot.matrix): "moved" to R 2.9.0
+
+2008-09-15  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (uniqueL): make 'need.sort' an optional argument
+	which allows for slight speedup
+	* man/uniqueL.Rd: ditto
+
+	* R/integratexy.R: no longer use backquote ( ` ) in error messages.
+
+2008-08-05  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/str_data.R (str_data): fix bug {if there are no "(..)" in the
+	items, they were all dropped accidentally}.
+
 2008-07-31  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-4 released to CRAN

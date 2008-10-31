@@ -5,7 +5,7 @@ export (
 	"as.integer.basedInt",
 	"axTexpr",
 	"bl.string",
-	"boxplot.matrix",
+	"boxplot.matrix",# -> now in R 2.9.0
 	"ccat",
 	"chars8bit",
 	"code2n",
@@ -22,6 +22,7 @@ export (
 	"diagDA",
 	"diagX",
 	"digitsBase",
+	"Duplicated",
 	"eaxis",
 	"ecdf.ksCI",
 	"ellipsePoints",
