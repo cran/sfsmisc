@@ -119,8 +119,8 @@ if(tools:::.OStype() == "unix") { ## those are inside R/unix/
 
     export("Sys.ps", "Sys.ps.cmd", "Sys.sizes")
 
-    if(identical(1L, grep("linux", R.version[["os"]]))) { ##----- Linux - only ----
-        export("Sys.cpuinfo", "Sys.MIPS")
+    if(identical(1L, grep("linux", R.version[["os"]]))) { ##--- Linux - only ---
+        export("Sys.cpuinfo", "Sys.meminfo", "Sys.MIPS")
     }
 }
 

@@ -1,11 +1,27 @@
+2008-11-25  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-6 ready to release
+
+	* R/prettylab.R (eaxis): change default to las = 1, "2" was a thinko!
+
+2008-11-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/p.goodies.R (p.profileTraces): default 'subtitle' now includes formula
+
+2008-11-08  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* NAMESPACE: export Sys.meminfo()
+
 2008-10-31  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-5 released to CRAN
 
 	* R/Duplicated.R (Duplicated): new by Christoph Buser and MM
 	* NAMESPACE, man/Duplicated.Rd
 
 	* R/ellipse.R (ellipsePoints): add 'keep.ab.order' argument
 	* man/ellipsePoints.Rd: allowing differ (a,b) from (b,a);
-	thank to a suggestion from Duncan Elkins
+	thanks to a suggestion from Duncan Elkins
 
 2008-10-23  Martin Maechler  <maechler@stat.math.ethz.ch>
 

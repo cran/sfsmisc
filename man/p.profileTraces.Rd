@@ -9,14 +9,17 @@
   \code{\link{profile.nls}}.
 }
 \usage{
-p.profileTraces(x, cex = 1, subtitle = "t-Profil-Plot und Profilspuren")
+p.profileTraces(x, cex = 1,
+                subtitle = paste("t-Profiles and traces of ",
+                       deparse(attr(x,"summary")$formula)))
 }
 \arguments{
   \item{x}{an object of class \code{"profile.nls"}, typically resulting from
     \code{profile(\link[stats]{nls}(.))}, see
     \code{\link[stats]{profile.nls}}.}
   \item{cex}{character expansion, see \code{\link{par}(cex =)}.}
-  \item{subtitle}{a subtitle to set for the plot.}
+  \item{subtitle}{a subtitle to set for the plot.  The default now
+    includes the \code{\link{nls}()} formula used.}
 }
 %- \details{
 % .........

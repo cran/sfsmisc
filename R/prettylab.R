@@ -38,7 +38,7 @@ axTexpr <- function(side, at = axTicks(side, axp=axp, usr=usr, log=log),
 
 eaxis <- function(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
                   f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
-                  outer.at = TRUE, drop.1 = TRUE, las = 2, ...)
+                  outer.at = TRUE, drop.1 = TRUE, las = 1, ...)
 {
     ## Purpose: "E"xtended, "E"ngineer-like (log-)axis
     ## ----------------------------------------------------------------------

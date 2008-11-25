@@ -93,7 +93,8 @@ p.scales <- function(unit = relsysize * 2.54 * min(pin), relsysize = 0.05)
 
 
 p.profileTraces <-
-    function(x, cex=1, subtitle="t-Profil-Plot und Profilspuren")
+    function(x, cex=1, subtitle=paste("t-Profiles and traces of ",
+                       deparse(attr(x,"summary")$formula)))
 {
   nx <- names(x)
   np <- length(x)
