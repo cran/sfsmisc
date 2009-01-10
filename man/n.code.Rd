@@ -6,7 +6,7 @@
   \code{n.code} convert ``round integers'' to short character strings.
   This is useful to build up variable names in simulations, e.g.
 
-  \code{code2n} is the \emph{inverse} function of \code{n.code()}.}
+  \code{code2n} is the \emph{inverse} function of \code{n.code()}.
 }
 \usage{
 n.code(n,    ndig = 1, dec.codes = c("", "d", "c", "k"))
@@ -15,7 +15,7 @@ code2n(ncod, ndig = 1, dec.codes = c("", "d", "c", "k"))
 \arguments{
   \item{n}{integer vector.}
   \item{ncod}{character vector, typically resulting from
-    \code{\link{n.code}}.}
+    \code{n.code}.}
   \item{ndig}{integer giving number of digits before the coding character.}
   \item{dec.codes}{character code for 1, 10, 100, 1000 (etc).}
 }

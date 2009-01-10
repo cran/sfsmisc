@@ -21,9 +21,8 @@ u.log(x, c = 1)
   \item{c}{scalar, > 0}
 }
 \value{
-  numeric vector of same length as \code{x}.}
+  numeric vector of same length as \code{x}.
 }
-%\references{ ~put references to the literature/web site here ~ }
 \author{Martin Maechler, 24 Jan 1995}
 %\seealso{ ~~objects to SEE ALSO as \code{\link{~~fun~~}}, ~~~ }
 \examples{

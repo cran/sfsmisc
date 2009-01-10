@@ -1,3 +1,20 @@
+2009-01-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-7 ready to release
+
+2009-01-09  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/n.code.Rd: Rd_parse fixes
+	* ...., man/u.log.Rd: ditto
+
+2008-12-09  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (digitsBase): allow integer-valued non-integers
+
+2008-12-08  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R: get rid of more `x' like backquotes.
+
 2008-11-25  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-6 ready to release

@@ -3,7 +3,7 @@
 \title{Conversion between plotting scales: usr, cm, symbol}
 \description{
   Give scale conversion factors of three coordinate systems in use for
-  traditional R graphics: use, cm, symbol.}
+  traditional R graphics: use, cm, symbol.
 }
 \usage{
 p.scales(unit = relsysize * 2.54 * min(pin), relsysize = 0.05)

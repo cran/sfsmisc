@@ -15,7 +15,7 @@ unif(n, round.dig = 1 + trunc(log10(n)))
     rounded.}
 }
 \value{
-  numeric vector of length \code{n}, symmetric around {0}, hence
+  numeric vector of length \code{n}, symmetric around 0, hence
   with exact mean \code{0}, and variance approximately 1.
 }
 \note{It relies on the fact that \eqn{Var(1,2,...,n) = n(n+1)/12}.

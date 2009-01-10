@@ -50,11 +50,11 @@ compresid2way(aov, data=NULL, fac=1:2, label = TRUE, numlabel = FALSE,
 \references{
   F. Mosteller and J. W. Tukey (1977)
   \emph{Data Analysis and Regression: A Second Course in Statistics}.
-  {Addison-Wesley}, {Reading, Mass.}, p. 176.
+  Addison-Wesley, Reading, Mass., p. 176.
 
   John W. Tukey (1977)
   \emph{Exploratory Data Analysis}.
-  {Addison-Wesley, Reading, Mass.}, p. 381.
+  Addison-Wesley, Reading, Mass., p. 381.
 }
 \author{Werner Stahel \email{stahel@stat.math.ethz.ch}}
 \seealso{\code{\link{interaction.plot}}}
