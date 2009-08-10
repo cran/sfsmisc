@@ -845,6 +845,7 @@ lseq <- function(from, to, length)
     ## Purpose: seq(.) : equidistant on log scale
     ## ----------------------------------------------------------------------
     ## Author: Martin Maechler, Date:  3 Feb 2005, 08:34
+    stopifnot(from > 0)
     exp(seq(log(from), log(to), length.out = length))
 }
 

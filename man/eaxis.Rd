@@ -18,7 +18,7 @@ eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
 \arguments{
   \item{side}{integer in 1:4, specifying side of \code{\link{axis}}.}
   \item{at}{numeric vector of (\dQuote{normalsized}) tick locations; by
-    default \code{\link[grDevices]{axTicks}(side)}, i.e., the same as
+    default \code{\link[graphics]{axTicks}(side)}, i.e., the same as
     \code{\link{axis}()} would use.}
   \item{labels}{\code{NULL} (default), \code{\link{logical}},
     \code{character} or \code{expression}, as in \code{\link{axis}()};
@@ -44,7 +44,7 @@ eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
 }
 \author{Martin Maechler}
 \seealso{\code{\link[graphics]{axis}},
-  \code{\link[grDevices]{axTicks}},
+  \code{\link[graphics]{axTicks}},
   \code{\link{axTexpr}},
   \code{\link{pretty10exp}}.
 }

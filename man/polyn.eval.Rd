@@ -27,7 +27,7 @@ polyn.eval(coef, x)
 }
 \author{Martin Maechler, ages ago.}
 \seealso{For much more sophisticated handling of polynomials, use the
-  \code{polynom} package, e.g. \code{\link[polynom]{predict.polynom}}.
+  \code{polynom} package, e.g. \code{\link[polynom]{predict.polynomial}}.
 }
 \examples{
 polyn.eval(c(1,-2,1), x = 0:3)# (x - 1)^2
