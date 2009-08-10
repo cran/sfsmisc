@@ -4,7 +4,7 @@
 \description{
   Duplicated() generalizes the \code{\link{duplicated}} method for
   vectors, by returning indices of \dQuote{equivalence classes} for
-  duplicated entries and returning \code{nomatch}, \code{NA} by default
+  duplicated entries and returning \code{nomatch} (\code{NA} by default)
   for unique entries.
 
   Note that \code{duplicated()} is not \code{TRUE} for the first time a

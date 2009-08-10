@@ -26,7 +26,11 @@ Sys.MIPS()
 \value{
   The \code{Sys.*info()} functions return a \code{"simple.list"},
   here basically a named character vector,
-  whereas \code{Sys.MIPS} returns a number giving an approximation of
+  (where the names have been filtered through \code{\link{make.names}(*,
+  unique=TRUE)} which is of importance for multi-processor or multi-core
+  CPUs, such that vector can easily be indexed.
+
+  \code{Sys.MIPS} returns a number giving an approximation of
   the \bold{M}illion \bold{I}instructions \bold{P}er \bold{S}econd that
   the CPU processes.  This is a performance measure of the basic
   \emph{non-numeric} processing capabilities and for Linux systems often

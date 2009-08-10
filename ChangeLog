@@ -1,3 +1,20 @@
+2009-08-10  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-8
+
+	* R/unix/Sys.ps.R (Sys.procinfo): produce unique names;
+	important for multi-core/processor CPUs.
+
+	* man/unix/Sys.cpuinfo.Rd: ditto
+
+2009-07-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/uniqueL.Rd: link to Duplicated
+
+2009-04-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/Duplicated.Rd: clarification
+
 2009-01-10  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-7 ready to release
