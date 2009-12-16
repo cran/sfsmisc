@@ -1,6 +1,6 @@
 #### PostScript Goodies für R --- `a la /u/sfs/S/ps.goodies.S
 ####
-#### $Id: ps.goodies.R,v 1.14 2005/05/09 08:45:02 maechler Exp $
+#### $Id: ps.goodies.R,v 1.15 2009/12/14 11:55:26 maechler Exp $
 ####
 
 ## hidden in the name space -- FIXME? maybe more useful ?? ---
@@ -159,14 +159,14 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
 
 ###---  Using  pdf()  instead of postscript() --- otherwise "same" :
 
-pdf.do <- function(file, paper, onefile = FALSE,
+pdf.do <- function(file, paper = "default",
+                   width = -1, height = -1, onefile = FALSE,
                    title = NULL, version = "1.4", ...)
 {
   ## Purpose: "PDF + view" device driver. --- to be "closed" by pdf.end(..) --
   ## -------------------------------------------------------------------------
   ## Arguments: file, width, height : file name and dims in inch; 1 in:=2.54 cm
-  ##		onefile = F  <==> Encapsulated PS  (Splus default: T, simple PS)
-
+  ##		onefile = FALSE <==> "Encapsulated"
   ##	...  :	passed to pdf.options
   ## -------------------------------------------------------------------------
   ## Author: Martin Maechler, April 26, 2007 {built on much older ps.do()}
@@ -184,7 +184,7 @@ pdf.do <- function(file, paper, onefile = FALSE,
 		     "plot:", file)
   ## default for 'paper' is now 'missing'
   pdf(file = file, version = version, paper = paper,
-      ## width = width, height = height,
+      width = width, height = height,
       onefile = onefile, title = title, ...)
 }
 

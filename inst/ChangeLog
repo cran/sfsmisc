@@ -1,4 +1,19 @@
+2009-12-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/mat2tex.Rd: need quadruple escapes ( \\\\pi )
+
+2009-12-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-10
+
+	* R/ps.goodies.R (pdf.do): paper="default", width=-1, height=-1
+	such as to produce the same default as ps.do().
+
+	* man/ps.latex.Rd: update accordingly
+
 2009-11-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-9, CRAN-released: today
 
 	* man/polyn.eval.Rd, man/p.ts.R, man/eaxis.Rd: fix \link{}s
 
