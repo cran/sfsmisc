@@ -1,3 +1,8 @@
+2010-02-21  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/nearcor.Rd: cor() no longer works for factors;
+	--> adapt the old example (from Jens or other users).
+
 2009-12-16  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* man/mat2tex.Rd: need quadruple escapes ( \\\\pi )

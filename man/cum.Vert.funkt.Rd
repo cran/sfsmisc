@@ -22,7 +22,7 @@ cum.Vert.funkt(x, Quartile = TRUE, titel = TRUE, Datum = TRUE,
   \item{rang.axis}{logical indicating if all the ranks should be marked at
     the y-axis.  Defaults to true if there are not more than 20 observations.}
   \item{xlab, main}{x-axis label and main title; default to empty.}
-  \item{\dots}{}
+  \item{\dots}{optional further arguments, passed to \code{\link{plotStep}}.}
 }
 \value{
   the return value of \code{\link{plotStep}()} which is called
