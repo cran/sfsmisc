@@ -1,3 +1,17 @@
+2010-09-04  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (ps.end): call .set.eps_view() only when needed.
+
+	* R/zzz.R (.set.eps_view): utility function instead of using
+	.onLoad() for setting options("eps_view").
+
+
+2010-08-28  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-12
+
+	* R/misc-goodies.R (plotDS): fix bug for unsorted x and "moreSmooth"
+
 2010-02-21  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* man/nearcor.Rd: cor() no longer works for factors;

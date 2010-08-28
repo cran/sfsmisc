@@ -661,7 +661,7 @@ function(x, yd, ys, xlab = "", ylab = "", ylim = rrange(c(yd, ys)),
         i <- sort.list(x)
         x <- x[i]
         yd <- yd[i]
-        if(!hasMoreSmooth) ys <- ys[i]
+        ys <- ys[i]
     }
     addDefaults <- function(listArg) {
         ## trick such that user can call 'segP = list(col = "pink")' :

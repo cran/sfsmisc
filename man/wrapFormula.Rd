@@ -34,8 +34,12 @@ myF # Fertility ~ s(Agriculture) + s(....) + ...
 
 if(require("mgcv")) {
    m1 <- gam(myF, data = swiss)
-   summary(m1)
+   print( summary(m1) )
    plot(m1, pages = 1) ; title(format(m1$call), line= 2.5)
 }
+
+## other wrappers:
+wrapFormula(Fertility ~ . , data = swiss, wrap = "lo(*)")
+wrapFormula(Fertility ~ . , data = swiss, wrap = "poly(*, 4)")
 }
 \keyword{models}

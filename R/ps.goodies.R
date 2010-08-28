@@ -123,7 +123,9 @@ ps.end <- function(call.gv = NULL, command = getOption("eps_view"),
     ## Only if	postscript is running !! --
     if( names(dev.cur()) == "postscript")
 	dev.off()
-    if(.Platform $ OS.type != "unix") {
+    if(.Platform $ OS.type == "unix") {
+        .set.eps_view()
+    } else { ## OS.type != "unix"  --- i.e. Windows :
 	warning("using ps, ghostview,...is currently not implemented for non-Unix")
 	return(FALSE)
     }
