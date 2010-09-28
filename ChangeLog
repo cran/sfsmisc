@@ -1,3 +1,15 @@
+2010-10-20  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-13;  "Enhances:" for everything in our examples
+
+	* inst/NEWS: partial update
+
+2010-09-28  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* demo/hatmat-ex.R: add demo for hatMat(), notably how it works for
+	loess(); rather than extending the examples in
+	* man/hatMat.Rd
+
 2010-09-04  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/ps.goodies.R (ps.end): call .set.eps_view() only when needed.
