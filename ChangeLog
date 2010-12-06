@@ -1,3 +1,22 @@
+2010-12-06  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-14
+
+	* R/pd-matrix.R (posdefify): new argument 'eigen.m'; for efficiency
+	to pass eigen() in case it's already available.
+
+2010-11-04  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (inv.seq): workaround mapply() infelicity
+
+2010-10-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (repChar): new utility {generalization of bl.string()}
+
+	* R/printTable.R (margin2table): return *named* dimnames, if
+	original has them.
+	(print.margin2table): use 'right = TRUE' by default
+
 2010-10-20  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-13;  "Enhances:" for everything in our examples

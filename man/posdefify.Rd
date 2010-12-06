@@ -6,12 +6,17 @@
   one.
 }
 \usage{
-posdefify(m, method = c("someEVadd", "allEVadd"), symmetric, eps.ev = 1e-07)
+posdefify(m, method = c("someEVadd", "allEVadd"),
+          symmetric, eigen.m = eigen(m, symmetric= symmetric),
+          eps.ev = 1e-07)
 }
 \arguments{
   \item{m}{a numeric (square) matrix.}
   \item{method}{a string specifying the method to apply; can be abbreviated.}
-  \item{symmetric}{logical, simply passed to \code{\link{eigen}}.}
+  \item{symmetric}{logical, simply passed to \code{\link{eigen}} (unless
+    \code{eigen.m} is specified).}
+  \item{eigen.m}{the \code{\link{eigen}} value decomposition of
+    \code{m}, can be specified in case it is already available.}
   \item{eps.ev}{number specifying the tolerance to use, see Details
     below.}
 }
@@ -64,7 +69,9 @@ posdefify(m, method = c("someEVadd", "allEVadd"), symmetric, eps.ev = 1e-07)
   submitted to the University of Manchester for the degree of Master of
   Science in the Faculty of Science and Engeneering.
 }
-\seealso{\code{\link{eigen}} on which the current methods rely.}
+\seealso{\code{\link{eigen}} on which the current methods rely.
+  \code{\link[Matrix]{nearPD}()} in the \pkg{Matrix} package.
+}
 \examples{
  set.seed(12)
  m <- matrix(round(rnorm(25),2), 5, 5); m <- 1+ m + t(m); diag(m) <- diag(m) + 4

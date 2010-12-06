@@ -4,7 +4,7 @@ export (
 	"as.intBase",
 	"as.integer.basedInt",
 	"axTexpr",
-	"bl.string",
+	"repChar", "bl.string",
 	"boxplot.matrix",# -> now in R 2.9.0
 	"ccat",
 	"chars8bit",

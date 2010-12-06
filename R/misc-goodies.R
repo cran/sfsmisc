@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.34 2008/10/23 09:41:30 maechler Exp $
+#### $Id: misc-goodies.R,v 1.35 2010/10/27 08:57:32 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -266,7 +266,8 @@ paste.vec <- function(name, digits = options()$digits)
 }
 signi <- function(x, digits = 6) round(x, digits - trunc(log10(abs(x))))
 
-bl.string <- function(no) paste(rep.int(" ", no), collapse = "")
+repChar <- function(char, no) paste(rep.int(char, no), collapse = "")
+bl.string <- function(no) repChar(" ", no)
 
 ### symnum :  standard R function !!
 
@@ -867,7 +868,8 @@ inv.seq <- function(i) {
   s1 <- i[!c(FALSE,di1)] # beginnings
   s2 <- i[!c(di1,FALSE)] # endings
   mkseq <- function(i, j) if (i==j) i else call(':', i, j)
-  as.call(c(list(as.name('c')), mapply(s1, s2, FUN=mkseq)))
+  as.call(c(list(as.name('c')),
+	    mapply(s1, s2, FUN=mkseq, SIMPLIFY=FALSE, USE.NAMES=FALSE)))
 }
 
 iterate.lin.recursion <- function(x, coeff, delta = 0, nr.it)
