@@ -1,4 +1,16 @@
+2011-07-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-16 (not yet released).
+
+	* R/pd-matrix.R (posdefify): symmetric = TRUE is now default, as
+	that's needed for asymmetric input.
+
+	* R/misc-goodies.R: get completely rid of boxplot.matrix: that's
+	been in R, since 2.9.0 now.
+
 2011-05-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-15, released to CRAN.
 
 	* R/misc-goodies.R (errbar): 'ylim' now is argument (with same default).
 

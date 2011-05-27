@@ -7,14 +7,15 @@
 }
 \usage{
 posdefify(m, method = c("someEVadd", "allEVadd"),
-          symmetric, eigen.m = eigen(m, symmetric= symmetric),
+          symmetric = TRUE, eigen.m = eigen(m, symmetric= symmetric),
           eps.ev = 1e-07)
 }
 \arguments{
   \item{m}{a numeric (square) matrix.}
   \item{method}{a string specifying the method to apply; can be abbreviated.}
   \item{symmetric}{logical, simply passed to \code{\link{eigen}} (unless
-    \code{eigen.m} is specified).}
+    \code{eigen.m} is specified); currently, we do not see any reason
+    for \emph{not} using \code{TRUE}.}
   \item{eigen.m}{the \code{\link{eigen}} value decomposition of
     \code{m}, can be specified in case it is already available.}
   \item{eps.ev}{number specifying the tolerance to use, see Details

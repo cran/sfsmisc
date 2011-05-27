@@ -11,7 +11,6 @@ export (
 	"as.integer.basedInt",
 	"axTexpr",
 	"repChar", "bl.string",
-	"boxplot.matrix",# -> now in R 2.9.0
 	"ccat",
 	"chars8bit",
 	"code2n",
