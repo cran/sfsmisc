@@ -13,7 +13,7 @@
 \usage{
 eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
       f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
-      outer.at = TRUE, drop.1 = TRUE, las = 1, \dots)
+      outer.at = TRUE, drop.1 = TRUE, las = 1, max.at = Inf, \dots)
 }
 \arguments{
   \item{side}{integer in 1:4, specifying side of \code{\link{axis}}.}
@@ -29,15 +29,22 @@ eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
     used; the default depends on the current plot's axis.}
   \item{f.smalltcl}{factor specifying the lengths of the small ticks in
     proportion to the normalsized, labeled ticks.}
-  \item{at.small}{locations of \emph{small} ticks; default uses
-    used as \dQuote{small ticks}.}
-  \item{small.mult}{which multiples of \code{\link{axTicks}()} should be
-    used as \dQuote{small ticks} by default.}
+  \item{at.small}{locations of \emph{small} ticks; the default,
+    \code{NULL}, uses \code{small.mult} and constructs \dQuote{smart}
+    locations.}
+  \item{small.mult}{positive integer (or \code{NULL}), used when
+    \code{at.small} is NULL to indicate which multiples of
+    \code{at} (typically \code{\link{axTicks}()}) should be used as
+    \dQuote{small ticks}.  The default \code{NULL} will use \code{9} in
+    the log case and a number in 2:5 otherwise.}% depending on scale details
   \item{outer.at}{logical specifying that \code{at.small} should also be
     constructed outside the \code{at} range, but still inside the
     corresponding \code{\link{par}("usr")}.}
   \item{drop.1}{logical specifying if \code{"1 *"} should be dropped
     from labels, passed to \code{\link{pretty10exp}()}.}
+  \item{max.at}{maximal number of \code{at} values to be used
+    effectively.  If you don't specify \code{at} yourself carefully, it
+    is recommended to set this to something like \code{25}.}
   \item{las, \dots}{arguments passed to (the first) \code{\link{axis}}
     call.  Note that the default \code{las = 1} differs from
     \code{axis}'s default \code{las = 0}.}
@@ -52,6 +59,8 @@ eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
 x <- lseq(1e-10, 0.1, length = 201)
 plot(x, pt(x, df=3), type = "l", xaxt = "n", log = "x")
 eaxis(1)
+## without small ticks:
+eaxis(3, at.small=FALSE, col="blue")
 
 ## If you like the ticks, but prefer traditional (non-"plotmath") labels:
 plot(x,  gamma(x),   type = "l", log = "x")
@@ -83,5 +92,7 @@ plot(x, sin(x)/x, type = "l", xaxt = "n")
 eaxis(1, axTicks(1)[c(TRUE,FALSE)]) # drop every 2nd label
 eaxis(3, labels=FALSE)
 par(op)
+
+%% FIXME: add a good example  of  max.at  !
 }
 \keyword{aplot}

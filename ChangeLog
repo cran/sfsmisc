@@ -1,9 +1,29 @@
+2011-05-27  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (errbar): 'ylim' now is argument (with same default).
+
+2011-05-04  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prime-numbers-fn.R: finally prime number and factorization
+	"utility" code (partly ~ 13 years old!) to a place where it's
+	easily found.
+
+2011-04-28  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prettylab.R (eaxis): new argument 'max.at'
+
+	* man/eaxis.Rd: fix docu for at.small & small.mult.
+
+2011-04-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/diagDA.R (predict.dDA): check for var()==0 als for pool=FALSE.
+
 2010-12-06  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* DESCRIPTION (Version): 1.0-14
 
 	* R/pd-matrix.R (posdefify): new argument 'eigen.m'; for efficiency
-	to pass eigen() in case it's already available.
+	to pass to eigen() in case it's already available.
 
 2010-11-04  Martin Maechler  <maechler@stat.math.ethz.ch>
 

@@ -1,5 +1,3 @@
-#### $Id: tkdensity.R,v 1.9 2003/07/14 16:13:01 maechler Exp $
-
 ###  demo(tkdensity) ## is at
 ### /u/maechler/R/D/r-devel/Linux-inst/library/tcltk/demo/tkdensity.R
 

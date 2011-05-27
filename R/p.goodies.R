@@ -1,4 +1,4 @@
-#### $Id: p.goodies.R,v 1.16 2004/02/03 14:00:58 maechler Exp $
+#### $Id: p.goodies.R,v 1.17 2011/05/27 07:07:30 maechler Exp $
 #### Original is /u/sfs/S/p.goodies.S  [v 1.12 1999/05/06 10:17:00 sfs Exp ]
 ####
 ### p.goodies.S ---- SfS- S(plus) - Funktionen, welche

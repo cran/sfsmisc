@@ -1,5 +1,11 @@
 ## export almost all
+##
+## New scheme (at first: for new things, only):
+#  group exported objects  __by ./R/ (and maybe ./man/) source file__
 export (
+        ## ./R/prime-numbers-fn.R :
+        primes, factorize,
+
 	"AsciiToInt",
 	"as.intBase",
 	"as.integer.basedInt",
@@ -17,7 +23,6 @@ export (
 	"C.Monatsname", "C.weekday", "C.Wochentag", "C.Wochentagkurz",
 
 	"D1D2", "D1ss", "D1tr", "D2ss",
-
 	"dDA",
 	"diagDA",
 	"diagX",
