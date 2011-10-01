@@ -39,3 +39,6 @@
 6) huberM() --> being moved to ../robustbase/ !!
    --------  mention this on the help page man/huberM.Rd
    	     as soon as robustbase is on CRAN
+
+o) add Duplicated()
+

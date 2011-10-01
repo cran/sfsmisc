@@ -102,6 +102,7 @@ export (
 	"sHalton",
 	"seqXtend",
 	"signi",
+        "sourceAttach",
 	"strcodes",
 	"str_data",
 	"TA.plot",

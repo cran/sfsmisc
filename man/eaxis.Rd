@@ -11,14 +11,17 @@
   used.
 }
 \usage{
-eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
+eaxis(side, at = ,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
+      labels = NULL, log = NULL,
       f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
-      outer.at = TRUE, drop.1 = TRUE, las = 1, max.at = Inf, \dots)
+      draw.between.ticks = TRUE,
+      outer.at = TRUE, drop.1 = TRUE, las = 1,
+      nintLog = max(10, par("lab")[2 - is.x]), max.at = Inf, \dots)
 }
 \arguments{
   \item{side}{integer in 1:4, specifying side of \code{\link{axis}}.}
   \item{at}{numeric vector of (\dQuote{normalsized}) tick locations; by
-    default \code{\link[graphics]{axTicks}(side)}, i.e., the same as
+    default \code{\link[graphics]{axTicks}(side, ..)}, i.e., the same as
     \code{\link{axis}()} would use.}
   \item{labels}{\code{NULL} (default), \code{\link{logical}},
     \code{character} or \code{expression}, as in \code{\link{axis}()};
@@ -37,11 +40,17 @@ eaxis(side, at = axTicks(side, log=log), labels = NULL, log = NULL,
     \code{at} (typically \code{\link{axTicks}()}) should be used as
     \dQuote{small ticks}.  The default \code{NULL} will use \code{9} in
     the log case and a number in 2:5 otherwise.}% depending on scale details
+  \item{draw.between.ticks}{(only if \code{log} is true): logical indicating
+    that possible (non-small) ticks between the labeled (via \code{at})
+    ones should be drawn as well (and possibly also used for \code{at.small}
+    construction).}
   \item{outer.at}{logical specifying that \code{at.small} should also be
     constructed outside the \code{at} range, but still inside the
     corresponding \code{\link{par}("usr")}.}
   \item{drop.1}{logical specifying if \code{"1 *"} should be dropped
     from labels, passed to \code{\link{pretty10exp}()}.}
+  \item{nintLog}{only used in \R > 2.13.x, when \code{log} is true:
+    approximate (lower bound on) number of intervals for log scaling.}
   \item{max.at}{maximal number of \code{at} values to be used
     effectively.  If you don't specify \code{at} yourself carefully, it
     is recommended to set this to something like \code{25}.}
@@ -91,8 +100,13 @@ eaxis(1) # maybe (depending on your canvas), there are too many,
 plot(x, sin(x)/x, type = "l", xaxt = "n")
 eaxis(1, axTicks(1)[c(TRUE,FALSE)]) # drop every 2nd label
 eaxis(3, labels=FALSE)
+
+## ore use 'max.at' which thins as well:
+plot(x, sin(x)/x, type = "l", xaxt = "n")
+eaxis(1, max.at=6)
 par(op)
 
-%% FIXME: add a good example  of  max.at  !
+## From R version 2.14.0, on, this looks better
+
 }
 \keyword{aplot}
