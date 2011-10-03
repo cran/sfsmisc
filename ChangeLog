@@ -1,3 +1,8 @@
+2011-10-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-18, released to CRAN on 2011-10-??
+	* R/prettylab.R (eaxis): fix Rversion check.
+
 2011-10-01  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/prettylab.R (pretty10exp): digits.fuzz = 7:
