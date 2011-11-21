@@ -1,6 +1,21 @@
+2011-11-21  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (seqXtend): change to enable "interpolate" with
+	'Date' objects.
+
+2011-10-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-19, released to CRAN ...
+
+	* man/str_data.Rd: + examples for 'filterFUN'
+
+2011-10-08  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/str_data.R (str_data): new arg 'filterFUN'
+
 2011-10-03  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 1.0-18, released to CRAN on 2011-10-??
+	* DESCRIPTION (Version): 1.0-18, released to CRAN.
 	* R/prettylab.R (eaxis): fix Rversion check.
 
 2011-10-01  Martin Maechler  <maechler@stat.math.ethz.ch>

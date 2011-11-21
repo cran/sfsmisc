@@ -1,5 +1,5 @@
-501db69e15c71a870521817bdf7f4628 *ChangeLog
-352b8b02b2152245a1cce1190ce3b9a7 *DESCRIPTION
+1b2280b34f76c09ea3a4a215475c7612 *ChangeLog
+c8abd4ff2ff00e60647591399be09ccd *DESCRIPTION
 a89c1ba3de6e24882167489acee67183 *Done
 27bc698f4ac6a533ee59789bfbd037a0 *NAMESPACE
 cf3392d421c5aa0b8f6dd395645c4f69 *NEWS
@@ -17,7 +17,7 @@ f648c478ee58b7aedd45d783285a1ec7 *R/glob2rx.R
 1559f9d13d50581f1bc19be81c5d87e5 *R/integratexy.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 319fe1bb512eaf444df5c65a1e8147f8 *R/mat2tex.R
-88db3da4de3b9f3a3767fe6b9f3cc025 *R/misc-goodies.R
+714958d8b31d14fe14df12103db22565 *R/misc-goodies.R
 f7a1c1a4a40e758509e973bbde15196a *R/mult.fig.R
 7e4da78a6a04d81374337ce1845cc47c *R/nearcor.R
 eb306b15394af435674e57396f261e3c *R/old-unused.R
@@ -34,7 +34,7 @@ d0c425ccaa8a0a378c0ffa3837f3a6e7 *R/prime-numbers-fn.R
 85f2727bb3dcbe54a2c915779d6a7de7 *R/ps.goodies.R
 11a6ed2caf724846b43282bef7b56c10 *R/rrange.R
 7ab4b42c9ae8a0bef9acd2694e8060b9 *R/sourceAttach.R
-a58bc3675de6116cc03e516fca6d2218 *R/str_data.R
+e32f2ad7f49ed181ae588172916a2c97 *R/str_data.R
 022ac96f45793bb1a4326d21a31b1281 *R/tkdensity.R
 04f17b3c8cee89644dfb21961b498032 *R/twoway-r-plot.R
 4e201e572b12ef646af80b60ee52933a *R/u.goodies.R
@@ -45,7 +45,7 @@ a85c2d35593774800c2c432f3c2d835f *data/potatoes.rda
 cce86ae2da82d435ca2e27bc7c945db5 *demo/00Index
 f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 b0f9933553a371745ebbee557ec4694a *demo/prime-numbers.R
-501db69e15c71a870521817bdf7f4628 *inst/ChangeLog
+1b2280b34f76c09ea3a4a215475c7612 *inst/ChangeLog
 cf3392d421c5aa0b8f6dd395645c4f69 *inst/NEWS
 f1fd6b4b9ade8b3442d6e2f8ded82afb *inst/doc/CHANGES.txt
 ed9cd77e14a57963b8a93fc817a2af8d *man/AsciiToInt.Rd
@@ -111,12 +111,12 @@ b0522194f4e6bbe5d212343ac1d06618 *man/ps.end.Rd
 cfc5f327698fea4d1a8e56ed16a10739 *man/quadrant.Rd
 800eb35ba8c0bff4f2311cec50380fdb *man/repChar.Rd
 9eb4b1c5c27e9cda929a144d7f5cc59b *man/rot2.Rd
-23440265fec616377455c3b72dfda4ee *man/roundfixS.Rd
+9f5ff256d84b66d2065adf0601e3c8f3 *man/roundfixS.Rd
 1ba77eac40ce04a6096cd01168d858fa *man/rrange.Rd
-4b1a3e23e45bd02ad1cd3960166cbb78 *man/seqXtend.Rd
+13219b81885b1869bb54ee8160d968f9 *man/seqXtend.Rd
 9e598025182ec3d321f218cf76c9ccff *man/signi.Rd
 bbe3916ad29ca05fb8988ca54c7ac57b *man/sourceAttach.Rd
-0d297a29900f72ffc75d93428fee58a2 *man/str_data.Rd
+44709ce7c608e424f564cb022b3060a4 *man/str_data.Rd
 8daffacd134142a2fffb3691eba6f9a2 *man/tapplySimpl.Rd
 25cd95c94ccbb5f33657a30a9035e44a *man/tkdensity.Rd
 9d4f4f45f43fde428ea707e9fa26bd20 *man/u.Datumvonheute.Rd

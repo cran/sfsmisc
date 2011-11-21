@@ -1,5 +1,6 @@
 \name{roundfixS}
 \alias{roundfixS}
+\concept{apportionment}
 \title{Round to Integer Keeping the Sum Fixed}
 \description{
   Given a real numbers \eqn{y_i} with the particular property that
@@ -7,6 +8,16 @@
   which are close to \eqn{y_i} (\eqn{\left|x_i - y_i\right| < 1 \forall i}{%
     |x[i] - y[i]| < 1 for all i}), and have identical \dQuote{marginal}
   sum, \code{sum(x) == sum(y)}.
+
+  As I found later, the problem is known as \dQuote{Apportionment Problem}
+  and it is quite an old problem with several solution methods proposed
+  historically, but only in 1982, Balinski and Young proved that there
+  is no method that fulfills three natural desiderata.
+
+  Note that the (first) three methods currently available here were all
+  (re?)-invented by M.Maechler, without any knowledge of the
+  litterature.  At the time of writing, I have not even checked to which
+  (if any) of the historical methods they match.
 }
 \usage{
 roundfixS(x, method = c("offset-round", "round+fix", "1greedy"))
@@ -33,6 +44,14 @@ roundfixS(x, method = c("offset-round", "round+fix", "1greedy"))
   with integer values and fulfulling \code{sum(r) == sum(x)}.
 }
 \author{Martin Maechler, November 2007}
+\references{
+  Michel Balinski and H. Peyton Young (1982)
+  \bold{Fair Representation: Meeting the Ideal of One Man, One Vote};
+
+  \url{http://en.wikipedia.org/wiki/Apportionment_paradox}
+
+  \url{http://www.ams.org/samplings/feature-column/fcarc-apportionii3}
+}
 \seealso{\code{\link{round}} etc
 }
 \examples{

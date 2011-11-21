@@ -66,6 +66,15 @@ points(match(x,xt), x, col = 2, pch = 20)
 xt2 <- seqXtend(x, 100)
 plot(xt2, col="blue")
 points(match(x,xt2), x, col = 2, pch = 20)
+
+## with "Date" objects
+Drng <- as.Date(c("2007-11-10", "2012-07-12"))
+(px <- pretty(Drng, n = 16)) # say, for the main labels
+## say, a finer grid, for ticks -- should be almost equidistant
+n3 <- 3*length(px)
+summary(as.numeric(diff(seqXtend(px, n3))))        # wildly varying
+summary(as.numeric(diff(seqXtend(px, n3, "aim")))) #   (ditto)
+summary(as.numeric(diff(seqXtend(px, n3, "int")))) # around 30
 }
 \keyword{manip}
 \keyword{utilities}
