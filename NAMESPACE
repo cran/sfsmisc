@@ -11,6 +11,7 @@ export (
 	"as.integer.basedInt",
 	"axTexpr",
 	"repChar", "bl.string",
+	"capture.and.write",
 	"ccat",
 	"chars8bit",
 	"code2n",

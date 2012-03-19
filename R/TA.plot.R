@@ -1,4 +1,4 @@
-#### $Id: TA.plot.R,v 1.10 2009/11/18 13:38:48 maechler Exp $
+#### $Id: TA.plot.R,v 1.11 2012/03/18 21:53:39 maechler Exp $
 n.plot <-
     function(x, y=NULL, nam = NULL, abbr = n >= 20 || max(nchar(nam))>=8,
              xlab = NULL, ylab = NULL, log = "",
@@ -21,7 +21,7 @@ n.plot <-
       if (is.null(nam)) { nam <- names(y)
        if (is.null(nam)) { nam <- paste(1:n) #- Use 1,2,.. if no names
     }}}}
-    if(abbr) nam <- abbreviate(nam, min=1)
+    if(abbr) nam <- abbreviate(nam, minlength=1)
     text(xy, labels=nam, cex=cex, col=col)
     invisible(nam)
 }
