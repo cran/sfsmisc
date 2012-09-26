@@ -20,16 +20,14 @@ primes(n)
 \value{
   numeric vector of all prime numbers \eqn{\le n}{<= n}.
 }
-% \references{
-% ...
-% }
 \author{
   Bill Venables (<= 2001); Martin Maechler gained another 40\% speed,
   working with logicals and integers.
 }
 \seealso{
- \code{\link{factorize}}; \code{\link{next}} in \dQuote{base} \R's
-    (\pkg{stats} package).
+  \code{\link{factorize}}.  For large \eqn{n}, use the \pkg{gmp} package
+  and its \code{\link[gmp]{isprime}} and \code{\link[gmp]{nextprime}}
+  functions.
 }
 \examples{
  (p1 <- primes(100))

@@ -1,6 +1,6 @@
 Package: sfsmisc
-Version: 1.0-20
-Date: 2012-03-19
+Version: 1.0-21
+Date: 2012-09-26
 Author: Martin Maechler and many others.
 Maintainer: Martin Maechler <maechler@stat.math.ethz.ch>
 Title: Utilities from Seminar fuer Statistik ETH Zurich
@@ -12,6 +12,6 @@ Suggests: datasets, tcltk, cluster, MASS, Matrix, nlme, lokern
 Enhances: mgcv, rpart, nor1mix, polycor, sm
 Encoding: latin1
 License: GPL (>= 2)
-Packaged: 2012-03-18 21:54:15 UTC; maechler
+Packaged: 2012-09-26 09:07:21 UTC; maechler
 Repository: CRAN
-Date/Publication: 2012-03-19 11:12:41
+Date/Publication: 2012-09-27 17:26:01

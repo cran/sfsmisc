@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.40 2012/03/18 21:28:37 maechler Exp $
+#### $Id: misc-goodies.R,v 1.41 2012/07/06 07:03:56 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -238,7 +238,10 @@ paste.vec <- function(name, digits = options()$digits)
 signi <- function(x, digits = 6) round(x, digits - trunc(log10(abs(x))))
 
 repChar <- function(char, no) paste(rep.int(char, no), collapse = "")
+## correct, but slower than the next one:
 bl.string <- function(no) repChar(" ", no)
+## faster:
+bl.string <- function(no) sprintf("%*s", no, "")
 
 ### symnum :  standard R function !!
 

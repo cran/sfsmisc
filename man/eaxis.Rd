@@ -14,6 +14,7 @@
 eaxis(side, at = ,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
       labels = NULL, log = NULL,
       f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
+      small.args = list(),
       draw.between.ticks = TRUE,
       outer.at = TRUE, drop.1 = TRUE, las = 1,
       nintLog = max(10, par("lab")[2 - is.x]), max.at = Inf, \dots)
@@ -40,6 +41,8 @@ eaxis(side, at = ,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
     \code{at} (typically \code{\link{axTicks}()}) should be used as
     \dQuote{small ticks}.  The default \code{NULL} will use \code{9} in
     the log case and a number in 2:5 otherwise.}% depending on scale details
+  \item{small.args}{optional \code{\link{list}} of further arguments to
+    the \code{\link{axis}()} call which draws the small ticks.}
   \item{draw.between.ticks}{(only if \code{log} is true): logical indicating
     that possible (non-small) ticks between the labeled (via \code{at})
     ones should be drawn as well (and possibly also used for \code{at.small}
@@ -86,7 +89,7 @@ eaxis(1)
 
 x <- seq(-1, 1, length = 1000)
 plot(x, sin(x)/x, type = "l", xaxt = "n")
-eaxis(1)
+eaxis(1, small.args = list(col="blue"))
 
 x <- x/1000
 plot(x, 1-sin(x)/x, type = "l", xaxt = "n", yaxt = "n")

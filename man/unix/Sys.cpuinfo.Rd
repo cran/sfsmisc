@@ -32,10 +32,11 @@ Sys.MIPS()
 
   \code{Sys.MIPS} returns a number giving an approximation of
   the \bold{M}illion \bold{I}instructions \bold{P}er \bold{S}econd that
-  the CPU processes.  This is a performance measure of the basic
-  \emph{non-numeric} processing capabilities and for Linux systems often
-  about twice the basic clock rate in ``MHz'' as available by
-  \code{Sys.cpuinfo()["cpu MHz"]}.
+  the CPU processes (using \dQuote{bogomips}).  This is a performance
+  measure of the basic \emph{non-numeric} processing capabilities.
+  For single-core Linux systems, often about twice the basic clock rate
+  in ``MHz'' (as available by \code{Sys.cpuinfo()["cpu.MHz"]}); now,
+  with multicore systems, the result is often around \code{2* #(cores)}.
 }
 \author{Martin Maechler}
 \note{These currently do rely on the Linux \file{/proc/} file system, and may not
@@ -52,11 +53,10 @@ Sys.MIPS()
 
 \examples{
 if(substr(R.version[["os"]], 1,5) == "linux") { ##-- only on Linux
-
-  Sys.cpuinfo() # which is often ugly
-  local({I <- Sys.cpuinfo(); I[ "flags" != names(I) ] })
+  Sys.cpuinfo() # which is often ugly; this looks much better:
+  local({I <- Sys.cpuinfo(); I[ !grepl("^flags", names(I)) ] })
   Sys.MIPS()
-  Sys.MIPS() / as.numeric(Sys.cpuinfo()["cpu MHz"]) ## < often about 2
+  Sys.MIPS() / as.numeric(Sys.cpuinfo()["cpu.MHz"]) ## ~~ 2* #{cores}
 }
 }
-\keyword{utilities}%-- one or more ...
+\keyword{utilities}

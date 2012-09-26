@@ -1,3 +1,17 @@
+2012-09-26  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prettylab.R (eaxis): new 'small.args' for Marius
+
+2012-04-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* man/unix/Sys.cpuinfo.Rd: fix example
+
+2012-03-18  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-20, released to CRAN on 2012-03-18
+
+	* man/capture-n-write.Rd: new capture.and.write() function
+
 2011-11-21  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/misc-goodies.R (seqXtend): change to enable "interpolate" with
@@ -5,7 +19,7 @@
 
 2011-10-16  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 1.0-19, released to CRAN ...
+	* DESCRIPTION (Version): 1.0-19, released to CRAN on 2011-11-21
 
 	* man/str_data.Rd: + examples for 'filterFUN'
 
