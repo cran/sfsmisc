@@ -35,7 +35,7 @@ export (
 	"errbar",
 	"f.robftest",
 	"hatMat",
-	"hist.bxp",
+        "histBxp", "hist.bxp", ## <- deprecated
 	"ichar",
 	"integrate.xy",
 	"inv.seq",

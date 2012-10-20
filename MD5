@@ -1,7 +1,7 @@
-77365ee638fd0984a9ebdff62dde8289 *ChangeLog
-7c7d5f005c24c4bce954f6aeab2ed074 *DESCRIPTION
+946939854981a792f269a9a4a31159e7 *ChangeLog
+50be1cdc1394b7d7ca1b02ec5c809353 *DESCRIPTION
 a89c1ba3de6e24882167489acee67183 *Done
-7f951567a399ac92f42be717bc91a552 *NAMESPACE
+b3708997db69a6482f1f67d1afa13b32 *NAMESPACE
 cf3392d421c5aa0b8f6dd395645c4f69 *NEWS
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 006d5bf32b9b87ecfffc7e4f75eeb54f *R/Deprecated.R
@@ -17,7 +17,7 @@ f648c478ee58b7aedd45d783285a1ec7 *R/glob2rx.R
 1559f9d13d50581f1bc19be81c5d87e5 *R/integratexy.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 319fe1bb512eaf444df5c65a1e8147f8 *R/mat2tex.R
-ac329ffd0018141ef40ea4a5309a3148 *R/misc-goodies.R
+84839e161234bb945db81476c138b248 *R/misc-goodies.R
 f7a1c1a4a40e758509e973bbde15196a *R/mult.fig.R
 bc1b64f3982e7219ffa337c6020f816e *R/nearcor.R
 eb306b15394af435674e57396f261e3c *R/old-unused.R
@@ -31,7 +31,7 @@ d41d8cd98f00b204e9800998ecf8427e *R/plotCI.R
 e449156252dc69be894feb1ef21b7408 *R/prettylab.R
 d0c425ccaa8a0a378c0ffa3837f3a6e7 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
-85f2727bb3dcbe54a2c915779d6a7de7 *R/ps.goodies.R
+4131feb9dc1468c655e528c77497259f *R/ps.goodies.R
 11a6ed2caf724846b43282bef7b56c10 *R/rrange.R
 7ab4b42c9ae8a0bef9acd2694e8060b9 *R/sourceAttach.R
 e32f2ad7f49ed181ae588172916a2c97 *R/str_data.R
@@ -41,17 +41,17 @@ e32f2ad7f49ed181ae588172916a2c97 *R/str_data.R
 4d4b2422f3bdc9933d94c1baf9a31d73 *R/unix/Sys.ps.R
 7ab810562bd39cc93e7997af3a0c08b2 *R/zzz.R
 007363e1f86cf1eef2b34d8e6382f2f1 *approx2.R
-bc21dc09f10f9696d2e038f1f0604e51 *data/potatoes.rda
+7d9a89a5055c5c018019fdc0991a1d0e *data/potatoes.rda
 cce86ae2da82d435ca2e27bc7c945db5 *demo/00Index
 f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 b0f9933553a371745ebbee557ec4694a *demo/prime-numbers.R
-77365ee638fd0984a9ebdff62dde8289 *inst/ChangeLog
+946939854981a792f269a9a4a31159e7 *inst/ChangeLog
 cf3392d421c5aa0b8f6dd395645c4f69 *inst/NEWS
 f1fd6b4b9ade8b3442d6e2f8ded82afb *inst/doc/CHANGES.txt
 ed9cd77e14a57963b8a93fc817a2af8d *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
-0cca3abc2c179a9e4ee2d3e619ded455 *man/Deprecated.Rd
+d1a6f7619002e0ceafca21ca7d991493 *man/Deprecated.Rd
 78565841a2acdb7dae5a050872f76c59 *man/Duplicated.Rd
 f4ea7840b26cc4f113a878867055b915 *man/KSd.Rd
 15605ad513e998131bcddef1efcdf075 *man/QUnif.Rd
@@ -72,7 +72,7 @@ f725c006be5a669e1f4c8f9ec7754ed5 *man/ellipsePoints.Rd
 5a373f447a945503c7ac4d41b6d3169a *man/f.robftest.Rd
 0f8cb38ffba7d36b63ccc44cff57d6fe *man/factorize.Rd
 56d1e472aa38d1575f2dc07832c51186 *man/hatMat.Rd
-e975db4ce9d409095ab5baffe3df4691 *man/hist.bxp.Rd
+bf85e40bd8064851647974a8e203e0d7 *man/histBxp.Rd
 8152fbae8c8c8a7d0f01567b248d9b4e *man/integrate.xy.Rd
 2abde5414a5aff6b3b076e7d4765cbc9 *man/inv.seq.Rd
 2fb29a85396fc12ffb52ec7c8af03c6a *man/iterate.lin.recursion.Rd
@@ -141,4 +141,4 @@ f4b09238483ccdbe2c57441d261b7af6 *tests/dDA.R
 0d1474c2a9ea1b0c12a4b5bd21afa273 *tests/p.R
 a43879df91dd2e235443b2d27d017aac *tests/p.Rout.save
 f860fb8e7bc5d43fa652bcd39ab56993 *tests/posdef.R
-1156f2a603cb9a30737e647c24a9b263 *tests/posdef.Rout.save
+a22adb590f0df4ffe22e80a17f34f6e1 *tests/posdef.Rout.save

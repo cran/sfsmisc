@@ -1,7 +1,8 @@
 
-R version 2.8.0 Patched (2008-10-30 r46799)
-Copyright (C) 2008 The R Foundation for Statistical Computing
+R version 2.15.2 beta (2012-10-16 r60951) -- "Trick or Treat"
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -58,7 +59,7 @@ Type 'q()' to quit R.
 List of 4
  $ cor       : num [1:6, 1:6] 1 0.488 0.643 0.491 0.644 ...
  $ fnorm     : num 0.0744
- $ iterations: num 27
+ $ iterations: num 28
  $ converged : logi TRUE
  - attr(*, "class")= chr "nearcor"
 > nr <- ncr$cor
@@ -73,3 +74,6 @@ List of 4
 + 		0.72988206459063, 0.77215024062758, 0.81319175546212), tol = 1e-12))
 > 
 > 
+> proc.time()
+   user  system elapsed 
+  0.180   0.032   0.205 

@@ -158,7 +158,7 @@ plotStep <- function(ti, y,
   invisible(list(t = ti, y = y))
 }
 
-hist.bxp <-
+histBxp <-
     function(x, nclass, breaks, probability = FALSE, include.lowest = TRUE,
              xlab = deparse(substitute(x)), ..., width = 0.2,
              boxcol = 3, medcol = 2, medlwd = 5, whisklty = 2, staplelty = 1)
@@ -217,6 +217,10 @@ hist.bxp <-
 	  medlwd = medlwd, whisklty = whisklty, staplelty = staplelty)
 }
 
+hist.bxp <- function(x, ...) {
+    warning("hist.bxp(..) is deprecated -- use  histBxp(..)  instead!")
+    histBxp(x, ...)
+}
 
 
 ##-#### Print & Strings  ########
