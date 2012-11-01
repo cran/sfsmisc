@@ -1,5 +1,5 @@
-946939854981a792f269a9a4a31159e7 *ChangeLog
-50be1cdc1394b7d7ca1b02ec5c809353 *DESCRIPTION
+4a49d1b5c542a93782214d0498060e2e *ChangeLog
+3b364da458c92afca169fac1480d70b8 *DESCRIPTION
 a89c1ba3de6e24882167489acee67183 *Done
 b3708997db69a6482f1f67d1afa13b32 *NAMESPACE
 cf3392d421c5aa0b8f6dd395645c4f69 *NEWS
@@ -17,7 +17,7 @@ f648c478ee58b7aedd45d783285a1ec7 *R/glob2rx.R
 1559f9d13d50581f1bc19be81c5d87e5 *R/integratexy.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 319fe1bb512eaf444df5c65a1e8147f8 *R/mat2tex.R
-84839e161234bb945db81476c138b248 *R/misc-goodies.R
+8c5e85132a7f442d9c7741452c62eee9 *R/misc-goodies.R
 f7a1c1a4a40e758509e973bbde15196a *R/mult.fig.R
 bc1b64f3982e7219ffa337c6020f816e *R/nearcor.R
 eb306b15394af435674e57396f261e3c *R/old-unused.R
@@ -45,7 +45,7 @@ e32f2ad7f49ed181ae588172916a2c97 *R/str_data.R
 cce86ae2da82d435ca2e27bc7c945db5 *demo/00Index
 f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 b0f9933553a371745ebbee557ec4694a *demo/prime-numbers.R
-946939854981a792f269a9a4a31159e7 *inst/ChangeLog
+4a49d1b5c542a93782214d0498060e2e *inst/ChangeLog
 cf3392d421c5aa0b8f6dd395645c4f69 *inst/NEWS
 f1fd6b4b9ade8b3442d6e2f8ded82afb *inst/doc/CHANGES.txt
 ed9cd77e14a57963b8a93fc817a2af8d *man/AsciiToInt.Rd
@@ -63,7 +63,7 @@ edad636e43c3a9687547909f1ec117d4 *man/compresid2way.Rd
 e30198b92a39a77ec6569ad3e99f3a5b *man/cum.Vert.funkt.Rd
 fbab06c94aaf2d83c9c0f49cacaa527b *man/diagDA.Rd
 c0da3534b70ec2ac0e039c669ce9618b *man/diagX.Rd
-f94b13035c37d674b7348742dcc5e3f2 *man/digitsBase.Rd
+02b5e70c2ea7b9d97a67666def499b37 *man/digitsBase.Rd
 939c2003bcb91607c48aa338bd6b72cd *man/eaxis.Rd
 eea6afb4b8fb194fad63f41d1072ac3c *man/ecdf.ksCI.Rd
 f725c006be5a669e1f4c8f9ec7754ed5 *man/ellipsePoints.Rd
@@ -137,7 +137,7 @@ feaf072c771404029980b91201201855 *man/xy.grid.Rd
 ebd2da68005cdc30aaaf065d9accd4f8 *man/xy.unique.x.Rd
 f4b09238483ccdbe2c57441d261b7af6 *tests/dDA.R
 14be382e178b768c0cd019e7bef90e3e *tests/dDA.Rout.save
-061d2e9998b6eaee3160271d72673287 *tests/misc.R
+173e3aad69c6558316459c8ad7ac7994 *tests/misc.R
 0d1474c2a9ea1b0c12a4b5bd21afa273 *tests/p.R
 a43879df91dd2e235443b2d27d017aac *tests/p.Rout.save
 f860fb8e7bc5d43fa652bcd39ab56993 *tests/posdef.R

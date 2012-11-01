@@ -1,6 +1,13 @@
+2012-11-01  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* ../DESCRIPTION (Version): 1.0-23, released to CRAN on 2012-11-01
+
+	* R/misc-goodies.R (digitsBase): ndigits default argument needs
+	fuzz (1e-9), e.g., for base 3.
+
 2012-10-20  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 1.0-22, released to CRAN on ..
+	* DESCRIPTION (Version): 1.0-22, released to CRAN on 2012-10-20
 
 	* R/ps.goodies.R (dev.latex): oops: finally found and fixed bug
 	where the missing(.) checks where never true, as dev.latex() is
