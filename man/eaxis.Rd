@@ -11,11 +11,11 @@
   used.
 }
 \usage{
-eaxis(side, at = ,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
+eaxis(side, at =,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
       labels = NULL, log = NULL,
       f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
       small.args = list(),
-      draw.between.ticks = TRUE,
+      draw.between.ticks = TRUE, between.max = 4,
       outer.at = TRUE, drop.1 = TRUE, las = 1,
       nintLog = max(10, par("lab")[2 - is.x]), max.at = Inf, \dots)
 }
@@ -46,7 +46,10 @@ eaxis(side, at = ,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
   \item{draw.between.ticks}{(only if \code{log} is true): logical indicating
     that possible (non-small) ticks between the labeled (via \code{at})
     ones should be drawn as well (and possibly also used for \code{at.small}
-    construction).}
+    construction), see also \code{between.max}.}
+  \item{between.max}{(only if \code{log} and \code{draw.between.ticks}
+    are true): integer indicating ticks should be drawn (approximately)
+    between the labeled ones.}
   \item{outer.at}{logical specifying that \code{at.small} should also be
     constructed outside the \code{at} range, but still inside the
     corresponding \code{\link{par}("usr")}.}
@@ -56,7 +59,8 @@ eaxis(side, at = ,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
     approximate (lower bound on) number of intervals for log scaling.}
   \item{max.at}{maximal number of \code{at} values to be used
     effectively.  If you don't specify \code{at} yourself carefully, it
-    is recommended to set this to something like \code{25}.}
+    is recommended to set this to something like \code{25}, but this is
+    not the default, for back compatibility reasons.}
   \item{las, \dots}{arguments passed to (the first) \code{\link{axis}}
     call.  Note that the default \code{las = 1} differs from
     \code{axis}'s default \code{las = 0}.}
@@ -108,8 +112,15 @@ eaxis(3, labels=FALSE)
 plot(x, sin(x)/x, type = "l", xaxt = "n")
 eaxis(1, max.at=6)
 par(op)
-
 ## From R version 2.14.0, on, this looks better
 
+### Answering R-help "How do I show real values on a log10 histogram", 26 Mar 2013
+## the data:
+       set.seed(1); summary(x <- rlnorm(100, m = 2, sdl = 3))
+## the plot (w/o  x-axis) :
+       r <- hist(log10(x), xaxt = "n", xlab = "x [log scale]")
+## the nice axis:
+       axt <- axTicks(1)
+       eaxis(1, at = axt, labels = pretty10exp(10^axt, drop.1=TRUE))
 }
 \keyword{aplot}

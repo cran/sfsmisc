@@ -1,6 +1,20 @@
+2013-01-16  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/ps.goodies.R (pdf.do): set paper to "special" when user
+	specifies 'width' and 'height'.
+
+2013-01-03  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-24,
+
+	* R/prettylab.R (eaxis): for 'log': new 'between.max = 4';
+	set 'at.small <- FALSE' in such cases, when small ticks are not
+	sensible.
+
+
 2012-11-01  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* ../DESCRIPTION (Version): 1.0-23, released to CRAN on 2012-11-01
+	* DESCRIPTION (Version): 1.0-23, released to CRAN on 2012-11-01
 
 	* R/misc-goodies.R (digitsBase): ndigits default argument needs
 	fuzz (1e-9), e.g., for base 3.
@@ -18,6 +32,7 @@
 
 2012-09-26  Martin Maechler  <maechler@stat.math.ethz.ch>
 
+	* DESCRIPTION (Version): 1.0-21, released to CRAN today
 	* R/prettylab.R (eaxis): new 'small.args' for Marius
 
 2012-04-18  Martin Maechler  <maechler@stat.math.ethz.ch>

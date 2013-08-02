@@ -28,9 +28,10 @@ sourceAttach(file, pos=2,
  \code{\link{attach}}, \code{\link{sys.source}}, \code{\link{source}}
 }
 \examples{
- sourceAttach(system.file("test-tools.R", package="Matrix"))
+ sourceAttach(system.file("test-tools-1.R", package="Matrix", mustWork=TRUE))
  search() # shows the new "data base" at position 2
- ls(pos = 2)
+ ## look what it contains:
+ ls.str(pos = 2)
 }
 \keyword{file}
 \keyword{utilities}

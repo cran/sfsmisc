@@ -6,7 +6,7 @@
 \title{PostScript/PDF Preview Device with Optional `LaTeX' Touch}
 \usage{
 pdf.do(file, paper = "default", width = -1, height = -1, onefile = FALSE,
-       title = NULL, version = "1.4", \dots)
+       title = NULL, version = "1.4", quiet = FALSE, \dots)
 
 pdf.latex(file, height = 5 + main.space * 1.25,  width = 9.5,
           main.space=FALSE, lab.space = main.space,
@@ -36,11 +36,14 @@ ps.latex(file, height = 5 + main.space * 1.25,  width = 9.5,
   \item{version}{a string describing the PDF version that will be
     required to view the output, see \code{\link{pdf}}; our (high)
     default ensures alpha-transparency.}
+  \item{quiet}{logical specifying that some (informative/warning)
+    messages should not be issued.}
   \item{main.space}{logical; if true, leave space for a main title
     (unusual for LaTeX figures!).}
   \item{lab.space}{logical; if true, leave space for x- and y- labels
     (by \emph{not} subtracting from \code{mar}).}
-  \item{paper}{character (or missing), see \code{\link{postscript}}.  Only
+  \item{paper}{character (or missing), typically \code{"a4"} or
+    \code{"a4r"} in non-America, see \code{\link{postscript}}.  Only
     if this is \code{"special"} (or missing) are your choices of \code{width}
     and \code{height} completely honored (and this may lead to files that
     cannot print on A4) with resizing.}
@@ -77,7 +80,9 @@ ps.latex(file, height = 5 + main.space * 1.25,  width = 9.5,
   they are set such as to provide very similar functionality, for
   the functions \code{ps.do()} and \code{pdf.do()}; e.g., by default,
   both use a full plot on portrait-oriented page of the default paper,
-  as per \code{\link{getOption}("papersize")}.
+  as per \code{\link{getOption}("papersize")}.\cr
+  \code{\link{pdf.do}()} sets the default \code{paper} to \code{"special"}
+  when both \code{width} and \code{height} are specified.
 }
 \value{
   A list with components

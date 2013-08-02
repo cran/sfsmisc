@@ -94,8 +94,7 @@ export (
 
 	"quadrant",
 	"QUnif",
-        ## defunct (giving useful error message):
-	"rnls",
+        ## defunct (giving useful error message): "rnls",
 
 	"rot2",
 	"roundfixS",
