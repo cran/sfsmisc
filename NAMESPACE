@@ -1,5 +1,12 @@
-## export almost all
-##
+importFrom(stats, density.default)
+
+## Using "::" in code -> no need here:
+importFrom("methods", existsFunction)
+importFrom("utils", head, capture.output) # and probably more
+
+
+### Export almost all
+##  ------
 ## New scheme (at first: for new things, only):
 #  group exported objects  __by ./R/ (and maybe ./man/) source file__
 export (
@@ -94,7 +101,6 @@ export (
 
 	"quadrant",
 	"QUnif",
-        ## defunct (giving useful error message): "rnls",
 
 	"rot2",
 	"roundfixS",
@@ -125,7 +131,7 @@ if(tools:::.OStype() == "unix") { ## those are inside R/unix/
     export("Sys.ps", "Sys.ps.cmd", "Sys.sizes")
 
     if(identical(1L, grep("linux", R.version[["os"]]))) { ##--- Linux - only ---
-        export("Sys.cpuinfo", "Sys.meminfo", "Sys.MIPS")
+	export("Sys.cpuinfo", "Sys.meminfo", "Sys.MIPS", "Sys.memGB")
     }
 }
 
@@ -135,10 +141,3 @@ S3method(print, basedInt)
 S3method(print, margin2table)
 
 
-## Using "::" in code -> no need here:
-## importFrom("methods", existsFunction)
-## importFrom("utils", getFromNamespace)
-
-##no longer: importFrom("MASS", psi.bisquare, psi.hampel, psi.huber)
-
-## MASS has many rlm S3 methods; should we use some of them - for rnls() ?!

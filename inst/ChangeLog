@@ -1,3 +1,11 @@
+2013-10-14  Martin Maechler  <maechler@lynne>
+
+2013-10-14  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-25
+	* R/unix/Sys.ps.R (Sys.memGB): new utility
+	* man/unix/Sys.cpuinfo.Rd: incl example
+
 2013-01-16  Martin Maechler  <maechler@stat.math.ethz.ch>
 
 	* R/ps.goodies.R (pdf.do): set paper to "special" when user
@@ -5,7 +13,7 @@
 
 2013-01-03  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 1.0-24,
+	* DESCRIPTION (Version): 1.0-24, released to CRAN on 2013-08-03.
 
 	* R/prettylab.R (eaxis): for 'log': new 'between.max = 4';
 	set 'at.small <- FALSE' in such cases, when small ticks are not

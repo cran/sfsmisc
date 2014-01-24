@@ -1,4 +1,4 @@
-####-- $Id: prettylab.R,v 1.9 2013/01/02 23:38:20 maechler Exp maechler $
+####-- $Id: prettylab.R,v 1.10 2013/11/14 11:33:32 maechler Exp $
 ### --> these are from ~/R/MM/GRAPHICS/axis-prettylab.R
 
 ### Help files: ../man/pretty10exp.Rd  ../man/axTexpr.Rd   ../man/eaxis.Rd
@@ -56,7 +56,7 @@ eaxis <- function(side, at = if(log && getRversion() >= "2.14.0")
     ## Author: Martin Maechler, Date: 13 Oct 2007
     is.x <- side%%2 == 1
     if(is.null(log)) {
-        XY <- function(ch) paste(if (is.x) "x" else "y", ch, sep = "")
+        XY <- function(ch) paste0(if (is.x) "x" else "y", ch)
         log <- par(XY("log"))
     }
     if(is.finite(max.at <- round(max.at))) { ## "thin the 'at' values
