@@ -1,4 +1,4 @@
-#### $Id: misc-goodies.R,v 1.45 2014/01/24 08:31:12 maechler Exp $
+#### $Id: misc-goodies.R,v 1.48 2014/06/15 15:26:37 maechler Exp $
 #### misc-goodies.R
 #### ~~~~~~~~~~~~~~  SfS - R - goodies that are NOT in
 ####		"/u/sfs/R/SfS/R/u.goodies.R"
@@ -358,12 +358,15 @@ digitsBase <- function(x, base = 2, ndigits = 1 + floor(1e-9+ log(max(x),base)))
     r
 }
 
+bi2int <- function(xlist, base)
+    vapply(xlist, function(u) polyn.eval(rev(u), base), numeric(1))
+
 as.intBase <- function(x, base = 2) {
    xl <- if(is.character(x)) lapply(strsplit(x,""), as.integer)
         else if(is.numeric(x) && is.matrix(x)) tapply(x, col(x), c)
         else if(!is.list(x))
             stop("'x' must be character, list or a digitsBase() like matrix")
-   sapply(xl, function(u) polyn.eval(rev(u), base), USE.NAMES = FALSE)
+   bi2int(xl, base)
 }
 
 as.integer.basedInt <- function(x, ...)
@@ -480,6 +483,28 @@ uniqueL <- function(x, isuniq = !duplicated(x), need.sort = is.unsorted(x))
     list(ix = ix, xU = x[isuniq])
 }
 
+
+is.whole <- function(x, tolerance = sqrt(.Machine$double.eps))
+{
+    ## Tests if a numeric scalar (or vector, matrix or array) is a whole
+    ## number; returns an boolean object of the same dimension as x, each entry
+    ## indicating whether the corresponding entry in x is whole.
+    is.whole.scalar <-
+	if (is.integer(x)) {
+	    function(x) TRUE
+	} else if (is.numeric(x)) {
+	    function(x) isTRUE(all.equal(x, round(x), tolerance = tolerance))
+	} else if (is.complex(x)) {
+	    function(x)
+		isTRUE(all.equal(Re(x), round(Re(x)), tolerance = tolerance)) &&
+		isTRUE(all.equal(Im(x), round(Im(x)), tolerance = tolerance))
+	} else stop("Input must be of type integer, numeric or complex.")
+
+    if (is.null(dim(x)))
+	vapply(x, is.whole.scalar, NA)
+    else
+	apply(x, seq_along(dim(x)), is.whole.scalar)
+}
 
 ###
 ### autoreg(),  mean.cor()  etc ... not yet

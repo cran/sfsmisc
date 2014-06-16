@@ -23,7 +23,7 @@ axTexpr(side, at = axTicks(side, axp = axp, usr = usr, log = log),
 }
 \details{
   This is just a utility with the same arguments as
-  \code{\link{axTicks}}, calling \code{\link{pretty10exp}(at, *)}.
+  \code{\link{axTicks}}, a wrapper \code{\link{pretty10exp}(at, *)}.
 }
 \value{
   an expression of the same length as \code{x}, with elements of the
@@ -31,7 +31,7 @@ axTexpr(side, at = axTicks(side, axp = axp, usr = usr, log = log),
 }
 \author{Martin Maechler}
 \seealso{\code{\link{pretty10exp}};
-  \code{\link{axis}}, \code{\link{axTicks}}.
+  \code{\link{eaxis}},   \code{\link{axis}}, \code{\link{axTicks}}.
 }
 \examples{
 x <- 1e7*(-10:50)

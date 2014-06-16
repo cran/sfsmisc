@@ -2,7 +2,10 @@ importFrom(stats, density.default)
 
 ## Using "::" in code -> no need here:
 importFrom("methods", existsFunction)
-importFrom("utils", head, capture.output) # and probably more
+importFrom("utils", head, toLatex, #<- S3 generics !
+           capture.output
+           ) # and probably more __FIXME: move utils from Depends to Imports
+importFrom("grDevices", cairo_pdf)
 
 
 ### Export almost all
@@ -14,8 +17,9 @@ export (
         primes, factorize,
 
 	"AsciiToInt",
-	"as.intBase",
-	"as.integer.basedInt",
+	"as.intBase", "bi2int",
+    ## FIXME: currently needed from FrF2 (Ulrike Groemping):
+        "as.integer.basedInt",
 	"axTexpr",
 	"repChar", "bl.string",
 	"capture.and.write",
@@ -46,6 +50,7 @@ export (
 	"ichar",
 	"integrate.xy",
 	"inv.seq",
+	"is.whole",
 	"iterate.lin.recursion",
 	"KSd",
 	"last",
@@ -138,6 +143,11 @@ if(tools:::.OStype() == "unix") { ## those are inside R/unix/
 S3method(predict, dDA)
 S3method(print, dDA)
 S3method(print, basedInt)
+S3method(as.integer, basedInt)
+
 S3method(print, margin2table)
 
+S3method(toLatex, numeric)
 
+S3method(p.res.2x, default)
+S3method(p.res.2x, formula)

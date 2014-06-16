@@ -5,10 +5,10 @@
   An extended \code{\link[graphics]{axis}()} function which labels more
   prettily, in particular for log-scale axes.
 
-  It  makes use of \link{plotmath} \code{\link{expression}}s of
+  It  makes use of \link{plotmath} or (LaTeX) \code{\link{expression}}s of
   the form \eqn{k \times 10^k}{k * 10^k} for labeling a
-  log-scaled axis and when otherwise exponentional formatting would be
-  used.
+  log-scaled axis and when otherwise exponential formatting would be
+  used (see \code{\link{pretty10exp}}).
 }
 \usage{
 eaxis(side, at =,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
@@ -17,7 +17,9 @@ eaxis(side, at =,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
       small.args = list(),
       draw.between.ticks = TRUE, between.max = 4,
       outer.at = TRUE, drop.1 = TRUE, las = 1,
-      nintLog = max(10, par("lab")[2 - is.x]), max.at = Inf, \dots)
+      nintLog = max(10, par("lab")[2 - is.x]), max.at = Inf,
+      lab.type = "plotmath", lab.sep = "cdot",
+      \dots)
 }
 \arguments{
   \item{side}{integer in 1:4, specifying side of \code{\link{axis}}.}
@@ -64,6 +66,10 @@ eaxis(side, at =,% For R >= 2.14.0:  axTicks(side, log=log, nintLog=nintLog)
   \item{las, \dots}{arguments passed to (the first) \code{\link{axis}}
     call.  Note that the default \code{las = 1} differs from
     \code{axis}'s default \code{las = 0}.}
+  \item{lab.type}{string, passed to \code{\link{pretty10exp}} to choose
+    between default \code{\link{plotmath}} or LaTeX label format.}
+  \item{lab.sep}{separator between mantissa and exponent for LaTeX labels,
+    see \code{\link{pretty10exp}}.}
 }
 \author{Martin Maechler}
 \seealso{\code{\link[graphics]{axis}},
@@ -122,5 +128,6 @@ par(op)
 ## the nice axis:
        axt <- axTicks(1)
        eaxis(1, at = axt, labels = pretty10exp(10^axt, drop.1=TRUE))
+       eaxis(1, at = axt, labels = pretty10exp(10^axt, drop.1=TRUE, sub10=2))
 }
 \keyword{aplot}

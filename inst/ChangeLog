@@ -1,8 +1,34 @@
-2013-10-14  Martin Maechler  <maechler@lynne>
+2014-06-15  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prettylab.R (toLatex.numeric): times="\\cdot" .. from Alain
+
+	* R/misc-goodies.R (is.whole): new from Alain (May 12).
+
+2014-06-13  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/p.res.2x.WSt.R (p.res.2x.formula): new, method for p.res.2x()
+	which is now generic
+	* man/p.res.2fact.Rd: p.res.2x(~., <lm>) now can work
+
+2014-05-02  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/prettylab.R (pretty10exp): new 'lab.type' (and 'lab.sep')
+	from Ben Bolker
+
+2014-04-24  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* R/misc-goodies.R (bi2int): new utility, called in as.intBase()
+	* man/digitsBase.Rd: add the IP "n <-> a" example w/ base=256
+
+2014-04-23  Martin Maechler  <maechler@stat.math.ethz.ch>
+
+	* DESCRIPTION (Version): 1.0-26
+	* R/prettylab.R (pretty10exp): new 'sub10' option
+	* R/prettylab.R (toLatex.numeric): new, original from Alain
 
 2013-10-14  Martin Maechler  <maechler@stat.math.ethz.ch>
 
-	* DESCRIPTION (Version): 1.0-25
+	* DESCRIPTION (Version): 1.0-25, released to CRAN on 2014-01-24.
 	* R/unix/Sys.ps.R (Sys.memGB): new utility
 	* man/unix/Sys.cpuinfo.Rd: incl example
 
