@@ -1,7 +1,7 @@
 ####---- Prime numbers, factorization, etc. --- "illustatration of programming"
-## -- $Id: prime-numbers-fn.R,v 1.10 2014/04/24 10:07:42 maechler Exp $
+####---- Function definitions --------
 
-###---- Function definitions -------- for examples, see "../demo/prime-numbers.R"
+## for examples, see "../demo/prime-numbers.R"
 
 ### MM: Currently only export  primes()  and factorize() ---- TODO: CLEAN UP!
 

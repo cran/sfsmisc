@@ -1,4 +1,3 @@
-#### $Id: TA.plot.R,v 1.12 2014/06/13 12:29:24 maechler Exp $
 n.plot <-
     function(x, y=NULL, nam = NULL, abbr = n >= 20 || max(nchar(nam))>=8,
              xlab = NULL, ylab = NULL, log = "",

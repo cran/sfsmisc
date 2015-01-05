@@ -49,7 +49,7 @@ sHalton(n.max, n.min = 1, base = 2, leap = 1)
   Springer.
 
   Kocis, L. and Whiten, W.J. (1997)
-  Computationsl Investigations of Low-Discrepancy Sequences.
+  Computational Investigations of Low-Discrepancy Sequences.
   \emph{ACM Transactions of Mathematical Software} \bold{23}, 2, 266--294.
 }
 \author{Martin Maechler}

@@ -1,4 +1,5 @@
-####-- $Id: prettylab.R,v 1.17 2014/06/15 15:31:08 maechler Exp $
+#### Pretty Labels for "plotmath" axes -- Main function:  eaxis()
+
 ### --> these are from ~/R/MM/GRAPHICS/axis-prettylab.R
 
 ### Help files: ../man/pretty10exp.Rd  ../man/axTexpr.Rd   ../man/eaxis.Rd
@@ -29,10 +30,21 @@ pretty10exp <- function(x, drop.1 = FALSE, sub10 = FALSE,
     mT <- signif(x / 10^eT, digits) # m[antissa]
     ss <- vector("list", length(x))
     if(sub.10 <- !identical(sub10, FALSE)) {
+	if(identical(sub10, TRUE))
+	    sub10 <- c(0,0)
+	else if(identical(sub10, "10"))
+	    sub10 <- 0:1
 	sub10 <- as.integer(sub10)
-	if(sub10 < 0)
-	    stop("'sub10' must be FALSE or non negative integer valued")
-	noE <- eT <= sub10
+	noE <-
+	    if(length(sub10) == 1) {
+		if(sub10 < 0)
+		    stop("'sub10' must not be negative if a single number")
+		eT <= sub10
+	    } else if(length(sub10) == 2) {
+		stopifnot(sub10[1] <= sub10[2])
+		sub10[1] <= eT & eT <= sub10[2]
+	    } else stop("invalid 'sub10'")
+	## for noE's, mt := value (instead of mantissa):
 	mT[noE] <- mT[noE] * 10^eT[noE]
     }
     if (lab.type == "plotmath") {
@@ -52,9 +64,9 @@ pretty10exp <- function(x, drop.1 = FALSE, sub10 = FALSE,
 	    ss[[i]] <-
 		if(x[i] == 0) ""
 		else if(sub.10 &&  noE[i]    ) mTf[i]
-		else if(drop.1 && mT[i] ==  1) sprintf("$10^{%s}$",eTf[i])
+		else if(drop.1 && mT[i] ==  1) sprintf("$10^{%s}$", eTf[i])
 		else if(drop.1 && mT[i] == -1) sprintf("$-10^{%s}$",eTf[i])
-		else sprintf("$%s \\%s 10^{%s}", mTf[i], lab.sep, eTf[i])
+		else sprintf("$%s \\%s 10^{%s}", mTf[i], lab.sep,   eTf[i])
 	ss  ## perhaps unlist(ss) ?
     }
 }
@@ -85,7 +97,7 @@ eaxis <- function(side, at = if(log && getRversion() >= "2.14.0")
                   f.smalltcl = 3/5, at.small = NULL, small.mult = NULL,
                   small.args = list(),
                   draw.between.ticks = TRUE, between.max = 4,
-                  outer.at = TRUE, drop.1 = TRUE, las = 1,
+                  outer.at = TRUE, drop.1 = TRUE, sub10 = FALSE, las = 1,
                   nintLog = max(10, par("lab")[2L - is.x]),
                   max.at = Inf, lab.type="plotmath", lab.sep="cdot", ...)
 {
@@ -110,12 +122,14 @@ eaxis <- function(side, at = if(log && getRversion() >= "2.14.0")
     use.expr <- log || format.info(as.numeric(at), digits=7)[3] > 0
     if(is.null(labels))
 	labels <- if(use.expr) {
-            pretty10exp(at, drop.1=drop.1, lab.type=lab.type, lab.sep=lab.sep)
+            pretty10exp(at, drop.1=drop.1, sub10=sub10,
+                        lab.type=lab.type, lab.sep=lab.sep)
         } else TRUE
     else if(length(labels) == 1 && is.na(labels)) # no 'plotmath'
 	labels <- TRUE
     axis(side, at = at, labels = labels, las=las, ...)
     if(log) {
+	if(any(at <= 0)) stop("invalid 'log=TRUE' for at <= 0: not a true log scale plot?")
 	l1 <- (lat <- log10(at)) %% 1 ##  the 10^k ones
 	l.int <- l1 < 1e-5 | l1 > 1 - 1e-5
 	if(draw.between.ticks && all(l.int)) { ## all lat are integer

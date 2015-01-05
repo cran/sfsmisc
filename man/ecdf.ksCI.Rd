@@ -16,7 +16,7 @@ ecdf.ksCI(x, main = NULL, sub = NULL, xlab = deparse(substitute(x)),
   \item{x}{\code{x} numerical vector of observations.}
   \item{main,sub,xlab}{arguments passed to \code{\link{title}}.}
   \item{ci.col}{color for confidence interval lines.}
-  \item{\dots}{\code{\dots} arguments given to \code{\link{plot.stepfun}}.}
+  \item{\dots}{optional arguments passed to \code{\link{plot.stepfun}}.}
 }
 \value{
   Nothing. Used for its side effect, to produce a plot.

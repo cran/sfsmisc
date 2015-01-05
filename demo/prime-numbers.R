@@ -1,5 +1,3 @@
-## -- $Id: prime-numbers.R,v 1.14 2011/05/27 07:37:05 maechler Exp $
-
 ####---- Prime numbers, factorization, etc. --- "illustration of programming"
 ####---- A Collection of pure S / R -- Experiments from the 1990's
 ####---- mostly carried by discussions on the good old S-news mailing list

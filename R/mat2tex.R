@@ -1,7 +1,7 @@
 ### Port to R and a few small improvements:
 ### Copyright © 2000 Martin Maechler, ETH Zurich
 
-mat2tex <- function(x, file = "mat.tex",
+mat2tex <- function(x, file = "mat.tex", envir = "tabular",
                     nam.center = "l", col.center = "c",
                     append = TRUE, digits = 3, title)
 {
@@ -26,7 +26,7 @@ mat2tex <- function(x, file = "mat.tex",
     if(has.rowlabs)
         colspec <- paste(colspec, nam.center, "||")
     colspec <- paste0(colspec, paste(col.center, "|", collapse=""), "}")
-    cat(paste("\\begin{tabular}", colspec, " \n"), file = file, append = append)
+    cat(paste(sprintf("\\begin{%s}", envir), colspec, " \n"), file=file, append=append)
 
     span <- nc.x + if(has.rowlabs) 1 else 0
     cat(if(!missing(title)) paste("\\multicolumn{", span,
@@ -55,6 +55,6 @@ mat2tex <- function(x, file = "mat.tex",
         thisline <- paste(thisline, "\\\\ \\hline")
         cat(paste(thisline, "\n"), file = file, append = TRUE)
     }
-    cat(paste("\\end{tabular}", " \n"), file = file, append = TRUE)
+    cat(paste0("\\end{", envir, "}\n"), file = file, append = TRUE)
 }
 
