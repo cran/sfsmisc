@@ -1,9 +1,6 @@
 ###  demo(tkdensity) ## is at
 ### /u/maechler/R/D/r-devel/Linux-inst/library/tcltk/demo/tkdensity.R
 
-## only to work around false positives of codetools' check [in R CMD check --as-cran]:
-if(getRversion() >= "2.15.1") globalVariables(c("._nbw", "._xZ", "._xM"))
-
 tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
                       xlim = NULL, do.rug = size < 1000, kernels = NULL,
                       from.f = if(log.bw) -2   else 1/1000,
@@ -14,6 +11,13 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
     ## Author: Martin Maechler, Date: 8 Nov 2000, 19:00
 
     requireNamespace("tcltk") || stop("tcltk support is absent")
+    tclVar <- tcltk::tclVar
+    tclvalue <- tcltk::tclvalue
+    tkframe <- tcltk::tkframe
+    tkpack <- tcltk::tkpack
+    tklabel <- tcltk::tklabel
+    tkscale <- tcltk::tkscale
+    nbw <- xZ <- xM <- NA_real_ # so '<<-' keeps them here
 
     dFun <- density.default
     all.kerns <- eval(formals(dFun)$kernel)
@@ -32,7 +36,7 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
     if(log.bw) lbw <- lbw0 <- log10(bw0)
 
     ry <- range(y)
-    xlim <- xl0 <- if(is.null(xlim)) ry + c(-2,2)* bw0 else as.numeric(xlim)
+    xlim <- if(is.null(xlim)) ry + c(-2,2)* bw0 else as.numeric(xlim)
     xlmid <- xm0 <- mean(xlim)
     xr0 <- diff(xlim)
 
@@ -48,23 +52,25 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
 
     kernel <- tclVar("gaussian")
 
-    Tvar <- function(v) as.numeric(tclvalue(substitute(v)))
+    ## Tvar <- function(v) as.numeric(tclvalue(substitute(v)))
 
     replot <- function(...) {
         if (is.null(y)) return() # too early...
 
         b <- if(log.bw) 10 ^ (lbw <<- as.numeric(tclvalue(Lbw))) else
-                              ._nbw <<- as.numeric(tclvalue(bw))
+                              nbw <<- as.numeric(tclvalue(bw))
         ##Dbg cat("b = ", formatC(b),"\n")
 
         k <- tclvalue(kernel) # *is* char
 
-        ._xZ <<- as.numeric(tclvalue(xZoom))
-        ._xM <<- as.numeric(tclvalue(xlmid))
+        xZ <<- as.numeric(tclvalue(xZoom))
+        xM <<- as.numeric(tclvalue(xlmid))
         ##Dbg cat("tclvalue(kernel)"); str(k)
 
-        xr.half <- (xr0 / 2) * 100 / ._xZ
-        xlim <- ._xM + c(-xr.half, xr.half)
+	## codetools: don't think we use these
+        b <- xlim + b + k
+        xr.half <- (xr0 / 2) * 100 / xZ
+        xlim <- xM + c(-xr.half, xr.half)
         eval(substitute(plot(density(y, bw = b, kernel = k, n = n),
                              main =  paste("density(",ynam,
                              ", bw = ",format(b, dig = 3),
@@ -74,28 +80,28 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
     }
 
     replot.maybe <- function(...)
-        if ((log.bw  && as.numeric(tclvalue(Lbw)) != lbw) ||
-            (!log.bw && as.numeric(tclvalue(bw))  != ._nbw) ||
-            as.numeric(tclvalue(xZoom)) != ._xZ ||
-            as.numeric(tclvalue(xlmid)) != ._xM
-            )
+        if ((log.bw  && !identical(lbw, as.numeric(tclvalue(Lbw)))) ||
+	    (!log.bw && !identical(nbw, as.numeric(tclvalue(bw)))) ||
+	    !identical(xZ, as.numeric(tclvalue(xZoom))) ||
+	    !identical(xM, as.numeric(tclvalue(xlmid)))
+	    )
             replot()
 
-    base <- tktoplevel()
-    tkwm.title(base, paste("Tk Density(",ynam,")"))
+    base <- tcltk::tktoplevel()
+    tcltk::tkwm.title(base, paste("Tk Density(",ynam,")"))
 
     base.frame <- tkframe(base, borderwidth = 2)
     bw.frame   <- tkframe(base.frame, relief = "groove", borderwidth = 3)
     kern.frame <- tkframe(base.frame, relief = "groove", borderwidth = 2)
 
-    x.frame   <- tkframe(base.frame)
+    x.frame    <- tkframe(base.frame)
     xr.frame   <- tkframe(x.frame)
     xmid.frame <- tkframe(x.frame)
     tkpack(xr.frame, xmid.frame, side = "left", anchor = "s")
 
-    q.but <- tkbutton(base, text = "Quit", command =
-		      function() { par(op) ## see par() below !
-				   tkdestroy(base) })
+    q.but <- tcltk::tkbutton(base, text = "Quit", command = function() {
+	par(op) ## see par() below !
+	tcltk::tkdestroy(base) })
     tkpack(base.frame,
            bw.frame, kern.frame,
            x.frame,
@@ -116,8 +122,8 @@ tkdensity <- function(y, n = 1024, log.bw = TRUE, showvalue = TRUE,
     ## Kernel Frame :
     tkpack(tklabel(kern.frame, text = "Kernel"))
     for (k.name in kernels)
-        tkpack(tkradiobutton(kern.frame, command = replot,
-                             text = k.name, value = k.name, variable=kernel),
+        tkpack(tcltk::tkradiobutton(kern.frame, command = replot,
+                                    text = k.name, value = k.name, variable=kernel),
                anchor = "w")
 
     ## [x Zoom] Frame :

@@ -1,8 +1,30 @@
+% Check from R:
+%  news(db = tools:::.build_news_db_from_package_NEWS_Rd("~/R/Pkgs/sfsmisc/inst/NEWS.Rd"))
 \name{NEWS}
 \title{sfsmisc News}
 \encoding{UTF-8}
 
-\section{CHANGES in sfsmisc VERSION 1.0-27 [2014-..................]}{
+\section{CHANGES in sfsmisc VERSION 1.0-28 [2015-08-06]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item \code{tkdensity()} is tweaked such as to look more standard
+      to \pkg{codetools};
+      \item similarly (much less) for \code{factorize()} and \code{roundfixS()}
+      \item new \code{demo("pretty-lab")}
+    }
+  }
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item also import from "base" packages
+      \item \code{pretty10exp(*, lab.type = "latex")} typo fixed;
+      \code{eaxis()} works better with \code{lab.type = "latex"}, both
+      thanks to David Seifert.
+    }
+  }
+}
+
+
+\section{CHANGES in sfsmisc VERSION 1.0-27 [2015-01-05]}{
   \subsection{Repository}{
     \itemize{
       \item Moved sources to Github (\url{https://github.com/mmaechler/sfsmisc}),
