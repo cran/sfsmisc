@@ -2,21 +2,22 @@ importFrom("grDevices", boxplot.stats, cairo_pdf,
 	   dev.cur, dev.off, n2mfrow, pdf, postscript, xy.coords)
 
 importFrom("graphics", abline, arrows, axTicks, axis, axis.POSIXct,
-	   boxplot, curve, frame, hist, lines, matplot, mtext,
+	   boxplot, curve, frame, hist, lines, locator, matplot, mtext,
 	   par, plot, plot.new, points, polygon,
-	   rug, segments, text, xyinch)
+	   rug, segments, symbols, text, xyinch)
 
 importFrom("stats",
 	   IQR, approx, as.formula, as.ts, dchisq, dgamma, density.default,
-	   dnorm, dummy.coef, ecdf, end, fitted, formula, is.ts, lowess,
+	   dnorm, dummy.coef, ecdf, end, fitted, formula, is.ts,
+	   lm, lowess, loess, loess.control,
 	   mad, median, model.frame, na.exclude, na.omit, napredict,
 	   pchisq, pf, plot.ts, predict, qchisq, qgamma, qnorm, qt, quantile,
 	   resid, residuals, smooth.spline, spline, splinefun, start, stepfun,
 	   terms, time, update.formula, var, window)
 
 importFrom("utils", head, tail, toLatex, #<- S3 generics !
-	   capture.output, data, globalVariables, str)
-
+	   capture.output, data, packageDescription, read.table,
+	   sessionInfo, str)
 
 ## Using "::" in code -> no need here:
 importFrom("methods", existsFunction)
@@ -71,10 +72,11 @@ export (
 	"last",
 	"linesHyperb.lm",
 	"list2mat",
+    loessDemo,
 	"lseq",
 	"margin2table",
 	"mat2tex",
-    "missingCh",
+    missingCh,
 	"mpl",
 	"mult.fig",
 ## FIXME: This is deprecated (but was never announced anyway...) :
@@ -123,11 +125,13 @@ export (
 	"quadrant",
 	"QUnif",
 
+        read.org.table,
 	"rot2", "rotn",
 	"roundfixS",
 	"rrange",
 	"sHalton",
 	"seqXtend",
+    sessionInfoX,
 	"signi",
         "sourceAttach",
 	"strcodes",
@@ -160,6 +164,7 @@ if(tools:::.OStype() == "unix") { ## those are inside R/unix/
 S3method(predict, dDA)
 S3method(print, dDA)
 S3method(print, basedInt)
+S3method(print, sessionInfoX)
 S3method(as.integer, basedInt)
 
 S3method(print, margin2table)

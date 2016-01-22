@@ -274,8 +274,9 @@ wrapFormula <- function(f, data, wrapString = "s(*)")
 ##' @param i.middle index start of middle part
 ##' @param dotdots string to be used for elided lines
 ##' @param n.dots number of \code{dotdots}  ....{FIXME}
-##' @return return value of \code{\link{writeLines}}
+##' @return return value of \code{\link{capture.output}(EXPR)}
 ##' @author Martin Maechler
+## -> ../man/capture-n-write.Rd
 capture.and.write <- function(EXPR, first, last = 2,
                               middle = NA, i.middle,
                               dotdots = " ....... ", n.dots = 2) {
@@ -296,6 +297,7 @@ capture.and.write <- function(EXPR, first, last = 2,
         catDots(n.dots)
     }
     writeLines(tail(co, last))
+    invisible(co)
 }
 
 
@@ -974,16 +976,58 @@ unif <- function(n, round.dig = 1 + trunc(log10(n)))
   }
 }
 
-if(getRversion() >= "2.15.1") globalVariables("DEBUG")
 prt.DEBUG <- function(..., LEVEL = 1) {
-  warning("prt.DEBUG() is deprecated: use a 'verbose' argument or options(verbose=.) instead")
-  if (exists("DEBUG", where = 1) && DEBUG >= LEVEL )#
-  ##
-  cat(paste0("in '", sys.call(sys.nframe()-1)[1], "':"), ..., "\n")
+  stop("prt.DEBUG() is defunct: use a 'verbose' argument or options(verbose=.) instead")
+  ## if (exists("DEBUG", where = 1) && DEBUG >= LEVEL )#
+  ## ##
+  ## cat(paste0("in '", sys.call(sys.nframe()-1)[1], "':"), ..., "\n")
 }
 
-##- ## Not w=1:
-##- prt.DEBUG <- function(...)
-##-   if (exists("DEBUG") && DEBUG )
-##-         cat(paste0("in '", sys.call(sys.nframe()-1)[1], "':"), ..., "\n")
-#-- do NOT use  sep="" in cat(..)  --> fouls up  vectors of numbers
+
+
+##' @title Read an Emacs Org Table by read.table()
+## --> ../man/read.org.table.Rd
+read.org.table <- function(file, header = TRUE, skip = 0, fileEncoding = "", text, ...) {
+    ## file - text   handling --- cut'n'paste from read.table()'s header
+    if (missing(file) && !missing(text)) {
+	file <- textConnection(text, encoding = "UTF-8")
+	on.exit(close(file))
+    }
+    if(is.character(file)) {
+        file <- if(nzchar(fileEncoding))
+            file(file, "rt", encoding = fileEncoding) else file(file, "rt")
+        on.exit(close(file))
+    }
+    if(!inherits(file, "connection"))
+        stop("'file' must be a character string or connection")
+    if(!isOpen(file, "rt")) {
+        open(file, "rt")
+        on.exit(close(file))
+    }
+    if("encoding" %in% names(list(...)))
+       warning("'encoding' does not make sense here")
+
+    if(skip > 0L) readLines(file, skip)
+    ll <- readLines(file)
+    close(file); on.exit()
+    ## drop |--------+---------+--------+--|  :
+    if(any(i <- grep("---+\\+--", ll[1:3]))) ll <- ll[-i]
+    ## drop beginning and ending "|" :
+    ll <- sub("^ *\\|", "",
+              sub("\\| *$", "", ll))
+    if(header) { ## assume header in first 2 lines
+        ii <- if(nchar(ll[1]) < 2) 2 else 1
+        ## header line
+        hl <- ll[ii]
+        ## drop header line(s)
+        ll <- ll[-seq_len(ii)]
+        ## split the header lines into column names
+        col.names <- sub("^ +", "", sub(" +$", "", strsplit(hl, " *\\| *") [[1L]]))
+    }
+    ## drop empty lines at end only
+    while(grepl("^ *$", tail(ll, 1L))) ll <- ll[-length(ll)]
+    f.ll <- textConnection(ll, encoding = "UTF-8")
+    on.exit(close(f.ll))
+    read.table(f.ll, header=FALSE, sep = "|",
+               col.names = col.names, encoding = "UTF-8", ...)
+}

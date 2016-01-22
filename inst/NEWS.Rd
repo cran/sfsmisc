@@ -4,6 +4,28 @@
 \title{sfsmisc News}
 \encoding{UTF-8}
 
+\section{CHANGES in sfsmisc VERSION 1.0-29 [2015-..-..]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item new function \code{read.org.table()} to read emacs
+      \file{org} files via \code{\link{read.table}()}.
+
+      \item new \code{loessDemo()}, providing a version of an old
+      \code{loess.demo()}.
+
+      \item new \code{sessionInfoX()} utility (with \code{print()} method).
+    }
+  }
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item (workaround R (<= 3.2.2) bug:) the (invisible) return value
+      \code{str_data()} no longer contains extraneous \code{NULL}
+      entries in the filtering case.
+    }
+  }
+}
+
+
 \section{CHANGES in sfsmisc VERSION 1.0-28 [2015-08-06]}{
   \subsection{NEW FEATURES}{
     \itemize{
