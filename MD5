@@ -1,6 +1,6 @@
 4d314a8c0c266297365a8fa808c12e30 *ChangeLog
-3079a8fad52cc0beec0c192d438300cb *DESCRIPTION
-66fbc258c1eb6c8ab80575bf1f83ddde *NAMESPACE
+573bd242da7c3ba6c9c59477421e066e *DESCRIPTION
+b68856364dfa2a751a4f822a184e4f47 *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 bf70dd9be7907429608c2311dacbd01a *R/Defunct.R
 7acc952dcc9347f54394c04b4e59cacb *R/Deprecated.R
@@ -17,7 +17,7 @@ f05c0bbec8bd887ae30b60859f23d825 *R/glob2rx.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 a48c705692ea66ef396a718062987788 *R/loessDemo.R
 e79599c4011a87a736be27bece1ce107 *R/mat2tex.R
-e7ccfb132f1d99a013d3c82ee7026bc1 *R/misc-goodies.R
+ee61ca43ba718513531c41f704267bc9 *R/misc-goodies.R
 ad4627d9c2d46aa969ca7361abbd33c0 *R/missingCh.R
 f7a1c1a4a40e758509e973bbde15196a *R/mult.fig.R
 bc1b64f3982e7219ffa337c6020f816e *R/nearcor.R
@@ -29,7 +29,7 @@ c71f409b5d88f22b8bf8b31546bff058 *R/p.ts.R
 c3dbae94f06bc46451e1367e6782e35c *R/pd-matrix.R
 d41d8cd98f00b204e9800998ecf8427e *R/plotCI.R
 b7a0884f7049acf4c0a35f03abb6e2db *R/prettylab.R
-83dbd7fa3e8ca8b175797287b9882527 *R/prime-numbers-fn.R
+7e49e6fed6eb866899dcff83ce8c4058 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
 e7837a5a0149b5af23eb1be650e98daf *R/ps.goodies.R
 87b45273be3601faf5c40d852b08e152 *R/rot13.R
@@ -37,7 +37,7 @@ e7837a5a0149b5af23eb1be650e98daf *R/ps.goodies.R
 8119adf249cf0babd6542182c7d379ac *R/sessionInfo-ext.R
 a45f0b7dd9f5f05ca801b13afc180fae *R/sourceAttach.R
 9157d8065f07a8a3c048553cbe1cb5e0 *R/str_data.R
-018b147217ad00743a769b052b5b637f *R/tkdensity.R
+8a24f77bf447231bbd8c436a40dc14ef *R/tkdensity.R
 92ef1cc410fab9f832703185c1cb0827 *R/twoway-r-plot.R
 2c7dd1c656423473d9a8e993d1dfd035 *R/u.goodies.R
 7a433b70c7c787e2d0622ab17ab60e75 *R/unix/Sys.ps.R
@@ -50,14 +50,14 @@ f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-c2f846391dadee6ac11f3d8efbad301e *inst/NEWS.Rd
+e0edaa5b9bda6a035bd083b7dd2be2b5 *inst/NEWS.Rd
 47b5d63c5026d11a11f94827bd1919a7 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
 e961ce2cc056afb3d4eeb9866366e0cd *man/Deprecated.Rd
 78565841a2acdb7dae5a050872f76c59 *man/Duplicated.Rd
 f4ea7840b26cc4f113a878867055b915 *man/KSd.Rd
-6937ab1e5588a979db3e0d6cfc17d945 *man/QUnif.Rd
+fddde42e537fd46697621fed8f817f73 *man/QUnif.Rd
 8ab46f1f7e557527e83ad0ca158cc8ca *man/TA.plot.Rd
 d103f8ace017a9e94763249c91416e65 *man/axTexpr.Rd
 e11463f8a85b1ec729fa88edb8117f52 *man/cairoSwd.Rd
@@ -111,7 +111,7 @@ ea47575a7ff59d58b5775d4efc6957c7 *man/polyn.eval.Rd
 1632af2dfccc6657d3024f21245c6e99 *man/posdefify.Rd
 e6f3999639e01408aabf962f3a595f6c *man/potatoes.Rd
 897c3e76312ccf562726afd6212a0129 *man/pretty10exp.Rd
-42605aefd61c7672792294a60c11cfd8 *man/primes.Rd
+355c50483dae5ccf40777a758d5d3980 *man/primes.Rd
 4c478f18f6cdf79a2814836ae4363fc7 *man/printTable2.Rd
 ce4d70e480ae39799ab528d90d5de6c8 *man/prt.DEBUG.Rd
 b0522194f4e6bbe5d212343ac1d06618 *man/ps.end.Rd
@@ -145,7 +145,7 @@ da64aa2c4ed2bf470a71c67fb257358d *man/unix/Sys.ps.Rd
 9a55a48b31382a23af157cd6e72471e3 *man/vcat.Rd
 6c68743e5e2e66aee945d5270dd3fa6f *man/wrapFormula.Rd
 823cdd617db69384a2c649a41f70a62e *man/xy.grid.Rd
-846ef2bf5b63ee586089a7d35cc05cea *man/xy.unique.x.Rd
+1acc56972f51bf6e8ede412dc3f54dda *man/xy.unique.x.Rd
 f4b09238483ccdbe2c57441d261b7af6 *tests/dDA.R
 14be382e178b768c0cd019e7bef90e3e *tests/dDA.Rout.save
 3403bbbc54987b674eff0734ecd1d15b *tests/misc.R

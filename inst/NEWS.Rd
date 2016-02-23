@@ -1,10 +1,29 @@
 % Check from R:
 %  news(db = tools:::.build_news_db_from_package_NEWS_Rd("~/R/Pkgs/sfsmisc/inst/NEWS.Rd"))
 \name{NEWS}
-\title{sfsmisc News}
+\title{News for \R Package \pkg{sfsmisc}}
 \encoding{UTF-8}
 
-\section{CHANGES in sfsmisc VERSION 1.0-29 [2015-..-..]}{
+\section{CHANGES in sfsmisc VERSION 1.1-0 [2016-02-22]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item \code{primes()} has optional \code{pSeq} argument,
+      surprisingly with no known benefit.
+      \item tweaks for \code{xy.unique.x()} speedup.
+      \item \code{QUnif(..., p, ...)} now works for large \eqn{p} (and
+      gets a \code{silent} option to suppress the message).
+    }
+  }
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item Fix the \code{tkdensity()} bug introduced on 2015-07-22,
+      hence, for \pkg{sfsmisc} versions \code{1.0-28} and \code{1.0-29},
+      with the \dQuote{codetools cleanup}.
+    }
+  }
+}
+
+\section{CHANGES in sfsmisc VERSION 1.0-29 [2016-01-22]}{
   \subsection{NEW FEATURES}{
     \itemize{
       \item new function \code{read.org.table()} to read emacs
