@@ -9,6 +9,8 @@
 }
 \usage{
 sessionInfoX(pkgs = NULL, list.libP = FALSE, extraR.env = TRUE)
+
+\method{print}{sessionInfoX}(x, locale = TRUE, RLIBS = TRUE, Renv = TRUE, \dots)
 }
 \arguments{
   \item{pkgs}{an optional \code{\link{character}} vector of \R packages,
@@ -17,13 +19,28 @@ sessionInfoX(pkgs = NULL, list.libP = FALSE, extraR.env = TRUE)
     \code{\link{.libPaths}} entries, the files should be listed via
     \code{\link{list.files}}.}
   \item{extraR.env}{logical indicating if \emph{all} environment
-    variables should be recorded which start with \code{"R_"} or \code{"_R_"}.}
+    variables should be recorded which start with \code{"R_"} or
+    \code{"_R_"}.}
+%% print():
+  \item{x}{typically the result of \code{sessionInfoX()}.}
+  \item{locale}{logical, passed to \code{\link{print.sessionInfo}()}
+    indicating if the locale information should be printed.}
+  \item{RLIBS}{logical indicating if the information about R_LIBS should
+    be printed.}
+  \item{Renv}{logical indicating if the information about R environment
+    variables should be printed.}
+  \item{\dots}{passed to \code{\link{print}} methods.}
 }
 %% \details{
 %% }
 \value{an object of S3 class \code{"sessionInfoX"}, a \code{\link{list}}
   with components (there may be more, experimental and not yet listed here):
  \item{sInfo}{simply the value of \code{\link{sessionInfo}()}.}
+ \item{sysInf}{the value of \code{\link{Sys.info}()}.}
+ \item{capabilities}{the value of \code{\link{capabilities}()}.}
+ \item{extSoft}{for \R 3.2.0 and newer, the value of \code{\link{extSoftVersion}()}.}
+ \item{LAPACK}{for \R 3.0.3 and newer, the value of \code{\link{La_version}()}.}
+ \item{pcre}{for \R 3.1.3 and newer, the value of \code{\link{pcre_config}()}.}
  \item{pkgDescr}{If \code{pkgs} was non-empty, a named
    \code{\link{list}} of \code{\link{packageDescription}()}s for each
    entry in \code{pkgs}.}
