@@ -87,11 +87,11 @@ histBxp(x, nclass, breaks, probability=FALSE, include.lowest=TRUE,
   the increasingly strong CRAN policies required a new name (which could not
   be confused with an S3 method name).
 }
-\author{S-Plus: Markus Keller, Christian Keller; port to \R: Martin Mächler.}
+\author{S-Plus: Markus Keller, Christian Keller; port to \R in 1990's: Martin Mächler.}
 
 \seealso{\code{\link{hist}}, \code{\link{barplot}},
   \code{\link{boxplot}}, \code{\link{rug}} and
-  \code{\link[Hmisc]{scat1d}} in the \pkg{Hmisc} package.
+  \code{\link[Hmisc]{scat1d}} in the \CRANpkg{Hmisc} package.
 }
 \examples{
  lab <- "50 samples from a t distribution with 5 d.f."

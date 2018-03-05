@@ -170,17 +170,17 @@ histBxp <-
   ##						calls  p.hboxp(.) !
 
   ## determine the height of the plot
-  if(missing(breaks)){
-    if(missing(nclass))
-      h <- hist(x, probability = probability, include.lowest = include.lowest,
-		plot = FALSE)
+  h <-
+    if(missing(breaks)){
+      if(missing(nclass))
+        hist(x, include.lowest = include.lowest, plot = FALSE)
       else
-	h <- hist(x, nclass = nclass, probability = probability,
-		  include.lowest = include.lowest, plot = FALSE)
-  }
+	hist(x, nclass = nclass,
+             include.lowest = include.lowest, plot = FALSE)
+    }
     else
-      h <- hist(x, breaks = breaks, probability = probability,
-		include.lowest = include.lowest, plot = FALSE)
+        hist(x, breaks = breaks,
+             include.lowest = include.lowest, plot = FALSE)
   ymax <- max(h$counts)
   ymin <-  - ymax * width # range:  (-w,1)*ymax  instead of  (0,1)*ymax
 
@@ -336,12 +336,12 @@ polyn.eval <- function(coef, x)
 
 ## negative x .. may make sense in some cases,.... but not yet :
 ##digitsBase <- function(x, base = 2, ndigits = 1 + floor(log(max(abs(x)),base)))
-digitsBase <- function(x, base = 2, ndigits = 1 + floor(1e-9+ log(max(x),base)))
+digitsBase <- function(x, base = 2, ndigits = 1 + floor(1e-9 + log(max(x,1), base)))
 {
     ## Purpose: Give the vector A of the base-_base_ representation of _n_:
     ## -------  n = sum_{k=0}^M  A_{M-k} base ^ k ,   where  M = length(a) - 1
     ## Value: MATRIX  M where  M[,i]  corresponds to  x[i]
-    ## Author: Martin Maechler, Date:  Wed Dec  4 14:10:27 1991
+    ## Author: Martin Maechler, Date: Dec 4, 1991
     ## ----------------------------------------------------------------
     ## ---->  help(digitsBase) !
     ## ------------------------------
@@ -487,6 +487,21 @@ uniqueL <- function(x, isuniq = !duplicated(x), need.sort = is.unsorted(x))
     if(need.sort)
 	ix <- ix[sort.list(ixS)]
     list(ix = ix, xU = x[isuniq])
+}
+
+
+##' Constructor of a "list" (really an environment) of functions (and more)
+##' which all *share* the same environment in which they exist
+##' --> ../man/funEnv.Rd
+##'  	~~~~~~~~~~~~~~~~
+funEnv <- function(..., envir = NULL, parent = parent.frame(),
+                   hash = (...length() > 100), size = max(29L, ...length())) {
+    e <- list2env(list(...), envir=envir, parent=parent, hash=hash, size=size)
+    for(n in names(e)) ## iff function or formula, set environment to 'e':
+	if(is.function(e[[n]]) || (is.call(e[[n]]) &&
+				   inherits(e[[n]], "formula")))
+	    environment(e[[n]]) <- e
+    e
 }
 
 
