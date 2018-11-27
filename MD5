@@ -1,4 +1,4 @@
-fe767557bae7e1c5342df1c0316fe10a *DESCRIPTION
+84a6601cdcf26c648b99082418a4dcd2 *DESCRIPTION
 99b9550d2f58ca405b257065a1e6d24d *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 7af13f18048a8ec0db9c46cd3e789431 *R/Defunct.R
@@ -6,7 +6,7 @@ b93d90d641372d1c0dc28b9e15681010 *R/Deprecated.R
 2faf7fdfe633f527dea219910e888a2b *R/Duplicated.R
 bcf3db2731b901cc6e501f3d13cf6eba *R/Ftest-rlm.R
 3757b9510f3471b5dfc9ba2834c8a632 *R/KS-confint.R
-f15812299bc1da8724bff80ab1d45366 *R/TA.plot.R
+4da8377287d3de45af1ddc490150b2bb *R/TA.plot.R
 35220955505c3ac9e6548be35871362b *R/diagDA.R
 91ea7964ab5ecac601bf38e69ca45ae1 *R/ellipse.R
 f05c0bbec8bd887ae30b60859f23d825 *R/glob2rx.R
@@ -15,8 +15,8 @@ f05c0bbec8bd887ae30b60859f23d825 *R/glob2rx.R
 8eb07c22307d4020dabd2554fea86c55 *R/integratexy.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 a48c705692ea66ef396a718062987788 *R/loessDemo.R
-e79599c4011a87a736be27bece1ce107 *R/mat2tex.R
-e32440b96b4d1cfc61b52f014af7e4bb *R/misc-goodies.R
+f3dcd4c4dc32070242d73573ed7fd8e8 *R/mat2tex.R
+ec94ce3375b8234090bb3a32600913b6 *R/misc-goodies.R
 ad4627d9c2d46aa969ca7361abbd33c0 *R/missingCh.R
 53d3ae56bf1986a12d8b70c50c05ddb8 *R/mult.fig.R
 bc1b64f3982e7219ffa337c6020f816e *R/nearcor.R
@@ -27,7 +27,7 @@ d0cb50e45537e34eef3a8915f3c2df37 *R/p.res.2x.formula.R
 dc0726ef099ffb6cf05d583f6610abd9 *R/p.ts.R
 c3dbae94f06bc46451e1367e6782e35c *R/pd-matrix.R
 d41d8cd98f00b204e9800998ecf8427e *R/plotCI.R
-0240971bc497302a9a27d96d940fdd53 *R/prettylab.R
+f0a4d897ab880c0bb10f7a516f7eb311 *R/prettylab.R
 7e49e6fed6eb866899dcff83ce8c4058 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
 e7837a5a0149b5af23eb1be650e98daf *R/ps.goodies.R
@@ -41,8 +41,8 @@ fc45293bdb8acc5c249e9f533e84181a *R/sourceAttach.R
 2c7dd1c656423473d9a8e993d1dfd035 *R/u.goodies.R
 02d8ebd96cdf27d80387e7b25257f6e2 *R/unix/Sys.ps.R
 351d41a09981caab09f7e961a6f07e97 *R/unix/package-props.R
-a3020a6c0ee6ced27482dbe2379cfee5 *R/zzz.R
-c4a956f80ac6252c0f23515283ae867f *README.md
+4c6d22be483c03e4af942e0041b03260 *R/zzz.R
+5aa594d45d25b7e7ef9f145a8072cff0 *README.md
 609c46f42aa985d5b441648866ad8d31 *TODO
 24c4be0aa52face72313592ef90cf899 *data/potatoes.rda
 3162005b7c7bcef9a60f61223ee381aa *demo/00Index
@@ -50,7 +50,7 @@ f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-b77ed7dd4ce5d91f71bc1a9453783e89 *inst/NEWS.Rd
+d32ef9db88d3d8d125e36cb10b82d4e7 *inst/NEWS.Rd
 47b5d63c5026d11a11f94827bd1919a7 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -110,14 +110,14 @@ a4bf6c3ebaf4a67c378e3b03f8d6c79c *man/plotDS.Rd
 aca71df255d8679dfd8890db6ef361e1 *man/polyn.eval.Rd
 03e1b757f120a591451ea3764bd67531 *man/posdefify.Rd
 e6f3999639e01408aabf962f3a595f6c *man/potatoes.Rd
-33cee0a917c7e10acfe73b82304977ac *man/pretty10exp.Rd
+5f9f8f48d63f7569db4dda304b8aba78 *man/pretty10exp.Rd
 06fbc41f8ac965c8f98caaa000cbe5e8 *man/primes.Rd
 4c478f18f6cdf79a2814836ae4363fc7 *man/printTable2.Rd
 ce4d70e480ae39799ab528d90d5de6c8 *man/prt.DEBUG.Rd
 b0522194f4e6bbe5d212343ac1d06618 *man/ps.end.Rd
 65f23aff7a86d1c3039348c20c99c238 *man/ps.latex.Rd
 09cdba33a2a6a9c02566de87ab750e4f *man/quadrant.Rd
-60d75a365dbc91d073210956fc7c549f *man/read.org.table.Rd
+47b590f62477179c5c7f7183bb2b9a4a *man/read.org.table.Rd
 800eb35ba8c0bff4f2311cec50380fdb *man/repChar.Rd
 e67d5425ab7ff233223712a92e150d9c *man/rot13.Rd
 9eb4b1c5c27e9cda929a144d7f5cc59b *man/rot2.Rd
@@ -149,6 +149,7 @@ a359fd5f303430e840db40a8d88c0e07 *man/wrapFormula.Rd
 1acc56972f51bf6e8ede412dc3f54dda *man/xy.unique.x.Rd
 f4b09238483ccdbe2c57441d261b7af6 *tests/dDA.R
 14be382e178b768c0cd019e7bef90e3e *tests/dDA.Rout.save
+7d55edfad6b694797b4378d3452ff318 *tests/eaxis.R
 12b30fde79917ae63e0d98887eaa915d *tests/misc.R
 0d1474c2a9ea1b0c12a4b5bd21afa273 *tests/p.R
 a43879df91dd2e235443b2d27d017aac *tests/p.Rout.save
