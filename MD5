@@ -1,5 +1,5 @@
-e391dde6fb362b30b64e187b7d520392 *DESCRIPTION
-1066152d7dd5ef956e6a1f7d4ca5c1b3 *NAMESPACE
+a2171c322d0a69134aa8a13bfa00ce03 *DESCRIPTION
+c4dae5a5ad0a3769e94466b1665dbd45 *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 7af13f18048a8ec0db9c46cd3e789431 *R/Defunct.R
 b93d90d641372d1c0dc28b9e15681010 *R/Deprecated.R
@@ -40,7 +40,7 @@ fc45293bdb8acc5c249e9f533e84181a *R/sourceAttach.R
 92ef1cc410fab9f832703185c1cb0827 *R/twoway-r-plot.R
 2c7dd1c656423473d9a8e993d1dfd035 *R/u.goodies.R
 02d8ebd96cdf27d80387e7b25257f6e2 *R/unix/Sys.ps.R
-8956f12a4a678351c798566ba71355f2 *R/unix/package-props.R
+29df5c226be1e6de13ae4747d1295978 *R/unix/package-props.R
 4c6d22be483c03e4af942e0041b03260 *R/zzz.R
 5aa594d45d25b7e7ef9f145a8072cff0 *README.md
 b8833bf3334711f409c3d4c64188c74c *TODO
@@ -50,7 +50,7 @@ f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-c1d0bb959e6faf686e244bed1e173c10 *inst/NEWS.Rd
+a1830e9900cf35eb61f07c42ed4678a4 *inst/NEWS.Rd
 47b5d63c5026d11a11f94827bd1919a7 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -111,7 +111,7 @@ aca71df255d8679dfd8890db6ef361e1 *man/polyn.eval.Rd
 03e1b757f120a591451ea3764bd67531 *man/posdefify.Rd
 e6f3999639e01408aabf962f3a595f6c *man/potatoes.Rd
 5f9f8f48d63f7569db4dda304b8aba78 *man/pretty10exp.Rd
-06fbc41f8ac965c8f98caaa000cbe5e8 *man/primes.Rd
+8105b00a9a43cf5fe29958a2327e0b16 *man/primes.Rd
 4c478f18f6cdf79a2814836ae4363fc7 *man/printTable2.Rd
 ce4d70e480ae39799ab528d90d5de6c8 *man/prt.DEBUG.Rd
 ec00b18388638da9806a566465d6e5e0 *man/ps.end.Rd
@@ -143,7 +143,7 @@ b2fe80d0e0ce5047170efde9d7d90dad *man/unif.Rd
 a47d6a51a729bc2649a128b9a82ba953 *man/uniqueL.Rd
 966d8d71d643c54234330ad5f8271914 *man/unix/Sys.cpuinfo.Rd
 da64aa2c4ed2bf470a71c67fb257358d *man/unix/Sys.ps.Rd
-45fab21b0488bd1bf41cef462f532682 *man/unix/pkgLibs.Rd
+0cff9c548278d10c7cc062f495335c13 *man/unix/pkgLibs.Rd
 9a55a48b31382a23af157cd6e72471e3 *man/vcat.Rd
 a359fd5f303430e840db40a8d88c0e07 *man/wrapFormula.Rd
 823cdd617db69384a2c649a41f70a62e *man/xy.grid.Rd
