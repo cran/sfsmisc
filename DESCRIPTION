@@ -1,7 +1,7 @@
 Package: sfsmisc
 Title: Utilities from 'Seminar fuer Statistik' ETH Zurich
-Version: 1.1-6
-Date: 2020-04-04
+Version: 1.1-7
+Date: 2020-05-05
 Authors@R: c(person("Martin","Maechler", role=c("aut","cre"), email="maechler@stat.math.ethz.ch",
 	                                 comment = c(ORCID = "0000-0002-8685-9910"))
 	   , person("Werner", "Stahel", role = "ctb",
@@ -56,7 +56,7 @@ Encoding: latin1
 ByteCompile: yes
 License: GPL (>= 2)
 NeedsCompilation: no
-Packaged: 2020-04-04 15:57:51 UTC; maechler
+Packaged: 2020-05-05 19:38:28 UTC; maechler
 Author: Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),
   Werner Stahel [ctb] (Functions: compresid2way(), f.robftest(), last(),
     p.scales(), p.dnorm()),
@@ -85,4 +85,4 @@ Author: Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),
   Charles Geyer [ctb],
   Jens Oehlschlägel [ctb]
 Repository: CRAN
-Date/Publication: 2020-04-06 08:20:02 UTC
+Date/Publication: 2020-05-07 14:30:02 UTC

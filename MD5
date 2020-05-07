@@ -1,4 +1,4 @@
-a2171c322d0a69134aa8a13bfa00ce03 *DESCRIPTION
+193347bf7f6398efc2c0c05ed905c95d *DESCRIPTION
 c4dae5a5ad0a3769e94466b1665dbd45 *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 7af13f18048a8ec0db9c46cd3e789431 *R/Defunct.R
@@ -16,7 +16,7 @@ f05c0bbec8bd887ae30b60859f23d825 *R/glob2rx.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 a48c705692ea66ef396a718062987788 *R/loessDemo.R
 f3dcd4c4dc32070242d73573ed7fd8e8 *R/mat2tex.R
-ec94ce3375b8234090bb3a32600913b6 *R/misc-goodies.R
+401797ee265ab1255fb1e2e38b7e404b *R/misc-goodies.R
 ad4627d9c2d46aa969ca7361abbd33c0 *R/missingCh.R
 53d3ae56bf1986a12d8b70c50c05ddb8 *R/mult.fig.R
 bc1b64f3982e7219ffa337c6020f816e *R/nearcor.R
@@ -27,7 +27,7 @@ d0cb50e45537e34eef3a8915f3c2df37 *R/p.res.2x.formula.R
 09bab35ec23faa9a5d18c62dccbb33d2 *R/p.ts.R
 c3dbae94f06bc46451e1367e6782e35c *R/pd-matrix.R
 d41d8cd98f00b204e9800998ecf8427e *R/plotCI.R
-ebc427cb617933082c21e64089f73442 *R/prettylab.R
+694114e73422c322b15ac73b681572cb *R/prettylab.R
 7e49e6fed6eb866899dcff83ce8c4058 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
 d71992445124578d8b4af1530e423cd2 *R/ps.goodies.R
@@ -50,7 +50,7 @@ f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-a1830e9900cf35eb61f07c42ed4678a4 *inst/NEWS.Rd
+54513b2a3b8093499b03e5e8723b2b0c *inst/NEWS.Rd
 47b5d63c5026d11a11f94827bd1919a7 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -68,7 +68,7 @@ e30198b92a39a77ec6569ad3e99f3a5b *man/cum.Vert.funkt.Rd
 2e0e01ccbd9834ce96db6ec3fc46ba0a *man/diagDA.Rd
 82aa7de273908725619762b73e8e268d *man/diagX.Rd
 7283e1fadc13034367d813c3a405b846 *man/digitsBase.Rd
-05a21498143c66142eaba15f859ac98e *man/eaxis.Rd
+6f32c3f2b67c487e7d9493085267667e *man/eaxis.Rd
 e8fdce6877d53de12c3b9b27b132ff5e *man/ecdf.ksCI.Rd
 939f600e0d0acb65adbabc05759e5380 *man/ellipsePoints.Rd
 098c821a13e368c63219154298501bb3 *man/empty.dimnames.Rd

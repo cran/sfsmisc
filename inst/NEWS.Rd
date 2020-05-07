@@ -7,12 +7,19 @@
 %%% TODO:
       %% \item New \code{rDatetime()} for random date/time sequences
       %% within a specified time range.
+\section{CHANGES in sfsmisc VERSION 1.1-7 [2020-05-05]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item \code{eaxis()} gets new option \code{equidist.at.tol = 0.002},
+      previously hardwired to 0.001.
+
+      \item \code{seqXtend(<Date>, *, "interpolate")} now also works with
+      changed \code{base::c.Date()} from R(4.1.0)-devel.
+    }
+  }
+}
+
 \section{CHANGES in sfsmisc VERSION 1.1-6 [2020-04-04]}{
-  %% \subsection{NEW FEATURES}{
-  %%   \itemize{
-  %%     \item
-  %%   }
-  %% }
   \subsection{BUG FIXES}{
     \itemize{
       \item \code{pkgLibs()} now works on macOS, thanks to a hint by
@@ -20,7 +27,6 @@
     }
   }
 }
-
 
 \section{CHANGES in sfsmisc VERSION 1.1-5 [2020-02-06]}{
   \subsection{NEW FEATURES}{
