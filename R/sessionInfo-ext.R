@@ -17,11 +17,16 @@ sessionInfoX <- function(pkgs=NULL, list.libP = FALSE, extraR.env = TRUE) {
     nRL <- normalizePath(RLIBS <- strsplit(Sys.getenv("R_LIBS"), ":")[[1]])
     si <- sessionInfo()
     Rver <- package_version(si$R.version)
+    ## typically the "same" [ setequal(.,.) ] as loadedNamespaces() :
+    pkgs <- c(si[["basePkgs"]],
+              unlist(lapply(si[c("otherPkgs", "loadedOnly")], names), use.names=FALSE))
     structure(class = "sessionInfoX",
         list(sInfo  = si,
              sysInf = Sys.info(),
 	     capabilities = capabilities(),
 	     extSoft = if(Rver >= "3.2.0") extSoftVersion(),
+	     grSoft  = if(Rver >= "3.2.0") grSoftVersion(),
+	     tclVersion=if(Rver >= "3.2.0" && "tcltk" %in% pkgs) tcltk::tclVersion(),
 	     LAPACK  = if(Rver >= "3.0.3") La_version(),
 	     pcre    = if(Rver >= "3.1.3") pcre_config(),
 	     isRshared = isRshared(),
@@ -53,6 +58,12 @@ print.sessionInfoX <- function(x, locale = TRUE, RLIBS = TRUE, Renv = TRUE, ...)
         cat("External software (versions):\n")
         print(structure(x$extSoft, class="Dlist"), ...)
     }
+    if(!is.null(x$grSoft)) {
+        cat("Graphical software (versions):\n")
+        print(structure(x$grSoft, class="Dlist"), ...)
+    }
+    if(!is.null(x$tclVersion))
+        cat("Tcl version:", x$tclVersion, "\n")
     if(!is.null(x$pcre))
 	cat("\nPCRE (regex) config.:",
 	    sub("^c", "", deparse(x$pcre, width.cutoff=99)), "\n")
@@ -82,4 +93,28 @@ print.sessionInfoX <- function(x, locale = TRUE, RLIBS = TRUE, Renv = TRUE, ...)
     cat("---------------- standard sessionInfo():\n")
     print(x$sInf, locale=locale, ...)
     invisible(x)
+}
+
+shortRversion <- function(Rv = R.version,
+                          Rst = Rv$status,
+                          Rvstring = if(!is.null(s <- Rv$version.string))
+                                         ## in R 0.90.1 had no $version.string
+                                         s else R.version.string,
+                          date = Rst != "",
+                          spaces = TRUE)
+{
+    pat <- paste0("\\(", if(date) "([^)]+)" else "[0-9]{4}-[0-9]{2}-[0-9]{2} *(.+)",
+                  "\\)$")
+    r <-
+        if(Rst == "Under development (unstable)")
+            ## "R Under development (unstable) (2017-10-16 r73554)"
+            paste("R devel", sub(paste0(".*",pat), "\\1", Rvstring))
+        else if(Rst == "Patched") # "R version 3.4.2 Patched (2017-10-12 r73556)"
+            sub(pat, "\\1", sub(" version", "", Rvstring))
+        else if(Rst == "") # "R version 3.2.5 (2016-04-14)"  (regular release)
+            gsub(if(date) "[()]" else " \\(.*", "", sub(" version", "", Rvstring))
+        else
+            stop("invalid R.version $ status: ", sQuote(Rst))
+
+    if(spaces) r else gsub(" ", "_", sub("^R ", "R-", r))
 }
