@@ -1,8 +1,8 @@
-dc4ef4fb1ef1036e88f88b0499d3e689 *DESCRIPTION
+98b9e07762a7a378b391921a84da5874 *DESCRIPTION
 f79d73501fd9316076c17cbdd1bcf51a *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
-7af13f18048a8ec0db9c46cd3e789431 *R/Defunct.R
-b93d90d641372d1c0dc28b9e15681010 *R/Deprecated.R
+cb8954e48878fe777c0d9243716e20b5 *R/Defunct.R
+10253db1554bb10dce38cc9d9c1e4050 *R/Deprecated.R
 2faf7fdfe633f527dea219910e888a2b *R/Duplicated.R
 bcf3db2731b901cc6e501f3d13cf6eba *R/Ftest-rlm.R
 3757b9510f3471b5dfc9ba2834c8a632 *R/KS-confint.R
@@ -35,7 +35,7 @@ d71992445124578d8b4af1530e423cd2 *R/ps.goodies.R
 8a395708a5791f6513c8a3eb528fd2b2 *R/relErr.R
 87b45273be3601faf5c40d852b08e152 *R/rot13.R
 11a6ed2caf724846b43282bef7b56c10 *R/rrange.R
-4a0ca571e4f6d05baa218d280d13f190 *R/sessionInfo-ext.R
+5085b778712549d6d020e658c460de79 *R/sessionInfo-ext.R
 fc45293bdb8acc5c249e9f533e84181a *R/sourceAttach.R
 9157d8065f07a8a3c048553cbe1cb5e0 *R/str_data.R
 8a24f77bf447231bbd8c436a40dc14ef *R/tkdensity.R
@@ -52,7 +52,7 @@ f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-c73099fcb9300e1f77b93fa90e434de4 *inst/NEWS.Rd
+609d8e42235b0cf83f016ede231cdb74 *inst/NEWS.Rd
 4ed7f6c581c6aa69e70a24f3159b9c12 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -111,7 +111,7 @@ cd418d8d300dbde09a1346425d1932c9 *man/p.ts.Rd
 a4bf6c3ebaf4a67c378e3b03f8d6c79c *man/plotDS.Rd
 0f8a0b40f8e1bf7e75ac5d2e61d33faf *man/plotStep.Rd
 aca71df255d8679dfd8890db6ef361e1 *man/polyn.eval.Rd
-03e1b757f120a591451ea3764bd67531 *man/posdefify.Rd
+89c085b0d9db0b114cbd3eaa9a5df3fc *man/posdefify.Rd
 e6f3999639e01408aabf962f3a595f6c *man/potatoes.Rd
 5f9f8f48d63f7569db4dda304b8aba78 *man/pretty10exp.Rd
 8105b00a9a43cf5fe29958a2327e0b16 *man/primes.Rd
@@ -128,7 +128,7 @@ e67d5425ab7ff233223712a92e150d9c *man/rot13.Rd
 08e77090f993273040f59e25a4eec79f *man/roundfixS.Rd
 2b242ddffbdc912f66501d1944aba8e2 *man/rrange.Rd
 13219b81885b1869bb54ee8160d968f9 *man/seqXtend.Rd
-2f63f5ae65b93a581e50e44da90fe004 *man/sessionInfoX.Rd
+bf4b568640fa09d77d4ebee56ed883b4 *man/sessionInfoX.Rd
 ab412268eaa1dc6f3dfd06d883c9d183 *man/sfsmisc-defunct.Rd
 dc21d6584c6fc06d163d941912f0c66b *man/shortRversion.Rd
 2872bc2847f68b1d01aff5966ed71ea8 *man/signi.Rd
@@ -159,5 +159,5 @@ eef165e671105c305aa07c2324a4fdc6 *tests/dDA.Rout.save
 12b30fde79917ae63e0d98887eaa915d *tests/misc.R
 0d1474c2a9ea1b0c12a4b5bd21afa273 *tests/p.R
 a43879df91dd2e235443b2d27d017aac *tests/p.Rout.save
-927641aed04138869a71d92fe8785ea8 *tests/posdef.R
-e738faa0d6240e466bdf90e822c10a7a *tests/posdef.Rout.save
+339af5a2f5c2f9b9da3543ca0eeee87b *tests/posdef.R
+edc74ea7e43caeea38820d50bc829454 *tests/posdef.Rout.save
