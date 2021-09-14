@@ -49,8 +49,15 @@ relErr (target, current)
 eps <- 1e-4*c(-9, -8, -6, -4, 0.5, 1, 5)
 target  <- c(-1:1, 0,   0, NA, NaN, Inf, -Inf, Inf, 0 , Inf, 1 , -3:3)
 current <- c(-1:1,1e-7,NaN,NA,  0 , Inf,  Inf,  0, Inf,  1, Inf, -3:3+ eps)
-cbind(target, current, absE = current-target, relE = relErrV(target,current))
-
+cbind(target, current, absE = current-target,
+                       relE = relErrV(target,current)) -> M ; M
+stopifnot(exprs = {
+         is.logical(isFr <- is.finite(rF <- M[,"relE"]))
+  target==current | isFr == is.finite(aF <- M[,"absE"])
+  identical(aF[!isFr] , rF[!isFr])
+  identical(numeric(), relErrV(numeric(), integer())) # length 0 {used to fail}
+})
+tools::assertError(relErrV(1, numeric()), verbose=TRUE) # no longer allowed
 ## relErr() is pretty simple --- (possibly too simple, currently)
 relErr
 relErr(target, current) # NA (of course)

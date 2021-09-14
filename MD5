@@ -1,5 +1,5 @@
-98b9e07762a7a378b391921a84da5874 *DESCRIPTION
-f79d73501fd9316076c17cbdd1bcf51a *NAMESPACE
+7bb47683902b645cdaadccb6f3b40b87 *DESCRIPTION
+066ea8172ac3ac511ae2c38d688231c5 *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 cb8954e48878fe777c0d9243716e20b5 *R/Defunct.R
 10253db1554bb10dce38cc9d9c1e4050 *R/Deprecated.R
@@ -16,7 +16,7 @@ f05c0bbec8bd887ae30b60859f23d825 *R/glob2rx.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 a48c705692ea66ef396a718062987788 *R/loessDemo.R
 f3dcd4c4dc32070242d73573ed7fd8e8 *R/mat2tex.R
-f514c309472b50088213db5e849ee01a *R/misc-goodies.R
+9f7fad1d246dcba33c4ffc0d4b5b4fdf *R/misc-goodies.R
 ad4627d9c2d46aa969ca7361abbd33c0 *R/missingCh.R
 53d3ae56bf1986a12d8b70c50c05ddb8 *R/mult.fig.R
 bc1b64f3982e7219ffa337c6020f816e *R/nearcor.R
@@ -32,10 +32,10 @@ d41d8cd98f00b204e9800998ecf8427e *R/plotCI.R
 7e49e6fed6eb866899dcff83ce8c4058 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
 d71992445124578d8b4af1530e423cd2 *R/ps.goodies.R
-8a395708a5791f6513c8a3eb528fd2b2 *R/relErr.R
+aec685ea8ccf7d67271beced44e88bd2 *R/relErr.R
 87b45273be3601faf5c40d852b08e152 *R/rot13.R
 11a6ed2caf724846b43282bef7b56c10 *R/rrange.R
-5085b778712549d6d020e658c460de79 *R/sessionInfo-ext.R
+3e16c7e3718219aba773d3e169df1d31 *R/sessionInfo-ext.R
 fc45293bdb8acc5c249e9f533e84181a *R/sourceAttach.R
 9157d8065f07a8a3c048553cbe1cb5e0 *R/str_data.R
 8a24f77bf447231bbd8c436a40dc14ef *R/tkdensity.R
@@ -52,7 +52,7 @@ f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-609d8e42235b0cf83f016ede231cdb74 *inst/NEWS.Rd
+685ef058243925990ef87c5b4dfffe55 *inst/NEWS.Rd
 4ed7f6c581c6aa69e70a24f3159b9c12 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -79,6 +79,7 @@ be982550f60b22d311e40f08ac3c36bb *man/f.robftest.Rd
 e1b212b3e0afcd4bae38bfa5e9ae8497 *man/factorize.Rd
 974208bd088b1d79595b3083c9e23318 *man/funEnv.Rd
 0ae00c51dc7e08c30c394cba19a4a52d *man/hatMat.Rd
+130bdec125e0c34779a44ae0d5e7abdd *man/helppdf.Rd
 1d667547b960fcbeeb36201a56f8c6e8 *man/histBxp.Rd
 8152fbae8c8c8a7d0f01567b248d9b4e *man/integrate.xy.Rd
 f5a1b593e29d536987373ae72f497197 *man/inv.seq.Rd
@@ -121,7 +122,7 @@ ec00b18388638da9806a566465d6e5e0 *man/ps.end.Rd
 65f23aff7a86d1c3039348c20c99c238 *man/ps.latex.Rd
 09cdba33a2a6a9c02566de87ab750e4f *man/quadrant.Rd
 50137cb25c3fbb06b2259cf87a033a6e *man/read.org.table.Rd
-dd72e9a95154d83351413bdb5d32af3e *man/relErr.Rd
+695315da17053b0a9461832c2cf1f484 *man/relErr.Rd
 7fb1f1fd5d83125f0699563c6d0dbb2f *man/repChar.Rd
 e67d5425ab7ff233223712a92e150d9c *man/rot13.Rd
 9eb4b1c5c27e9cda929a144d7f5cc59b *man/rot2.Rd
