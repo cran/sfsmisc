@@ -7,6 +7,21 @@
 %%% TODO:
       %% \item New \code{rDatetime()} for random date/time sequences
       %% within a specified time range.
+\section{CHANGES in sfsmisc VERSION 1.1-13 [2022-04-02]}{
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item \code{relErrV(target, current)} now keeps \code{dim()} and
+      \code{dimnames()} e.g., when \code{current} is an mpfr-array and
+      \code{names()} when present.
+    }
+  }
+  \subsection{Tweaks}{
+    \itemize{
+      \item No longer import from \pkg{methods}: no need for a while already.
+    }
+  }
+}
+
 
 \section{CHANGES in sfsmisc VERSION 1.1-12 [2021-09-10]}{
   \subsection{NEW FEATURES}{

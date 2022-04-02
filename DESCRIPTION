@@ -1,8 +1,8 @@
 Package: sfsmisc
 Title: Utilities from 'Seminar fuer Statistik' ETH Zurich
-Version: 1.1-12
-VersionNote: Last CRAN: 1.1-11 on 2021-04-03
-Date: 2021-09-10
+Version: 1.1-13
+VersionNote: Last CRAN: 1.1-12 on 2021-09-10
+Date: 2022-04-02
 Authors@R: c(person("Martin","Maechler", role=c("aut","cre"), email="maechler@stat.math.ethz.ch",
 	                                 comment = c(ORCID = "0000-0002-8685-9910"))
 	   , person("Werner", "Stahel", role = "ctb",
@@ -50,7 +50,7 @@ Description: Useful utilities ['goodies'] from Seminar fuer Statistik ETH Zurich
  Finally, miscellaneous utilities such as simple efficient prime numbers,
    integer codes, Duplicated(), toLatex.numeric() and is.whole().
 Depends: R (>= 3.3.0)
-Imports: grDevices, methods, utils, stats, tools
+Imports: grDevices, utils, stats, tools
 Suggests: datasets, tcltk, cluster, lattice, MASS, Matrix, nlme, lokern
 Enhances: mgcv, rpart, nor1mix, polycor, sm, tikzDevice, e1071, Hmisc,
         gmp, pastecs, polynom, robustbase
@@ -61,7 +61,7 @@ License: GPL (>= 2)
 URL: https://github.com/mmaechler/sfsmisc
 BugReports: https://github.com/mmaechler/sfsmisc/issues
 NeedsCompilation: no
-Packaged: 2021-09-13 20:40:15 UTC; maechler
+Packaged: 2022-04-02 12:55:25 UTC; maechler
 Author: Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),
   Werner Stahel [ctb] (Functions: compresid2way(), f.robftest(), last(),
     p.scales(), p.dnorm()),
@@ -90,4 +90,4 @@ Author: Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),
   Charles Geyer [ctb],
   Jens Oehlschlägel [ctb]
 Repository: CRAN
-Date/Publication: 2021-09-14 09:10:02 UTC
+Date/Publication: 2022-04-02 22:30:02 UTC
