@@ -1,6 +1,6 @@
 
-R Under development (unstable) (2020-02-04 r77771) -- "Unsuffered Consequences"
-Copyright (C) 2020 The R Foundation for Statistical Computing
+R version 4.3.0 RC (2023-04-13 r84270) -- "Already Tomorrow"
+Copyright (C) 2023 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -60,11 +60,11 @@ Type 'q()' to quit R.
 List of 4
  $ cor       : num [1:6, 1:6] 1 0.488 0.643 0.491 0.644 ...
  $ fnorm     : num 0.0744
- $ iterations: num 28
+ $ iterations: num 27
  $ converged : logi TRUE
  - attr(*, "class")= chr "nearcor"
-> if(ncr$iterations != 28) {
-+     cat(sprintf("On this platform, the number of iterations (for tol 1e-15) is not 28, but %d;\n",
+> if(ncr$iterations != 27) {
++     cat(sprintf("On this platform, the number of iterations (for tol 1e-15) is not 27, but %d;\n",
 +                 ncr$iterations))
 +     cat("sessionInfoX() :\n")
 +     print(sessionInfoX())
@@ -89,4 +89,4 @@ List of 3
 > 
 > proc.time()
    user  system elapsed 
-  0.144   0.041   0.239 
+  0.120   0.044   0.210 

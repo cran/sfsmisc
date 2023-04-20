@@ -16,6 +16,10 @@
 ## A fast substitute for structure() *when* we don't need to special case for factor, .Dim, ...
 struct <- function(x, ...) `attributes<-`(x, c(attributes(x), list(...)))
 
+##' list_(a, b, cc)  creates a *named* list  using the actual arguments' names
+list_ <- function(...)
+   `names<-`(list(...), vapply(sys.call()[-1L], as.character, ""))
+
 ##-#### Vector, Matrix (or higher Array) stuff ########
 ##-###  -------------------------------------- ########
 
@@ -35,12 +39,10 @@ last <- function(x, length.out = 1, na.rm = FALSE)
     x[sign(length.out)*(n-abs(length.out)+1):n]
 }
 
-empty.dimnames <- function(a)
-{
+empty.dimnames <- function(a) {
     ## 'Remove' all dimension names from an array for compact printing.
     n <- length(da <- dim(a))
-    if(n == 0) return(a)
-    dimnames(a) <- lapply(1:n, function(i) rep.int("", da[i]))
+    if(n) dimnames(a) <- lapply(1:n, function(i) rep.int("", da[i]))
     a
 }
 
