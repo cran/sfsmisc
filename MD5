@@ -1,4 +1,4 @@
-d2612ef456b09e3a1c239942f706c314 *DESCRIPTION
+4d6c424bda840fbad025e792925eaf87 *DESCRIPTION
 e7f43c69df8cec89887c6c0c9858967a *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 cb8954e48878fe777c0d9243716e20b5 *R/Defunct.R
@@ -45,14 +45,14 @@ b2ada1549f4d55d8a786835c3ab9eea9 *R/unix/package-props.R
 f4ca3082066937640729753f359c131b *R/zzz.R
 5aa594d45d25b7e7ef9f145a8072cff0 *README.md
 921f6ec32680a6aaf9fc95815f1c58bb *TODO
-439bf689fa27cf9affd0335332142165 *build/partial.rdb
+7080893e02c49cd296d4424b9be55069 *build/partial.rdb
 24c4be0aa52face72313592ef90cf899 *data/potatoes.rda
 3162005b7c7bcef9a60f61223ee381aa *demo/00Index
 f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-1d35b2b5e3d7536957047808cbf03ed6 *inst/NEWS.Rd
+b3bd97ff0ceaf34d50442363ed688b6b *inst/NEWS.Rd
 ffa570d5bdc9cfa5c272c7c7e801d0b7 *man/AsciiToInt.Rd
 9cabb0a929659d2fd8bd6fe39116e8af *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
