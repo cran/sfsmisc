@@ -7,6 +7,20 @@
 %%% TODO:
       %% \item New \code{rDatetime()} for random date/time sequences
       %% within a specified time range.
+\section{CHANGES in sfsmisc VERSION 1.1-18 [2024-04-25]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item sessionInfoX() now also stores (and prints) \code{.Machine}
+    }
+  }
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item  \code{polyn.eval(7, x)} no longer always returns \code{7}, but
+      rather a vector of the same length as \code{x}.
+    }
+  }
+}
+
 \section{CHANGES in sfsmisc VERSION 1.1-17 [2024-02-01]}{
   \subsection{Misc}{
     \itemize{
