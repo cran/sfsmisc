@@ -1,4 +1,4 @@
-86b698e1c6094f51fb12329890c64722 *DESCRIPTION
+2d24acb74d0d51267e28edb4514eff15 *DESCRIPTION
 e7f43c69df8cec89887c6c0c9858967a *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 cb8954e48878fe777c0d9243716e20b5 *R/Defunct.R
@@ -27,7 +27,7 @@ d0cb50e45537e34eef3a8915f3c2df37 *R/p.res.2x.formula.R
 09bab35ec23faa9a5d18c62dccbb33d2 *R/p.ts.R
 c3dbae94f06bc46451e1367e6782e35c *R/pd-matrix.R
 d2662130063bc3f7d888b85fe00cb411 *R/pkgDesc.R
-4790ab87fa9ac8ac025a2a984b7f7744 *R/prettylab.R
+dec8bb02a88381a530f18552fc6df457 *R/prettylab.R
 293f04c25b986f418ae3a229e9df5f90 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
 9a4a0c362bb11bc63e203015387112ad *R/ps.goodies.R
@@ -45,14 +45,14 @@ b2ada1549f4d55d8a786835c3ab9eea9 *R/unix/package-props.R
 f4ca3082066937640729753f359c131b *R/zzz.R
 5aa594d45d25b7e7ef9f145a8072cff0 *README.md
 921f6ec32680a6aaf9fc95815f1c58bb *TODO
-f61db891eb928123aba4412ca322f508 *build/partial.rdb
+e23903adc990d9515ba1ebd23e3bff59 *build/partial.rdb
 24c4be0aa52face72313592ef90cf899 *data/potatoes.rda
 3162005b7c7bcef9a60f61223ee381aa *demo/00Index
 f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-723236932f4a6c55831bed8afb432e02 *inst/NEWS.Rd
+83838eb1bb03583e84fd6a2b68300e60 *inst/NEWS.Rd
 ffa570d5bdc9cfa5c272c7c7e801d0b7 *man/AsciiToInt.Rd
 ac9813aa0a938636da9b6a6e3904332f *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -115,7 +115,7 @@ a4bf6c3ebaf4a67c378e3b03f8d6c79c *man/plotDS.Rd
 32d2f1b5be5f63fcd7d35dcd781747b5 *man/polyn.eval.Rd
 89c085b0d9db0b114cbd3eaa9a5df3fc *man/posdefify.Rd
 e6f3999639e01408aabf962f3a595f6c *man/potatoes.Rd
-5f9f8f48d63f7569db4dda304b8aba78 *man/pretty10exp.Rd
+a1ef987971432d9d221122ffb59c8a72 *man/pretty10exp.Rd
 8105b00a9a43cf5fe29958a2327e0b16 *man/primes.Rd
 59d65ecb8b5da0cb4b7f0e44fa1923d3 *man/printTable2.Rd
 ce4d70e480ae39799ab528d90d5de6c8 *man/prt.DEBUG.Rd

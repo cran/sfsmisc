@@ -1,8 +1,8 @@
 Package: sfsmisc
 Title: Utilities from 'Seminar fuer Statistik' ETH Zurich
-Version: 1.1-18
-VersionNote: Last CRAN: 1.1-17 on 2024-02-01
-Date: 2024-04-25
+Version: 1.1-19
+VersionNote: Last CRAN: 1.1-18 on 2024-04-25; 1.1-17 on 2024-02-01
+Date: 2024-08-16
 Authors@R: c(person("Martin","Maechler", role=c("aut","cre"), email="maechler@stat.math.ethz.ch",
 	                                 comment = c(ORCID = "0000-0002-8685-9910"))
 	   , person("Werner", "Stahel", role = "ctb",
@@ -53,8 +53,8 @@ Depends: R (>= 3.3.0)
 Imports: grDevices, utils, stats, tools
 Suggests: datasets, tcltk, cluster, lattice, MASS, Matrix, nlme,
         lokern, Rmpfr, gmp
-Enhances: mgcv, rpart, nor1mix, polycor, sm, tikzDevice, e1071, Hmisc,
-        pastecs, polynom, robustbase
+Enhances: mgcv, rpart, nor1mix, polycor, sm, tikzDevice, DescTools,
+        e1071, Hmisc, pastecs, polynom, relevance, robustbase
 EnhancesNote: 2nd line: packages mentioned in Rd xrefs
 Encoding: UTF-8
 ByteCompile: yes
@@ -62,7 +62,7 @@ License: GPL (>= 2)
 URL: https://github.com/mmaechler/sfsmisc
 BugReports: https://github.com/mmaechler/sfsmisc/issues
 NeedsCompilation: no
-Packaged: 2024-04-25 13:53:47 UTC; maechler
+Packaged: 2024-08-16 12:27:52 UTC; maechler
 Author: Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),
   Werner Stahel [ctb] (Functions: compresid2way(), f.robftest(), last(),
     p.scales(), p.dnorm()),
@@ -91,4 +91,4 @@ Author: Martin Maechler [aut, cre] (<https://orcid.org/0000-0002-8685-9910>),
   Charles Geyer [ctb],
   Jens Oehlschlägel [ctb]
 Repository: CRAN
-Date/Publication: 2024-04-25 15:50:02 UTC
+Date/Publication: 2024-08-19 09:50:02 UTC
