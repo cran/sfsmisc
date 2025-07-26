@@ -1,5 +1,5 @@
-245a0cf031546b0d02d23f0f11f7d7a2 *DESCRIPTION
-e7f43c69df8cec89887c6c0c9858967a *NAMESPACE
+d9151f33132f04f9e90a9ac83a4f1696 *DESCRIPTION
+296523a6834fdbf3b27ecb5c9a26cbd1 *NAMESPACE
 8afd533b4259c17ed53c20efe8f699d7 *R/D1D2.R
 cb8954e48878fe777c0d9243716e20b5 *R/Defunct.R
 10253db1554bb10dce38cc9d9c1e4050 *R/Deprecated.R
@@ -16,7 +16,7 @@ f05c0bbec8bd887ae30b60859f23d825 *R/glob2rx.R
 b4a9d17e432ff9b979425f62582d49c6 *R/linesHyberb.lm.R
 a48c705692ea66ef396a718062987788 *R/loessDemo.R
 3f6a241371dbf2f94d219e795e574529 *R/mat2tex.R
-b4777b746e152f699626c604fe051bed *R/misc-goodies.R
+767c22a0db42ae1c7106d9f407f9edd4 *R/misc-goodies.R
 ad4627d9c2d46aa969ca7361abbd33c0 *R/missingCh.R
 b91a844486c6e2c9aefa1df6546ae411 *R/mult.fig.R
 c6bd8aa46a608c7e653bf9eab228b731 *R/nearcor.R
@@ -28,7 +28,7 @@ d0cb50e45537e34eef3a8915f3c2df37 *R/p.res.2x.formula.R
 c3dbae94f06bc46451e1367e6782e35c *R/pd-matrix.R
 d2662130063bc3f7d888b85fe00cb411 *R/pkgDesc.R
 dec8bb02a88381a530f18552fc6df457 *R/prettylab.R
-293f04c25b986f418ae3a229e9df5f90 *R/prime-numbers-fn.R
+08418843997497d5264255c856630688 *R/prime-numbers-fn.R
 579103392ad91392e2aea09f5d967909 *R/printTable.R
 9a4a0c362bb11bc63e203015387112ad *R/ps.goodies.R
 e331baef14f79d95bddf9f06c1579406 *R/relErr.R
@@ -45,14 +45,14 @@ b2ada1549f4d55d8a786835c3ab9eea9 *R/unix/package-props.R
 f4ca3082066937640729753f359c131b *R/zzz.R
 5aa594d45d25b7e7ef9f145a8072cff0 *README.md
 921f6ec32680a6aaf9fc95815f1c58bb *TODO
-d30fb62438e3e6c40920c2d12cebb683 *build/partial.rdb
+af3401175684b1e7ff4b3d3b8941c6eb *build/partial.rdb
 24c4be0aa52face72313592ef90cf899 *data/potatoes.rda
 3162005b7c7bcef9a60f61223ee381aa *demo/00Index
 f9218ba6ed399a453f42f7104605783b *demo/hatmat-ex.R
 c90bddd957b7fd59ad0ec2fbc069ed5b *demo/pretty-lab.R
 1cfe5644e4ebaf2f16906018b6a9be8d *demo/prime-numbers.R
 4d314a8c0c266297365a8fa808c12e30 *inst/ChangeLog
-a054debe1203686d377150678da0871f *inst/NEWS.Rd
+b082fc087fdab5e5d7cc8be8ecc1990b *inst/NEWS.Rd
 ffa570d5bdc9cfa5c272c7c7e801d0b7 *man/AsciiToInt.Rd
 ac9813aa0a938636da9b6a6e3904332f *man/D1D2.Rd
 4778c6d3e74920fc8f277e79f5092bc1 *man/D2ss.Rd
@@ -78,6 +78,7 @@ ccd8adfd8ced51013c064e3a478720cb *man/errbar.Rd
 5771dd78c147f0bbf7f65a48930f65f2 *man/f.robftest.Rd
 e1b212b3e0afcd4bae38bfa5e9ae8497 *man/factorize.Rd
 974208bd088b1d79595b3083c9e23318 *man/funEnv.Rd
+f735d86c6818916eb9837f0d34c793c1 *man/gcd.Rd
 368f7b9a99dfd7a3e27a7d399ed5b832 *man/hatMat.Rd
 74949f72c6ae565f5fcca465787d4ea1 *man/helppdf.Rd
 ec38273ead41207b4e1809f2c7f8c3bf *man/histBxp.Rd
@@ -151,7 +152,7 @@ a47d6a51a729bc2649a128b9a82ba953 *man/uniqueL.Rd
 966d8d71d643c54234330ad5f8271914 *man/unix/Sys.cpuinfo.Rd
 da64aa2c4ed2bf470a71c67fb257358d *man/unix/Sys.ps.Rd
 0cff9c548278d10c7cc062f495335c13 *man/unix/pkgLibs.Rd
-9a55a48b31382a23af157cd6e72471e3 *man/vcat.Rd
+d2f9deed415a9d5626587ec2b48b06c9 *man/vcat.Rd
 a359fd5f303430e840db40a8d88c0e07 *man/wrapFormula.Rd
 e52143a2f64064ca8586d36da1633640 *man/xy.grid.Rd
 1acc56972f51bf6e8ede412dc3f54dda *man/xy.unique.x.Rd
