@@ -1,9 +1,9 @@
 Package: sfsmisc
 Title: Utilities from 'Seminar fuer Statistik' ETH Zurich
-Version: 1.1-21
-VersionNote: Last CRAN: 1.1-20 on 2024-10-23; 1.1-19 on 2024-08-16;
-        1.1-18 on 2024-04-25;
-Date: 2025-07-25
+Version: 1.1-22
+VersionNote: Last CRAN: 1.1-21 on 2025-07-25; 1.1-20 on 2024-10-23;
+        1.1-19 on 2024-08-16
+Date: 2025-08-30
 Authors@R: c(person("Martin","Maechler", role=c("aut","cre"), email="maechler@stat.math.ethz.ch",
 	                                 comment = c(ORCID = "0000-0002-8685-9910"))
 	   , person("Werner", "Stahel", role = "ctb",
@@ -63,7 +63,7 @@ License: GPL (>= 2)
 URL: https://github.com/mmaechler/sfsmisc
 BugReports: https://github.com/mmaechler/sfsmisc/issues
 NeedsCompilation: no
-Packaged: 2025-07-25 21:39:40 UTC; maechler
+Packaged: 2025-09-01 07:52:47 UTC; maechler
 Author: Martin Maechler [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-8685-9910>),
   Werner Stahel [ctb] (Functions: compresid2way(), f.robftest(), last(),
@@ -93,4 +93,4 @@ Author: Martin Maechler [aut, cre] (ORCID:
   Charles Geyer [ctb],
   Jens Oehlschlägel [ctb]
 Repository: CRAN
-Date/Publication: 2025-07-26 14:20:02 UTC
+Date/Publication: 2025-09-01 10:20:02 UTC
