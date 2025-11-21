@@ -7,6 +7,26 @@
 %%% TODO:
       %% \item New \code{rDatetime()} for random date/time sequences
       %% within a specified time range.
+\section{CHANGES in sfsmisc VERSION 1.1-23 [2025-11-20]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item New simple \code{formatN()} for formatting typically
+      exponentially formatted numbers more compactly than usually in \R, or
+      C, C++, etc.
+
+      \item \code{pkgDesc()} gets a new option \code{onlyLT = <num>} which
+      by default skips longish \code{Author} and \code{Description} fields.
+
+      \item \code{n.plot()} gets new arguments \code{type} and \code{pt.col}.
+    }
+  }
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item \code{eaxis()} is now "protected" against large
+      \code{options("digits")} which may give badly formatted tick "labels".
+    }
+  }
+}
 \section{CHANGES in sfsmisc VERSION 1.1-22 [2025-08-30]}{
   \subsection{NEW FEATURES}{
     \itemize{
