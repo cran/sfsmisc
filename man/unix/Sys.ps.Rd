@@ -326,7 +326,7 @@ Sys.sizes(process = Sys.getpid(), ps.cmd = Sys.ps.cmd())
 %%  |__________________________________|___________________________________|
 %%
 
-
+
 %%--- Linux  man ps   has :
 
 %%  STANDARD FORMAT SPECIFIERS
@@ -467,7 +467,8 @@ Sys.sizes(process = Sys.getpid(), ps.cmd = Sys.ps.cmd())
 }
 \examples{
 (.pid <- Sys.getpid()) ## process ID of current process
-Sys.sizes(.pid)
+try( Sys.sizes(.pid) )
+#^^  fails on Alpine Linux: https://github.com/mmaechler/sfsmisc/issues/9
 
 ## The default process statistics about the running R process
 try( Sys.ps() )

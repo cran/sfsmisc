@@ -7,6 +7,25 @@
 %%% TODO:
       %% \item New \code{rDatetime()} for random date/time sequences
       %% within a specified time range.
+\section{CHANGES in sfsmisc VERSION 1.1-24 [2026-05-14]}{
+  \subsection{NEW FEATURES}{
+    \itemize{
+      \item New \code{compact01()} for compact printing of 0-1 sequences
+      aka bitstrings.
+    }
+  }
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item \code{formatN(*, digits)} now \emph{does} use \code{digits}.
+
+      \item \code{Sys.sizes( * )} example needs a \code{try( . )} because
+      of Alpine Linux' possibility of a cheap \command{ps}.
+
+      \item remove `^L` from \file{man/Sys.ps.Rd} as it warns now.
+    }
+  }
+}
+
 \section{CHANGES in sfsmisc VERSION 1.1-23 [2025-11-20]}{
   \subsection{NEW FEATURES}{
     \itemize{
@@ -27,6 +46,7 @@
     }
   }
 }
+
 \section{CHANGES in sfsmisc VERSION 1.1-22 [2025-08-30]}{
   \subsection{NEW FEATURES}{
     \itemize{
